@@ -1,64 +1,180 @@
 ---
-title: "AWS Modernization Workshop Base Template" # MODIFY THIS TO BE THE TITLE OF YOUR WORKSHOP
+title: "AI-Assisted Data Mapping with Senzing"
 chapter: true
 weight: 1
 ---
 
-# AWS Modernization Workshop Base Template <!-- CHANGE THIS TO BE THE TITLE OF YOUR WORKSHOP -->
+# AI-Assisted Data Mapping with Senzing
 <br>
-![Partner Logo](/images/AWS_Logo.png)  <!-- ADD YOUR PARTNER LOGO HERE USING THE INSTRUCTIONS BELOW -->
+![Senzing Logo](/images/senzing_logo.png)
 <br>
 
-## Welcome
+## Overview
 
-**REMOVE:** By utilizing this template, you can create your workshops with little coding knowledge. These workshops use the Hugo Framework and the hugo-theme-learn submodules. By writing content using simple markdown code, Hugo creates the necessary HTML for you. Examples of code, files, and folders here can be modified, copied, pasted, and deleted as necessary. Block sections of instruction that should be removed will be explicitly marked with **REMOVE**. Other sections should be modified to reflect the workshop. For guidance on how to utilize the Hugo framework and markdown, please refer to the module titled "Hugo Framework And Markdown". That module can be removed once building the workshop is complete.
+Welcome to the AI-Assisted Data Mapping with Senzing workshop! In this hands-on workshop, you'll learn how to leverage AI tools like Amazon Q Developer to map your data into Senzing's entity resolution format using a structured, repeatable workflow.
 
-This paragraph block can give the high level overview of the learning goals and use cases of what the workshop is trying to teach.
+**About Senzing:**
+Senzing provides real-time AI for entity resolution, helping organizations accurately identify and link records across disparate data sources. This workshop focuses on one of the most critical steps: mapping your source data to Senzing's format using modern AI-assisted techniques.
 
-This paragraph block can be used to introduce the company and how the solution being taught addresses specific issues.
+![What is Entity Resolution?](/images/entity_resolution_overview.png)
 
+## Learning Objectives
 
+By completing this workshop, you will be able to:
+
+- Understand the Senzing entity resolution data model and requirements
+- Use AI tools (Amazon Q Developer) to assist with data mapping workflows
+- Analyze your source data and what it contains
+- Apply best practices for production data mapping projects
+- Create mapping logic that transforms source data to Senzing format
+- Load mapped data into Senzing and validate the results
+
+## Prerequisites
+
+- Basic understanding of data formats (CSV, JSON)
+- Basic Python knowledge (helpful but not required)
+- Basic understanding of AWS core services
+- AWS account with appropriate permissions (provided in AWS-led event)
+- Familiarity with using an IDE (preferably code-server)
+- Familiarity with using an AI assistant
+- Familiarity with command-line interfaces
+
+## What You'll Build
+
+Throughout this workshop, you will create a complete, production-ready data mapping pipeline:
+
+- **Schema analysis documents** profiling your source data
+- **Mapping specifications** documenting field-by-field decisions
+- **Python mapper code** that transforms CSV to Senzing JSON format
+- **Validated entity data** ready to load into Senzing
+- **Entity resolution results** showing how Senzing identifies duplicates
+
+## Workshop Structure
+
+This workshop is divided into the following modules:
+
+| Module | Duration | Description |
+|--------|----------|-------------|
+| **Module 1: Introduction** | 10 minutes | Workshop overview and learning objectives |
+| **Module 2: Setup & Configuration** | 15 minutes | Access your development environment and configure Amazon Q |
+| **Module 3: Understanding Senzing Mapping** | 30 minutes | Learn the Senzing data model and mapping workflow |
+| **Module 4: Hands-On - Map Customer Data** | 60 minutes | Use AI to map customer records to Senzing format |
+| **Module 5: Load and Validate** | 30 minutes | Load your mapped data and see entity resolution in action |
+| **Module 6: Bonus - Watchlist Mapping** | 45 minutes | *Optional:* Map complex international watchlist data |
+| **Module 7: Cleanup and Next Steps** | 10 minutes | Clean up resources and explore what's next |
+
+**Total Time: Approximately 2.5-3 hours** (core modules 1-5)
+
+## Workshop Modules
+
+### Module 1: Introduction
+Get oriented with the workshop goals, structure, and the data mapping challenge you'll solve.
+
+### Module 2: Setup and Configuration
+Access your development environment and authenticate with Amazon Q Developer for both the IDE and CLI.
+
+### Module 3: Understanding Senzing Mapping
+Learn the Senzing entity resolution data model, the difference between Features and Payload attributes, and the 5-stage mapping workflow.
+
+### Module 4: Hands-On Customer Mapping ⭐ **Core Module**
+Apply what you learned: analyze customer data, make mapping decisions with AI guidance, generate mapper code, and validate your output.
+
+### Module 5: Load and Validate
+See your mapping in action by loading data into Senzing and exploring entity resolution results.
+
+### Module 6: Bonus - Watchlist Mapping (Optional)
+Challenge yourself with more complex data including nested structures, international names, and entity relationships.
+
+### Module 7: Cleanup and Next Steps
+Clean up your AWS resources and learn how to apply these skills to your own data.
+
+## Getting Started
+
+Ready to begin? Here's what happens next:
+
+1. **Read Module 1** to understand the context and learning objectives
+2. **Complete Module 2** to set up your development environment
+3. **Learn the concepts** in Module 3 before diving into hands-on work
+4. **Map customer data** in Module 4 using AI assistance
+5. **Validate your work** in Module 5 by loading into Senzing
+
+{{% notice tip %}}
+**Self-Paced Approach:** This workshop is designed for self-paced learning. Take your time, use the validation checkpoints, and reference the complete solutions if you get stuck.
+{{% /notice %}}
+
+## Workshop Conventions
+
+Throughout this workshop, you'll encounter various visual elements to help guide your learning:
+
+{{% notice tip %}}
+**Tips** provide helpful suggestions and best practices.
+{{% /notice %}}
+
+{{% notice info %}}
+**Info boxes** highlight important information or context.
+{{% /notice %}}
+
+{{% notice warning %}}
+**Warnings** alert you to common pitfalls or important considerations.
+{{% /notice %}}
+
+**Code Blocks:**
+```bash
+# Command-line instructions look like this
+python3 mapper.py input.csv -o output.jsonl
+```
+
+**Validation Checkpoints:**
+✅ Green checkmarks indicate validation steps to confirm your progress
+
+## Support and Resources
+
+### Workshop Support
+
+**During Instructor-Led Events:**
+- Ask your instructor or workshop facilitators
+- Use the event chat or Q&A features
+
+**For Self-Paced Learners:**
+- Review the complete solutions provided in each module
+- Check the troubleshooting sections
+- Consult the Senzing documentation links below
+
+### Senzing Resources
+
+- **Senzing Documentation:** [https://senzing.com/docs/](https://senzing.com/docs/)
+- **Senzing GitHub:** [https://github.com/senzing](https://github.com/senzing)
+- **Senzing Community Support:** [https://senzing.com/support/](https://senzing.com/support/)
+
+### AWS Resources
+
+- **Amazon Q Developer Documentation:** [https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/)
+- **AWS Builder ID:** [https://profile.aws.amazon.com/](https://profile.aws.amazon.com/)
+- **AWS Workshop Studio:** [https://workshops.aws/](https://workshops.aws/)
+
+## Goals
+
+By the end of this workshop, you will have:
+
+**Practical Skills:**
+- Mapped real data to Senzing format using AI assistance
+- Created production-ready mapper code
+- Validated your mappings with professional tools
+
+**Deep Understanding:**
+- Know the Senzing entity resolution data model
+- Understand Features vs Payload attributes
+- Recognize common mapping patterns and best practices
+
+**Repeatable Process:**
+- Learned the 5-stage Senzing Mapping Assistant workflow
+- Can apply this workflow to any data source
+- Know how to validate and iterate on your mappings
+
+---
 
 {{% notice warning %}}
 The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.
 {{% /notice %}}
 
-**REMOVE EVERYTHING BELOW:** Every introduction page should include the following warning label.
-
-
-# Hugo Framework and Markdown
-<br>
-
-### Setting Up The Workshop: AWS Hosted Or Self-paced
-By utilizing the Hugo language localization settings, directing the workshop towards a specific setup can be simplified. The `Language` setting in the `config.toml` file will allow you to distinguish between having one option or both. Commenting out one of the languages will hide all files that are related to that setup. By default, only the self-guided setup will be enabled. To enable switching, set `disableLanguageSwitchingButton` to `false` in the `config.toml`. If you want to have only the Event Engine setup, set the `defaultContentLanguage` at the top of the `config.toml` file to `ee`.
-
-### The Entry Point Of The Workshop And Naming Conventions
-All modifications should be done to files in the `content` folder. `_index.md` serves as the main entry point to your workshop. Adding modules can be done utilizing the format of `#_title` as a folder within `content`. By adding a number value to the title, this helps to keep the files structured in parity with the content of the workshop. A good practice for file naming is to have the folder be the module number and the submodule numbers add to that number reflecting their order. For example, the first module is `1_ModuleOne` and the submodules would be `11_SubmoduleOne`, `12_SubmoduleTwo`, and so forth. <br> <!-- <br> applies a line break to paragraphs -->
-To ensure the modules and submodules follow the correct structure order, adjust the "weight" value in the heading of the file to reflect the order you wish to use. Three module examples are included in this template with the second being split based upon the method of setup. The same rules apply for submodules. `_index.md` will be the entry point of that module. Submodules should be named with the format of `{module number}{weight}_{title}.{language}.md`. For example, `11_Foreword.md` would be the first submodule of module one in the default language/setup. `31_PartnerSetup.ee.md` would be the first submodule of module 3 in the EventEngine language/setup.
-
-### Working With Hugo Markdown and Shortcode
-The following links will supply you with all the reference documentation about Hugo markdown. For more experienced developers, inline HTML is also an option to add more customization. For example `<p style='text-align: left;'>` inline will allow you to adjust your text placement.
-
-### Markdown and Shortcode Resources
-{{% notice tip %}}
-The following links are your go-to resource for markdown and shortcode reference in building your workshop: <br>
-* Markdown cheat sheet https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet <br>
-* Learn theme markdown https://learn.netlify.app/en/cont/markdown/ <br>
-* Menu extras and shortcuts https://learn.netlify.app/en/cont/menushortcuts/ <br>
-* Using Font Awesome Emoji's <i class="fas fa-heart"></i> https://learn.netlify.app/en/cont/icons/ to help your page pop <i class="fas fa-glass-cheers"></i>
-{{% /notice %}}
-
-### Adding Images and Static Media 
-Any images and static media to be included in the workshop need to be placed in the `static/images` folder. The format to display an image is as follows: `![Alternate Text](/images/imagename.jpg)` <br>
-
-For example, the markdown for this dog is `![An adorable puppy](/images/dog.jpg)` and the image is in the `static/images` folder. <br>
-![An adorable puppy](/images/dog.jpg)
-
-### Creating Links
-The format for creating links is `[Link Display Text](http://example.com)`. For example, this link [Hugo Framework](https://gohugo.io/about/what-is-hugo/) was created using `[Hugo Framework](https://gohugo.io/about/what-is-hugo/)`.
-
-### The "More" Menu Section
-This section of the menu on the left is designed to add additional resources that are related to the workshop but not necessarily part of the workshop itself. To modify these links, edit the sections marked `[[menu.shortcuts]]` in the `config.toml` located in the root folder. The "name" portion will be what is displayed in the menu. The "url" should be the address of the link. The "weight" setting will adjust the display order, similar to the other "weight" settings utilized in indexes and modules mentioned previously.
-
-### Ensuring Pages Appear In Both Setup Versions
-A shortcut to creating the workshop with different setup versions is utilizing the localization functionality of Hugo. By adding a secondary extension to the filename, this file will be included in the specific version of the workshop. Currently, the base utilizes the format `*.ee.md` to signify that the page is to be used in the AWS EventEngine setup. Much of the time, the files will be the same as the content only differs at specific points. It is necessary to add them, however, to make sure that the common content is duplicated across both versions. If you wish to change the secondary extension or default version, this can be done in the `config.toml` file in the heading and `[Languages]` sections.
+**Ready to get started? Let's begin with [Module 1: Introduction](1_moduleone)!**
