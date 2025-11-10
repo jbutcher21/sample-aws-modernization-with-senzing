@@ -1,7 +1,7 @@
 baseURL = "/"
 languageCode = "en-US"
 defaultContentLanguage = "en"
-title = "AWS Modernization Workshop Sample"
+title = "One-click Entity Resolution"
 theme = "hugo-theme-learn"
 metaDataFormat = "yaml"
 defaultContentLanguageInSubdir= "false"
@@ -9,6 +9,8 @@ uglyurls = "true"
 enableEmoji = true
 
 [params]
+  # Landing page button title
+  landingPageName = "<i class='fas fa-home'></i> One-click Entity Resolution"
   # Prefix URL to edit current page. Will display an "Edit this page" button on top right hand corner of every page. 
   # Useful to give opportunity to people to create merge request for your doc.
   # See the config.toml file from this documentation site to have an example.
