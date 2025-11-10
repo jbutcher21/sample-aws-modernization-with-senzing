@@ -12,7 +12,17 @@ This workshop includes two datasets that you'll map to Senzing format:
 
 **File**: `workshop/workspace/customers/customers.csv`
 
-This is a realistic customer database export with **120 records** containing a mix of individual persons (114) and organizations (6). The data includes:
+## The Customer Data Challenge
+
+This is a realistic customer database export with **120 records** containing a mix of individual persons (114) and organizations (6).
+
+**Your goal:** Transform this into validated Senzing JSON format that can identify:
+- Duplicate customers with similar names and addresses
+- Same person with multiple identifiers
+- Organizations vs individuals
+- Relationships between entities
+
+**Dataset characteristics:**
 
 **Core Fields:**
 - Customer ID and name
