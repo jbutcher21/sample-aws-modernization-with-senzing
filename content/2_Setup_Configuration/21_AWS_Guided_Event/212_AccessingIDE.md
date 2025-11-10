@@ -35,14 +35,11 @@ Your cloud IDE comes with all necessary tools pre-installed:
 
 | Tool | Purpose |
 |------|---------|
-| [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) | Command-line interface for AWS services, needed to interact with AWS resources and deploy the application |
-| [Amazon Q CLI](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html) | Command-line interface for Amazon Q Developer, enabling AI assistance directly from the terminal |
-| [Amazon Q extension for Visual Studio Code](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-in-IDE-setup.html) | IDE extension that provides AI-powered code suggestions, chat assistance, and security scanning |
-| [Git](https://github.com/git-guides/install-git/) | Version control system for managing workshop code and tracking changes |
-| [Java - Amazon Corretto](https://aws.amazon.com/corretto) | Java runtime (version 17 or higher) needed to compile and run the Qordle application |
-| [Maven](https://maven.apache.org/install.html) | Build automation tool for managing Java dependencies and building the application |
+| [Senzing SDK](https://senzing.com/) (version 4.0) | Entity resolution engine - installed and configured with an empty database |
+| [Amazon Q extension for Visual Studio Code](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-in-IDE-setup.html) | IDE extension that provides AI-powered code suggestions, chat assistance, and MCP server support |
+| [senzing-mcp-server](https://github.com/jbutcher21/senzing-mcp-server) | Model Context Protocol server that connects Amazon Q to Senzing capabilities |
 
-📁 **Workshop Code Location:** The sample code repository has been downloaded into the `/Workshop/java` folder.
+📁 **Workshop Materials Location:** Workshop files and Senzing resources are located in `/home/ubuntu/`
 
 ## Wrap up
 

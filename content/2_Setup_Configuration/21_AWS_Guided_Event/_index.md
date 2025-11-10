@@ -6,19 +6,17 @@ weight: 21
 
 # Running the Workshop at an AWS Guided Event
 
-{{% notice info %}}
-Only follow the instructions in this section if you are at an **AWS-hosted event**. [Click here]({{< ref "/2_Setup_Configuration/22_Own_AWS_Account" >}}) for instructions on running the workshop in your own account.
-{{% /notice %}}
+## AWS-Hosted Workshop Setup
 
-## Joining the AWS-Hosted Workshop
+Follow these steps to complete your environment setup:
 
-If you are attending an AWS-hosted event, you will:
-
-| Step | Action | Explanation |
+| Step | Action | Description |
 |------|--------|-------------|
-| 1 | [Join the Event]({{< ref "/2_Setup_Configuration/21_AWS_Guided_Event/211_JoinWorkshopEvent" >}}) | Join the event where you will find the link to your Cloud IDE |
-| 2 | [Access Cloud IDE]({{< ref "/2_Setup_Configuration/21_AWS_Guided_Event/212_AccessingIDE" >}}) | Access a cloud-based Integrated Development Environment (IDE) that has been provisioned on your behalf with all needed software and sample code repository that will be used throughout the workshop. |
-| 3 | [Setup Amazon Q Developer]({{< ref "/2_Setup_Configuration/23_AmazonQSetup" >}}) | Setup Amazon Q Developer in your IDE and the CLI using an AWS Builder ID. |
+| 1 | [Join the Event]({{< ref "/2_Setup_Configuration/21_AWS_Guided_Event/211_JoinWorkshopEvent" >}}) | Access AWS Workshop Studio with your event code |
+| 2 | [Access Cloud IDE]({{< ref "/2_Setup_Configuration/21_AWS_Guided_Event/212_AccessingIDE" >}}) | Log into your pre-configured code-server environment with Senzing and workshop materials |
+| 3 | [Setup Amazon Q Developer]({{< ref "/2_Setup_Configuration/23_AmazonQSetup" >}}) | Authenticate with Amazon Q Developer using AWS Builder ID |
+| 4 | [Configure Senzing MCP]({{< ref "/2_Setup_Configuration/25_SenzingMCPSetup" >}}) | Connect Amazon Q to Senzing entity resolution tools |
+| 5 | [Resources & Support]({{< ref "/2_Setup_Configuration/26_ResourcesAndSupport" >}}) | Important documentation links and workshop support |
 
 <p style="text-align: center;">
 <img alt="Code-server illustration" src="/images/setup/code-server.png" height="260">
