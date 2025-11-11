@@ -15,10 +15,7 @@ Now that data is loaded, you can use conversational AI to query and understand t
 
 ### Example Question 1: Get an Entity
 
-**Ask Amazon Q:**
-```
-Get entity 1
-```
+**Ask Amazon Q:** `Get entity 1`
 
 **What you should see:**
 
@@ -26,10 +23,7 @@ Get entity 1
 
 ### Example Question 2: Why Did Records Match?
 
-**Ask Amazon Q:**
-```
-TODO: Placeholder question about why specific records matched
-```
+**Ask Amazon Q:** `TODO: Placeholder question about why specific records matched`
 
 **What you should see:**
 
@@ -37,10 +31,7 @@ TODO: Placeholder question about why specific records matched
 
 ### Example Question 3: How Did Resolution Work?
 
-**Ask Amazon Q:**
-```
-TODO: Placeholder question about resolution methodology
-```
+**Ask Amazon Q:** `TODO: Placeholder question about resolution methodology`
 
 **What you should see:**
 

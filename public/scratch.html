@@ -12,18 +12,18 @@
     <title>Introduction :: English</title>
 
     
-    <link href="/css/nucleus.css?1762879875" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762879875" rel="stylesheet">
-    <link href="/css/hybrid.css?1762879875" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762879875" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762879875" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762879875" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762879875" rel="stylesheet">
-    <link href="/css/theme.css?1762879875" rel="stylesheet">
-    <link href="/css/tabs.css?1762879875" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762879875" rel="stylesheet">
+    <link href="/css/nucleus.css?1762888755" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1762888755" rel="stylesheet">
+    <link href="/css/hybrid.css?1762888755" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1762888755" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1762888755" rel="stylesheet">
+    <link href="/css/auto-complete.css?1762888755" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1762888755" rel="stylesheet">
+    <link href="/css/theme.css?1762888755" rel="stylesheet">
+    <link href="/css/tabs.css?1762888755" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1762888755" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1762879875" rel="stylesheet">
+    <link href="/css/theme-mine.css?1762888755" rel="stylesheet">
     
     
 
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1762879875"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762879875"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1762888755"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1762888755"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1762879875"></script>
+<script type="text/javascript" src="/js/search.js?1762888755"></script>
 
     
   </div>
@@ -426,9 +426,9 @@
  
   
     
-      <li data-nav-id="/3_workshopoverview/31_mappingworkflow.html" title="Senzing&#39;s AI Assisted Solution" class="dd-item ">
+      <li data-nav-id="/3_workshopoverview/31_mappingworkflow.html" title="Senzing&#39;s AI Assisted Approach" class="dd-item ">
         <a href="/3_workshopoverview/31_mappingworkflow.html">
-        Senzing&#39;s AI Assisted Solution
+        Senzing&#39;s AI Assisted Approach
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -450,6 +450,27 @@
       <li data-nav-id="/3_workshopoverview/32_workshopfolder.html" title="Workshop Folder Tour" class="dd-item ">
         <a href="/3_workshopoverview/32_workshopfolder.html">
         Workshop Folder Tour
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3_workshopoverview/33_explorewithai.html" title="Explore with AI" class="dd-item ">
+        <a href="/3_workshopoverview/33_explorewithai.html">
+        Explore with AI
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1427,6 +1448,187 @@
 </div>
 
 <p><strong>Ready to get started? Let&rsquo;s begin with <a href="1_moduleone">Module 1: Introduction</a>!</strong></p>
+<p>after setup there should be Modules for</p>
+<ul>
+<li>Some sort of the problem with mapping and why this was built?</li>
+<li>Exercise Workflow</li>
+<li>Exercise 1 - mapping the customer file</li>
+<li>Exercise 2 - mapping the watchlist file</li>
+<li>some sort of wrap up</li>
+</ul>
+<p>In each exercise we will have the same tasks (the overview will briefly describe the steps and tools)</p>
+<ol>
+<li>Examine the source data</li>
+<li>Provide or create the schema</li>
+<li>Use the senzing mapping assistant to map it</li>
+<li>Validate the mapping with the json analyzer</li>
+<li>Load the data in Senzing</li>
+<li>Take a snaphot</li>
+<li>Analyze the snapshot for stats and examples</li>
+<li>Review the examples with the mcp server by asking how and why questions</li>
+</ol>
+<hr>
+<p><strong>Source Data (Your Format):</strong></p>
+<ul>
+<li>CSV with columns like: customer_id, customer_name, dob, address, email&hellip;</li>
+<li>May have organization-specific field names</li>
+<li>Mixed data quality and completeness</li>
+</ul>
+<p><strong>Target Data (Senzing Format):</strong></p>
+<ul>
+<li>JSON with standardized features: NAME, DATE_OF_BIRTH, ADDRESS, EMAIL&hellip;</li>
+<li>Specific attribute names (NAME_FIRST, NAME_LAST, ADDR_LINE1&hellip;)</li>
+<li>Clear distinction between matching features and payload data</li>
+</ul>
+<h2 id="the-challenge">The Challenge</h2>
+<p>Knowing which source fields map to which Senzing features, and how to transform the data correctly.</p>
+<p><strong>For each source field, you must decide:</strong></p>
+<ul>
+<li>Should it be a Feature (used for entity matching)?</li>
+<li>Should it be Payload (stored but not matched)?</li>
+<li>Which specific Senzing attribute name is correct?</li>
+<li>Does the data need transformation (date formats, name parsing, etc.)?</li>
+</ul>
+<p><strong>Example decisions:</strong></p>
+<ul>
+<li>Your CSV has <code>customer_name</code> - should this map to <code>NAME_FULL</code>? Or split into <code>NAME_FIRST</code> and <code>NAME_LAST</code>?</li>
+<li>You have <code>id_number</code> - is this an SSN? Driver&rsquo;s License? Passport?</li>
+<li>Your <code>registration_date</code> - is this legal entity registration or customer signup date? (Very different meanings!)</li>
+</ul>
+<h2 id="traditional-manual-approach">Traditional Manual Approach</h2>
+<p>Without AI assistance, data mapping typically requires:</p>
+<ol>
+<li><strong>Reading specifications</strong> - Understanding hundreds of Senzing features and attributes</li>
+<li><strong>Making decisions</strong> - Determining appropriate mappings for each field</li>
+<li><strong>Writing code</strong> - Building transformation logic</li>
+<li><strong>Manual validation</strong> - Checking outputs meet requirements</li>
+<li><strong>Iterative debugging</strong> - Finding and fixing errors</li>
+</ol>
+<p><strong>Time cost:</strong> 3-6 days for a typical dataset with 15-20 fields</p>
+<h2 id="the-ai-assisted-solution">The AI-Assisted Solution</h2>
+<p>This workshop teaches you to use the <strong>Senzing Mapping Assistant</strong> - a structured AI workflow that:</p>
+<p>✅ <strong>Reads specifications instantly</strong> - AI loads the complete Senzing spec into context
+✅ <strong>Suggests mappings</strong> - AI recommends appropriate features based on your data
+✅ <strong>Generates code</strong> - AI writes the mapper automatically
+✅ <strong>Creates documentation</strong> - Mapping decisions documented as byproduct</p>
+<p><strong>Time savings:</strong> Same work in <strong>under an hour</strong></p>
+
+<div class="notices warning" ><p><strong>Important Caveat</strong>: AI is your assistant, not a replacement for your judgment. YOU still need to:</p>
+<ul>
+<li>Understand what your source fields mean</li>
+<li>Make business decisions about what should influence matching</li>
+<li>Validate that AI suggestions align with your requirements</li>
+<li>Correct AI when it misunderstands your data</li>
+</ul>
+</div>
+
+<h2 id="what-youll-learn">What You&rsquo;ll Learn</h2>
+<p>In this workshop, you&rsquo;ll learn:</p>
+<ul>
+<li>The Senzing entity model (Features vs Payload, entity types)</li>
+<li>How to work with AI to make mapping decisions</li>
+<li>A repeatable 5-stage workflow for any dataset</li>
+<li>Professional validation tools to verify correctness</li>
+<li>How to load and analyze entity resolution results</li>
+</ul>
+<p>Ready to understand Senzing&rsquo;s data model?</p>
+<hr>
+<h2 id="the-5-stages">The 5 Stages</h2>
+<h3 id="stage-1-init---load-reference-materials">STAGE 1: INIT - Load Reference Materials</h3>
+<p>You load the Senzing specifications and reference materials into the AI context. This gives the AI the knowledge it needs to guide you through mapping.</p>
+<p><strong>What happens:</strong></p>
+<ul>
+<li>Load entity specification</li>
+<li>Load mapping examples</li>
+<li>Load validation tools</li>
+<li>Load identifier and usage type crosswalks</li>
+</ul>
+<p><strong>Your role:</strong> Copy prompts to load files into AI context</p>
+<hr>
+<h3 id="stage-2-inventory---analyze-source-data">STAGE 2: INVENTORY - Analyze Source Data</h3>
+<p>The AI analyzes your source data schema to understand what fields you&rsquo;re working with.</p>
+<p><strong>What happens:</strong></p>
+<ul>
+<li>AI reviews pre-generated schema file</li>
+<li>Identifies field names, data types, population rates</li>
+<li>Notes patterns and potential issues</li>
+</ul>
+<p><strong>Your role:</strong> Provide schema file (generated by <code>sz_schema_generator.py</code>)</p>
+<hr>
+<h3 id="stage-3-planning---identify-entities-and-sources">STAGE 3: PLANNING - Identify Entities and Sources</h3>
+<p>You work with the AI to determine:</p>
+<ul>
+<li>What DATA_SOURCE value to use</li>
+<li>Are there multiple entity types in your data?</li>
+<li>Any special handling needed?</li>
+</ul>
+<p><strong>What happens:</strong></p>
+<ul>
+<li>AI asks clarifying questions</li>
+<li>You make business decisions</li>
+<li>Establish mapping strategy</li>
+</ul>
+<p><strong>Your role:</strong> Answer questions about your data and business context</p>
+<hr>
+<h3 id="stage-4-mapping---field-by-field-decisions">STAGE 4: MAPPING - Field-by-Field Decisions</h3>
+<p>This is the core mapping work. For each source field, you and the AI determine:</p>
+<ul>
+<li>Should it be a Senzing Feature (used for matching)?</li>
+<li>Should it be Payload (stored but not matched)?</li>
+<li>Should it be ignored?</li>
+<li>What is the correct Senzing attribute name?</li>
+</ul>
+<p><strong>What happens:</strong></p>
+<ul>
+<li>AI suggests mappings based on field names and content</li>
+<li>You confirm or override decisions</li>
+<li>Handle edge cases (e.g., dynamic identifier types)</li>
+<li>Decide on data transformations (date formats, name parsing)</li>
+</ul>
+<p><strong>Your role:</strong> Make informed decisions with AI guidance</p>
+<hr>
+<h3 id="stage-5-outputs---generate-code-and-documentation">STAGE 5: OUTPUTS - Generate Code and Documentation</h3>
+<p>The AI generates production-ready deliverables:</p>
+<p><strong>Outputs:</strong></p>
+<ul>
+<li><strong>Mapper specification</strong> (markdown documentation of all decisions)</li>
+<li><strong>Python mapper</strong> (executable code)</li>
+<li><strong>Sample output</strong> (example mapped JSON records)</li>
+<li><strong>README</strong> (usage instructions)</li>
+</ul>
+<p><strong>What happens:</strong></p>
+<ul>
+<li>AI writes the mapper based on Stage 4 decisions</li>
+<li>You run the mapper</li>
+<li>Validate output with linting and analysis tools</li>
+</ul>
+<p><strong>Your role:</strong> Review generated code, run mapper, validate output</p>
+<hr>
+<h2 id="why-this-workflow-works">Why This Workflow Works</h2>
+<p><strong>Structured Decision-Making</strong>: Each stage has a clear purpose and deliverable</p>
+<p><strong>Validation Gates</strong>: You verify correctness at each stage before proceeding</p>
+<p><strong>Iterative Refinement</strong>: Easy to go back and adjust decisions</p>
+<p><strong>Documentation Trail</strong>: Complete record of why each mapping decision was made</p>
+<p><strong>Production Ready</strong>: Output includes code, documentation, and validation</p>
+
+<div class="notices tip" ><p><strong>This isn&rsquo;t just code generation</strong> - it&rsquo;s AI-assisted decision-making with you in control. The AI guides you through the specifications and best practices, but YOU make the final decisions based on your understanding of the data.</p>
+</div>
+
+<h2 id="the-full-prompt">The Full Prompt</h2>
+<p>The complete Senzing Mapping Assistant prompt with detailed instructions for each stage is available at:</p>
+<p><strong><code>workshop/senzing/prompts/senzing_mapping_assistant.md</code></strong></p>
+<p>You&rsquo;ll load this prompt in Module 4 when you start the hands-on customer mapping exercise.</p>
+<h2 id="what-to-expect-in-module-4">What to Expect in Module 4</h2>
+<p>In the next module, you&rsquo;ll:</p>
+<ol>
+<li>Load the Mapping Assistant into Amazon Q Developer</li>
+<li>Work through all 5 stages for the customer dataset</li>
+<li>Make real mapping decisions with AI guidance</li>
+<li>Generate a working mapper</li>
+<li>Validate your output with linting and analysis tools</li>
+</ol>
+<p><strong>Estimated time</strong>: 60 minutes for complete customer mapping</p>
+<p>Ready to learn about the validation tools you&rsquo;ll use?</p>
 
 
 <footer class="footline">
@@ -1650,6 +1852,22 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -2170,19 +2388,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1762879875"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762879875"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762879875"></script>
-    <script src="/js/jquery.sticky.js?1762879875"></script>
-    <script src="/js/featherlight.min.js?1762879875"></script>
-    <script src="/js/highlight.pack.js?1762879875"></script>
+    <script src="/js/clipboard.min.js?1762888755"></script>
+    <script src="/js/perfect-scrollbar.min.js?1762888755"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1762888755"></script>
+    <script src="/js/jquery.sticky.js?1762888755"></script>
+    <script src="/js/featherlight.min.js?1762888755"></script>
+    <script src="/js/highlight.pack.js?1762888755"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762879875"></script>
-    <script src="/js/learn.js?1762879875"></script>
-    <script src="/js/hugo-learn.js?1762879875"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1762888755"></script>
+    <script src="/js/learn.js?1762888755"></script>
+    <script src="/js/hugo-learn.js?1762888755"></script>
     
         
-            <script src="/mermaid/mermaid.js?1762879875"></script>
+            <script src="/mermaid/mermaid.js?1762888755"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

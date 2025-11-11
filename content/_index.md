@@ -22,6 +22,8 @@ Entity resolution identifies when different records refer to the same real-world
 - **Missed opportunities** from fragmented data insights
 - **Operational inefficiency** from manual data cleanup
 
+[Learn more about entity resolution](https://senzing.com/what-is-entity-resolution/)
+
 ## Transform Your Data Operations in Hours, Not Months
 
 In this hands-on workshop, you'll learn how to leverage AI tools like Amazon Q Developer to map, load, and explore your data with Senzing entity resolution using a structured, repeatable workflow that delivers production-ready results.
@@ -34,16 +36,6 @@ By completing this workshop, you will:
 - Learn to validate mappings using proven Senzing tools both before and after mapping
 - Be able to load mapped data and analyze entity resolution results
 - Master the Senzing Mapping Assistant workflow for use with your own data sources
-
-## Real-World Impact
-
-**Financial Services**: A major bank reduced customer onboarding time by 60% while improving fraud detection accuracy by eliminating duplicate identities across 15 data sources.
-
-**Healthcare**: Regional health system achieved 360° patient view across 8 hospitals, reducing medical errors and improving care coordination for 2M+ patients.
-
-**Retail**: E-commerce platform increased customer lifetime value by 23% through unified customer profiles that enabled personalized experiences across all touchpoints.
-
-**Government**: Federal agency improved citizen services while reducing costs by $12M annually through consolidated identity management across 50+ databases.
 
 ## Intended audience
 

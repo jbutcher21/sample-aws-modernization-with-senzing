@@ -9,7 +9,7 @@
 
     <link rel="icon" href="https://awsmedia.s3.amazonaws.com/favicon.ico" type="image/x-icon" />
 
-    <title>Step 3: Map the Schema :: English</title>
+    <title>Explore with AI :: English</title>
 
     
     <link href="/css/nucleus.css?1762888755" rel="stylesheet">
@@ -37,7 +37,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/5_exercise2_watchlist/53_mapschema.html">
+  <body class="" data-url="/3_workshopoverview/33_explorewithai.html">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -377,7 +377,7 @@
   
     
     <li data-nav-id="/3_workshopoverview/index.html" title="Workshop Overview" class="dd-item
-        
+        parent
         
         
         ">
@@ -468,7 +468,7 @@
  
   
     
-      <li data-nav-id="/3_workshopoverview/33_explorewithai.html" title="Explore with AI" class="dd-item ">
+      <li data-nav-id="/3_workshopoverview/33_explorewithai.html" title="Explore with AI" class="dd-item active">
         <a href="/3_workshopoverview/33_explorewithai.html">
         Explore with AI
         <i class="fas fa-check read-icon"></i>
@@ -701,7 +701,7 @@
   
     
     <li data-nav-id="/5_exercise2_watchlist/index.html" title="Exercise 2: Watchlist" class="dd-item
-        parent
+        
         
         
         ">
@@ -771,7 +771,7 @@
  
   
     
-      <li data-nav-id="/5_exercise2_watchlist/53_mapschema.html" title="Step 3: Map the Schema" class="dd-item active">
+      <li data-nav-id="/5_exercise2_watchlist/53_mapschema.html" title="Step 3: Map the Schema" class="dd-item ">
         <a href="/5_exercise2_watchlist/53_mapschema.html">
         Step 3: Map the Schema
         <i class="fas fa-check read-icon"></i>
@@ -1244,7 +1244,7 @@
             
           
           
-            <a href='/index.html'>One-click Entity Resolution</a> > <a href='/5_exercise2_watchlist/index.html'>Exercise 2: Watchlist</a> > Step 3: Map the Schema
+            <a href='/index.html'>One-click Entity Resolution</a> > <a href='/3_workshopoverview/index.html'>Workshop Overview</a> > Explore with AI
           
         
           
@@ -1259,14 +1259,12 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#use-the-senzing-mapping-assistant">Use the Senzing Mapping Assistant</a>
-      <ul>
-        <li><a href="#overview">Overview</a></li>
-      </ul>
-    </li>
-    <li><a href="#the-5-stage-workflow">The 5-Stage Workflow</a></li>
-    <li><a href="#start-the-mapping-assistant">Start the Mapping Assistant</a></li>
-    <li><a href="#work-through-each-stage">Work Through Each Stage</a></li>
+    <li><a href="#using-ai-to-understand-the-workshop-files">Using AI to Understand the Workshop Files</a></li>
+    <li><a href="#opening-amazon-q-developer">Opening Amazon Q Developer</a></li>
+    <li><a href="#question-1-what-does-the-senzing-folder-contain">Question 1: What does the senzing folder contain?</a></li>
+    <li><a href="#question-2-what-does-the-mapping-assistant-prompt-do">Question 2: What does the mapping assistant prompt do?</a></li>
+    <li><a href="#question-3-what-are-those-senzing-tools-and-when-do-i-use-them">Question 3: What are those senzing tools and when do I use them?</a></li>
+    <li><a href="#wrap-up">Wrap Up</a></li>
   </ul>
 </nav>
     </div>
@@ -1284,48 +1282,63 @@
           
             <h1>
               
-              Step 3: Map the Schema
+              Explore with AI
             </h1>
           
 
         
 
 
-<h2 id="use-the-senzing-mapping-assistant">Use the Senzing Mapping Assistant</h2>
-<h3 id="overview">Overview</h3>
-<p>Use the Senzing Mapping Assistant prompt with Amazon Q to map the watchlist data. This follows the same 5-stage workflow but with JSON input instead of CSV.</p>
-<h2 id="the-5-stage-workflow">The 5-Stage Workflow</h2>
-<p>The Mapping Assistant guides you through:</p>
-<ol>
-<li><strong>INIT</strong> - Load reference files and verify tools</li>
-<li><strong>INVENTORY</strong> - Analyze source data schema</li>
-<li><strong>PLANNING</strong> - Determine data source and entity types</li>
-<li><strong>MAPPING</strong> - Map fields to Senzing features</li>
-<li><strong>OUTPUTS</strong> - Generate mapper script and documentation</li>
-</ol>
-<h2 id="start-the-mapping-assistant">Start the Mapping Assistant</h2>
-<p><strong>Prompt to use:</strong></p>
-<pre tabindex="0"><code>TODO: Placeholder prompt for starting the mapping assistant with watchlist data
-</code></pre><p><strong>What you should see:</strong></p>
-<p><img src="/images/exercise2/step3_mapping_assistant_placeholder.png" alt="Step 3 - Starting Mapping Assistant"></p>
-<h2 id="work-through-each-stage">Work Through Each Stage</h2>
-<p><strong>TODO:</strong> Detailed instructions for each stage will go here.</p>
-<p>Placeholder for:</p>
+<h2 id="using-ai-to-understand-the-workshop-files">Using AI to Understand the Workshop Files</h2>
+<p>Rather than reading lengthy documentation, let&rsquo;s use AI to explore the workshop folder structure. This demonstrates a key modern development skill: asking targeted questions to quickly understand unfamiliar codebases and tools.</p>
+
+<div class="notices tip" ><p><strong>Why ask AI?</strong> Instead of reading lengthy documentation, you can ask targeted questions and get immediate, contextual answers. This is a key skill for modern developers!</p>
+</div>
+
+<hr>
+<h2 id="opening-amazon-q-developer">Opening Amazon Q Developer</h2>
+<p>First, let&rsquo;s open Amazon Q Developer and give it context about the workshop folder.</p>
+<p>Click the Amazon Q icon in the left side panel of your IDE</p>
+<p><strong>Ask Amazon Q:</strong> <code>Use the senzing folder as context for this session</code></p>
+<p>This tells Q to reference all the files in the senzing folder when answering your questions.</p>
+<p><strong>What you should see:</strong></p>
+<p><img src="/images/overview/ask_qdev0.png" alt="Opening Amazon Q and setting context"></p>
+<hr>
+<h2 id="question-1-what-does-the-senzing-folder-contain">Question 1: What does the senzing folder contain?</h2>
+<p><strong>Ask Amazon Q:</strong> <code>What does the senzing folder contain?</code></p>
+<p><strong>What you should see:</strong></p>
+<p><img src="/images/overview/ask_qdev1.png" alt="Question 1 - Senzing folder contents"></p>
+
+<div class="notices info" ><p><strong>Expected Response:</strong> AI should explain that the senzing folder contains prompts, reference documentation, and tools for working with Senzing entity resolution.</p>
+</div>
+
+<hr>
+<h2 id="question-2-what-does-the-mapping-assistant-prompt-do">Question 2: What does the mapping assistant prompt do?</h2>
+<p><strong>Ask Amazon Q:</strong> <code>What does the mapping assistant prompt do?</code></p>
+<p><strong>What you should see:</strong></p>
+<p><img src="/images/overview/ask_qdev2.png" alt="Question 2 - Mapping assistant prompt"></p>
+
+<div class="notices info" ><p><strong>Expected Response:</strong> AI should explain the 5-stage workflow (INIT → INVENTORY → PLANNING → MAPPING → OUTPUTS) and how the prompt guides you through structured data mapping.</p>
+</div>
+
+<hr>
+<h2 id="question-3-what-are-those-senzing-tools-and-when-do-i-use-them">Question 3: What are those senzing tools and when do I use them?</h2>
+<p><strong>Ask Amazon Q:</strong> <code>What are those senzing tools and when do I use them?</code></p>
+<p><strong>What you should see:</strong></p>
+<p><img src="/images/overview/ask_qdev3.png" alt="Question 3 - Senzing tools"></p>
+
+<div class="notices info" ><p><strong>Expected Response:</strong> AI should describe the schema generator (for analyzing source data), JSON linter (for validation), and JSON analyzer (for understanding mapped output), along with when to use each.</p>
+</div>
+
+<hr>
+<h2 id="wrap-up">Wrap Up</h2>
+<p>You&rsquo;ve now practiced using AI to understand unfamiliar tools and documentation. This skill - asking AI targeted questions about code and tools - will be essential throughout the workshop.</p>
+<p><strong>Key Takeaways:</strong></p>
 <ul>
-<li>INIT stage instructions and screenshot</li>
-<li>INVENTORY stage instructions and screenshot</li>
-<li>PLANNING stage instructions and screenshot</li>
-<li>MAPPING stage instructions and screenshot (handling nested JSON)</li>
-<li>OUTPUTS stage instructions and screenshot</li>
+<li>The <code>workshop/</code> folder contains everything you need: tools, data, and solutions</li>
+<li>AI can help you quickly understand complex folder structures and tools</li>
+<li>Asking targeted questions is faster than reading documentation cover-to-cover</li>
 </ul>
-
-<div class="notices tip" ><p>Watchlist data includes relationships and nested structures. The AI will help you handle these complexities.</p>
-</div>
-
-
-<div class="notices info" ><p><strong>Checkpoint:</strong> You should have a complete mapper Python script and mapping documentation for watchlist data.</p>
-</div>
-
 
 
 <footer class="footline">
@@ -1601,6 +1614,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1620,18 +1634,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -1640,9 +1644,6 @@
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -1756,6 +1757,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1809,7 +1826,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1825,9 +1841,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2078,10 +2091,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/5_exercise2_watchlist/52_createschema.html" title="Step 2: Create Schema"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/3_workshopoverview/32_workshopfolder.html" title="Workshop Folder Tour"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/5_exercise2_watchlist/54_validatemapping.html" title="Step 4: Validate Mapping" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/4_exercise1_customers/index.html" title="Exercise 1: Customers" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

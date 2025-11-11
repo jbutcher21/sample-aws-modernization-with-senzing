@@ -19,11 +19,8 @@ In this brief module, you will:
 1. **Understand the Data Mapping Challenge** - What mapping is and why it's traditionally difficult
 2. **Learn Senzing's AI Assisted Solution** - The 5-stage Senzing Mapping Assistant workflow
 3. **Tour the Workshop Folder** - Understanding where everything is located
+4. **Explore with AI** - Practice using AI to understand workshop materials
 
 **Estimated Reading Time:** 10-15 minutes
-
-{{% notice tip %}}
-**This module is mostly reading and exploration** - you won't be doing the mapping yet. Module 4 is where you'll actually map the customer data with AI assistance.
-{{% /notice %}}
 
 Let's get started!

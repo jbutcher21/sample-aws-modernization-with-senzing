@@ -15,10 +15,7 @@ Query the combined dataset to understand cross-dataset resolution decisions.
 
 ### Example Question 1: Find Watchlist Matches
 
-**Ask Amazon Q:**
-```
-TODO: Placeholder question about finding customers that matched watchlist entities
-```
+**Ask Amazon Q:** `TODO: Placeholder question about finding customers that matched watchlist entities`
 
 **What you should see:**
 
@@ -26,10 +23,7 @@ TODO: Placeholder question about finding customers that matched watchlist entiti
 
 ### Example Question 2: Why Did Cross-Dataset Match Occur?
 
-**Ask Amazon Q:**
-```
-TODO: Placeholder question about why a customer matched a watchlist entity
-```
+**Ask Amazon Q:** `TODO: Placeholder question about why a customer matched a watchlist entity`
 
 **What you should see:**
 
@@ -37,10 +31,7 @@ TODO: Placeholder question about why a customer matched a watchlist entity
 
 ### Example Question 3: Explore Entity Relationships
 
-**Ask Amazon Q:**
-```
-TODO: Placeholder question about exploring watchlist relationships
-```
+**Ask Amazon Q:** `TODO: Placeholder question about exploring watchlist relationships`
 
 **What you should see:**
 
