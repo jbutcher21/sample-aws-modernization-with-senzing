@@ -53,30 +53,10 @@ To create a profile:
 
 - Return to your IDE
 
-## Enable Workspace Context
-
-To make Amazon Q aware of your entire codebase:
-
-1. Click on 'Amazon Q' in the status bar
-2. Select **'Open Settings'**
-3. Select the check-box under **Amazon Q: Workspace Index** to enable workspace indexing
-
-![Workspace Index](/images/setup/workspace-index.gif?height=300px)
-
-{{% notice note %}}
-Initial workspace indexing takes 1-20 minutes and may increase CPU usage. Subsequent changes update the index incrementally.
-{{% /notice %}}
-
-#### Example queries using workspace context
-
-- 💬 `@workspace` `Where is the business logic to handle users?`
-- 💬 `@workspace` `Explain the data flow between the front-end and back-end.`
-- 💬 `Add new API tests using the existing test utilities found in the @workspace.`
-
 ## Wrap up
 
 {{% notice info %}}
 **Checkpoint:** Verify that Amazon Q shows you're authenticated before proceeding.
 {{% /notice %}}
 
-You've successfully authenticated Amazon Q Developer in your IDE and enabled workspace context. You're now ready to configure the Senzing MCP Server!
+You've successfully authenticated Amazon Q Developer in your IDE. You're now ready to configure the Senzing MCP Server!

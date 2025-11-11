@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Load and Validate Mapped Data on English</title>
+    <link>//localhost:1313/99_unused/5_loadandvalidate/index.html</link>
+    <description>Recent content in Load and Validate Mapped Data on English</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/99_unused/5_loadandvalidate/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

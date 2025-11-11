@@ -7,7 +7,7 @@ weight: 20
 
 The following architecture diagram illustrates the various components of the workshop.
 
-![architecture diagram](/static/images/introduction/architecture.png)
+![architecture diagram](/images/introduction/architecture.png)
 ## Preparing for the workshop
 
 Follow the installation instructions in this section to prepare your environment for the workshop.
