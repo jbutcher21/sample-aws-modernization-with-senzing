@@ -12,18 +12,18 @@
     <title>Step 1: Examine Source Data :: English</title>
 
     
-    <link href="/css/nucleus.css?1762888755" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762888755" rel="stylesheet">
-    <link href="/css/hybrid.css?1762888755" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762888755" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762888755" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762888755" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762888755" rel="stylesheet">
-    <link href="/css/theme.css?1762888755" rel="stylesheet">
-    <link href="/css/tabs.css?1762888755" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762888755" rel="stylesheet">
+    <link href="/css/nucleus.css?1762892969" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1762892969" rel="stylesheet">
+    <link href="/css/hybrid.css?1762892969" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1762892969" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1762892969" rel="stylesheet">
+    <link href="/css/auto-complete.css?1762892969" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1762892969" rel="stylesheet">
+    <link href="/css/theme.css?1762892969" rel="stylesheet">
+    <link href="/css/tabs.css?1762892969" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1762892969" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1762888755" rel="stylesheet">
+    <link href="/css/theme-mine.css?1762892969" rel="stylesheet">
     
     
 
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1762888755"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762888755"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1762892969"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1762892969"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1762888755"></script>
+<script type="text/javascript" src="/js/search.js?1762892969"></script>
 
     
   </div>
@@ -546,9 +546,9 @@
  
   
     
-      <li data-nav-id="/4_exercise1_customers/42_createschema.html" title="Step 2: Create Schema" class="dd-item ">
+      <li data-nav-id="/4_exercise1_customers/42_createschema.html" title="Step 2: Generate Schema" class="dd-item ">
         <a href="/4_exercise1_customers/42_createschema.html">
-        Step 2: Create Schema
+        Step 2: Generate Schema
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1259,13 +1259,9 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#examine-the-source-data">Examine the Source Data</a>
-      <ul>
-        <li><a href="#overview">Overview</a></li>
-      </ul>
-    </li>
-    <li><a href="#locate-the-source-data">Locate the Source Data</a></li>
-    <li><a href="#examine-the-data">Examine the Data</a></li>
+    <li><a href="#understanding-your-source-data">Understanding Your Source Data</a></li>
+    <li><a href="#open-the-customer-data-file">Open the Customer Data File</a></li>
+    <li><a href="#explore-the-data-structure">Explore the Data Structure</a></li>
   </ul>
 </nav>
     </div>
@@ -1290,32 +1286,41 @@
         
 
 
-<h2 id="examine-the-source-data">Examine the Source Data</h2>
-<h3 id="overview">Overview</h3>
-<p>Before mapping any data, you need to understand what you&rsquo;re working with. In this step, you&rsquo;ll examine the customer CSV file to understand its structure, fields, and data quality.</p>
-<h2 id="locate-the-source-data">Locate the Source Data</h2>
-<p>The customer data is located at:</p>
-<pre tabindex="0"><code>/home/ubuntu/workshop/workspace/customers/customers.csv
-</code></pre><h2 id="examine-the-data">Examine the Data</h2>
-<p><strong>TODO:</strong> Instructions for examining the CSV file will go here.</p>
-<p>Placeholder for:</p>
+<h2 id="understanding-your-source-data">Understanding Your Source Data</h2>
+<p>Before mapping data to Senzing format, you need to understand what you&rsquo;re working with. In this step, you&rsquo;ll examine the customer CSV file to identify its structure, fields, and business purpose.</p>
+<h2 id="open-the-customer-data-file">Open the Customer Data File</h2>
+<p><strong>Navigate to the source data:</strong></p>
+<ol>
+<li>In your IDE file explorer (left sidebar), expand the workshop folder</li>
+<li>Navigate to <code>workshop/workspace/customers/</code></li>
+<li>Double-click <code>customers.csv</code> to open it in the editor</li>
+</ol>
+<p><img src="/images/exercise1/1-customer.png" alt="Customer CSV file open in IDE"></p>
+<h2 id="explore-the-data-structure">Explore the Data Structure</h2>
+<p>Take a few minutes to review the CSV file. Ask yourself these questions:</p>
+<p><strong>About the data structure:</strong></p>
 <ul>
-<li>Opening the file in the IDE</li>
-<li>Reviewing the header row</li>
-<li>Looking at sample records</li>
-<li>Identifying data types</li>
-<li>Noting any quality issues</li>
+<li>What columns are present?</li>
+<li>What types of data do you see? (names, addresses, identifiers, dates, etc.)</li>
+<li>Are there any empty or inconsistent values?</li>
 </ul>
-<p><strong>Expected observations:</strong></p>
+<p><strong>About the business purpose:</strong></p>
 <ul>
-<li>Number of records: 120</li>
-<li>Field count: 19 fields</li>
-<li>Mix of identifiers (SSN, driver&rsquo;s license, passport, national ID)</li>
-<li>Person and organization records</li>
-<li>Varying data completeness</li>
+<li>Why are you loading this data into Senzing?
+<ul>
+<li>Are you looking for duplicate customer records?</li>
+<li>Will you compare this against a watchlist later?</li>
+<li>Do you need to consolidate customer identities?</li>
 </ul>
+</li>
+</ul>
+<p>Understanding both the structure and purpose of your data will help you guide the AI to create an effective mapping.</p>
 
-<div class="notices info" ><p><strong>Checkpoint:</strong> You should understand the structure and content of the customer data before proceeding.</p>
+<div class="notices tip" ><p><strong>Key Insight:</strong> You don&rsquo;t need to memorize every field - just get familiar with what&rsquo;s there. The AI will help with the detailed mapping, but you need to provide the business context and mapping strategy.</p>
+</div>
+
+
+<div class="notices info" ><p><strong>Checkpoint:</strong> You should understand the basic structure of the customer data and why you&rsquo;re loading it into Senzing before proceeding to the next step.</p>
 </div>
 
 
@@ -2073,7 +2078,7 @@
 			<a class="nav nav-prev" href="/4_exercise1_customers/index.html" title="Exercise 1: Customers"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/4_exercise1_customers/42_createschema.html" title="Step 2: Create Schema" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/4_exercise1_customers/42_createschema.html" title="Step 2: Generate Schema" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2083,19 +2088,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1762888755"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762888755"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762888755"></script>
-    <script src="/js/jquery.sticky.js?1762888755"></script>
-    <script src="/js/featherlight.min.js?1762888755"></script>
-    <script src="/js/highlight.pack.js?1762888755"></script>
+    <script src="/js/clipboard.min.js?1762892969"></script>
+    <script src="/js/perfect-scrollbar.min.js?1762892969"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1762892969"></script>
+    <script src="/js/jquery.sticky.js?1762892969"></script>
+    <script src="/js/featherlight.min.js?1762892969"></script>
+    <script src="/js/highlight.pack.js?1762892969"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762888755"></script>
-    <script src="/js/learn.js?1762888755"></script>
-    <script src="/js/hugo-learn.js?1762888755"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1762892969"></script>
+    <script src="/js/learn.js?1762892969"></script>
+    <script src="/js/hugo-learn.js?1762892969"></script>
     
         
-            <script src="/mermaid/mermaid.js?1762888755"></script>
+            <script src="/mermaid/mermaid.js?1762892969"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

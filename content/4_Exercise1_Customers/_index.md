@@ -21,7 +21,7 @@ By completing this exercise, you will:
 - Apply the Senzing Mapping Assistant workflow to create a mapper
 - Validate your mapping with analysis tools
 - Load data into Senzing for entity resolution
-- Take snapshots and analyze resolution statistics
+- Take a snapshot and analyze resolution statistics
 - Use the MCP server to understand resolution decisions
 
 ## Exercise Steps

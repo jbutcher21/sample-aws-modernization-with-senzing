@@ -3,37 +3,40 @@ title: "Step 1: Examine Source Data"
 weight: 41
 ---
 
-## Examine the Source Data
+## Understanding Your Source Data
 
-### Overview
+Before mapping data to Senzing format, you need to understand what you're working with. In this step, you'll examine the customer CSV file to identify its structure, fields, and business purpose.
 
-Before mapping any data, you need to understand what you're working with. In this step, you'll examine the customer CSV file to understand its structure, fields, and data quality.
+## Open the Customer Data File
 
-## Locate the Source Data
+**Navigate to the source data:**
+1. In your IDE file explorer (left sidebar), expand the workshop folder
+2. Navigate to `workshop/workspace/customers/`
+3. Double-click `customers.csv` to open it in the editor
 
-The customer data is located at:
-```
-/home/ubuntu/workshop/workspace/customers/customers.csv
-```
+![Customer CSV file open in IDE](/images/exercise1/1-customer.png)
 
-## Examine the Data
+## Explore the Data Structure
 
-**TODO:** Instructions for examining the CSV file will go here.
+Take a few minutes to review the CSV file. Ask yourself these questions:
 
-Placeholder for:
-- Opening the file in the IDE
-- Reviewing the header row
-- Looking at sample records
-- Identifying data types
-- Noting any quality issues
+**About the data structure:**
+- What columns are present?
+- What types of data do you see? (names, addresses, identifiers, dates, etc.)
+- Are there any empty or inconsistent values?
 
-**Expected observations:**
-- Number of records: 120
-- Field count: 19 fields
-- Mix of identifiers (SSN, driver's license, passport, national ID)
-- Person and organization records
-- Varying data completeness
+**About the business purpose:**
+- Why are you loading this data into Senzing?
+  - Are you looking for duplicate customer records?
+  - Will you compare this against a watchlist later?
+  - Do you need to consolidate customer identities?
+
+Understanding both the structure and purpose of your data will help you guide the AI to create an effective mapping.
+
+{{% notice tip %}}
+**Key Insight:** You don't need to memorize every field - just get familiar with what's there. The AI will help with the detailed mapping, but you need to provide the business context and mapping strategy.
+{{% /notice %}}
 
 {{% notice info %}}
-**Checkpoint:** You should understand the structure and content of the customer data before proceeding.
+**Checkpoint:** You should understand the basic structure of the customer data and why you're loading it into Senzing before proceeding to the next step.
 {{% /notice %}}

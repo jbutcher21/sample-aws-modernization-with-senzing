@@ -9,21 +9,21 @@
 
     <link rel="icon" href="https://awsmedia.s3.amazonaws.com/favicon.ico" type="image/x-icon" />
 
-    <title>Step 2: Create Schema :: English</title>
+    <title>Step 2: Generate Schema :: English</title>
 
     
-    <link href="/css/nucleus.css?1762888755" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1762888755" rel="stylesheet">
-    <link href="/css/hybrid.css?1762888755" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1762888755" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1762888755" rel="stylesheet">
-    <link href="/css/auto-complete.css?1762888755" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1762888755" rel="stylesheet">
-    <link href="/css/theme.css?1762888755" rel="stylesheet">
-    <link href="/css/tabs.css?1762888755" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1762888755" rel="stylesheet">
+    <link href="/css/nucleus.css?1762892969" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1762892969" rel="stylesheet">
+    <link href="/css/hybrid.css?1762892969" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1762892969" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1762892969" rel="stylesheet">
+    <link href="/css/auto-complete.css?1762892969" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1762892969" rel="stylesheet">
+    <link href="/css/theme.css?1762892969" rel="stylesheet">
+    <link href="/css/tabs.css?1762892969" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1762892969" rel="stylesheet">
     
-    <link href="/css/theme-mine.css?1762888755" rel="stylesheet">
+    <link href="/css/theme-mine.css?1762892969" rel="stylesheet">
     
     
 
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1762888755"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1762888755"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1762892969"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1762892969"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1762888755"></script>
+<script type="text/javascript" src="/js/search.js?1762892969"></script>
 
     
   </div>
@@ -546,9 +546,9 @@
  
   
     
-      <li data-nav-id="/4_exercise1_customers/42_createschema.html" title="Step 2: Create Schema" class="dd-item active">
+      <li data-nav-id="/4_exercise1_customers/42_createschema.html" title="Step 2: Generate Schema" class="dd-item active">
         <a href="/4_exercise1_customers/42_createschema.html">
-        Step 2: Create Schema
+        Step 2: Generate Schema
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1244,7 +1244,7 @@
             
           
           
-            <a href='/index.html'>One-click Entity Resolution</a> > <a href='/4_exercise1_customers/index.html'>Exercise 1: Customers</a> > Step 2: Create Schema
+            <a href='/index.html'>One-click Entity Resolution</a> > <a href='/4_exercise1_customers/index.html'>Exercise 1: Customers</a> > Step 2: Generate Schema
           
         
           
@@ -1259,12 +1259,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#provide-or-create-the-schema">Provide or Create the Schema</a>
-      <ul>
-        <li><a href="#overview">Overview</a></li>
-      </ul>
-    </li>
-    <li><a href="#using-the-schema-generator">Using the Schema Generator</a></li>
+    <li><a href="#generate-a-data-schema">Generate a Data Schema</a></li>
+    <li><a href="#why-generate-a-schema">Why Generate a Schema?</a></li>
+    <li><a href="#generate-the-schema-with-amazon-q">Generate the Schema with Amazon Q</a></li>
+    <li><a href="#review-the-generated-schema">Review the Generated Schema</a></li>
+    <li><a href="#fallback-use-the-pre-generated-schema">Fallback: Use the Pre-Generated Schema</a></li>
   </ul>
 </nav>
     </div>
@@ -1282,40 +1281,66 @@
           
             <h1>
               
-              Step 2: Create Schema
+              Step 2: Generate Schema
             </h1>
           
 
         
 
 
-<h2 id="provide-or-create-the-schema">Provide or Create the Schema</h2>
-<h3 id="overview">Overview</h3>
-<p>Now that you&rsquo;ve examined the data, you need to document its schema. You can use the Senzing schema generator tool to automatically analyze the CSV and create a schema document.</p>
-<h2 id="using-the-schema-generator">Using the Schema Generator</h2>
-<p><strong>TODO:</strong> Instructions for running the schema generator will go here.</p>
-<p>Placeholder for:</p>
+<h2 id="generate-a-data-schema">Generate a Data Schema</h2>
+<p>Now that you&rsquo;ve examined the customer data, you need to document its structure. A schema document provides essential information about field types, population rates, and sample values - critical details for accurate mapping.</p>
+<h2 id="why-generate-a-schema">Why Generate a Schema?</h2>
+<p>When mapping data, AI needs to understand both the source and target schemas. However, you shouldn&rsquo;t upload entire data files to AI because:</p>
+<ol>
+<li><strong>Privacy concerns</strong> - Files may contain sensitive customer information</li>
+<li><strong>Context limits</strong> - AI models have limited context windows and cannot process large files</li>
+<li><strong>Accuracy</strong> - AI can infer schema from sample rows, but this is error-prone</li>
+</ol>
+<p>Instead, you&rsquo;ll use the Senzing schema generator tool to create a comprehensive schema document that includes:</p>
 <ul>
-<li>Running <code>sz_schema_generator.py</code> on the customers CSV</li>
-<li>Reviewing the generated schema output</li>
-<li>Understanding field types and sample values</li>
-<li>Saving the schema for reference</li>
-</ul>
-<p><strong>Command:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 ~/workshop/senzing/tools/sz_schema_generator.py <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  ~/workshop/workspace/customers/customers.csv
-</span></span></code></pre></div><p><strong>Expected output:</strong></p>
-<ul>
-<li>Markdown-formatted schema document</li>
-<li>Field names, data types, and sample values</li>
-<li>Statistics on field population</li>
+<li>Field names and data types</li>
+<li>Population percentages (how often fields contain values)</li>
+<li>Sample values and ranges</li>
+<li>Field statistics</li>
 </ul>
 
-<div class="notices tip" ><p>The schema document helps you and the AI understand the data structure during the mapping process.</p>
+<div class="notices tip" ><p><strong>Pro Tip:</strong> For complex schemas the tool cannot handle, locate the official schema documentation or ask AI to help extract schema information from documentation.</p>
 </div>
 
+<h2 id="generate-the-schema-with-amazon-q">Generate the Schema with Amazon Q</h2>
+<p><strong>Ask Amazon Q to generate the schema:</strong></p>
+<ol>
+<li>Open Amazon Q Developer (click the Q icon in the left sidebar)</li>
+<li>Type: <code>Generate a schema for the customer CSV</code></li>
+</ol>
+<p><img src="/images/exercise1/2-gen-schema1.png" alt="Amazon Q generating schema - request approval"></p>
 
-<div class="notices info" ><p><strong>Checkpoint:</strong> You should have a schema document describing all fields in the customer data.</p>
+<div class="notices warning" ><p><strong>Security Note:</strong> Notice that Q asks for your approval before running the schema generator. This is an important security feature - never give tools blanket access to run commands without review. Always verify what actions AI wants to take before approving.</p>
+</div>
+
+<p><strong>Review Q&rsquo;s response:</strong></p>
+<p><img src="/images/exercise1/2-gen-schema2.png" alt="Amazon Q schema generation response"></p>
+<p>Q Developer will run the schema generator tool and create a <code>customer_schema.md</code> file in your workspace.</p>
+<h2 id="review-the-generated-schema">Review the Generated Schema</h2>
+<p><strong>Open the schema file:</strong></p>
+<ol>
+<li>In your IDE file explorer, navigate to <code>workshop/workspace/customers/</code></li>
+<li>Open <code>customer_schema.md</code></li>
+</ol>
+<p><img src="/images/exercise1/2-gen-schema3.png" alt="Customer schema document"></p>
+<p>Review the schema to understand:</p>
+<ul>
+<li>What fields are available</li>
+<li>Which fields have high population rates (good for matching)</li>
+<li>What the data values look like</li>
+</ul>
+<p>This schema document will help guide the AI during the mapping process.</p>
+<h2 id="fallback-use-the-pre-generated-schema">Fallback: Use the Pre-Generated Schema</h2>
+<p>If you encounter issues generating the schema, a pre-generated version is available in the solutions folder:</p>
+<p><code>workshop/solutions/customers/customer_schema.md</code></p>
+
+<div class="notices info" ><p><strong>Checkpoint:</strong> You should have a <code>customer_schema.md</code> file that documents all fields, data types, and sample values from the customer CSV.</p>
 </div>
 
 
@@ -2083,19 +2108,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1762888755"></script>
-    <script src="/js/perfect-scrollbar.min.js?1762888755"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1762888755"></script>
-    <script src="/js/jquery.sticky.js?1762888755"></script>
-    <script src="/js/featherlight.min.js?1762888755"></script>
-    <script src="/js/highlight.pack.js?1762888755"></script>
+    <script src="/js/clipboard.min.js?1762892969"></script>
+    <script src="/js/perfect-scrollbar.min.js?1762892969"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1762892969"></script>
+    <script src="/js/jquery.sticky.js?1762892969"></script>
+    <script src="/js/featherlight.min.js?1762892969"></script>
+    <script src="/js/highlight.pack.js?1762892969"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1762888755"></script>
-    <script src="/js/learn.js?1762888755"></script>
-    <script src="/js/hugo-learn.js?1762888755"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1762892969"></script>
+    <script src="/js/learn.js?1762892969"></script>
+    <script src="/js/hugo-learn.js?1762892969"></script>
     
         
-            <script src="/mermaid/mermaid.js?1762888755"></script>
+            <script src="/mermaid/mermaid.js?1762892969"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
