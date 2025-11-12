@@ -29,8 +29,9 @@ Instead, you'll use the Senzing schema generator tool to create a comprehensive 
 
 **Ask Amazon Q to generate the schema:**
 
-1. Open Amazon Q Developer (click the Q icon in the left sidebar)
-2. Type: `Generate a schema for the customer CSV`
+Open Amazon Q Developer (click the Q icon in the left sidebar)
+
+**Tell Amazon Q:** `Generate a schema for the customer CSV`
 
 ![Amazon Q generating schema - request approval](/images/exercise1/2-gen-schema1.png)
 

@@ -3,43 +3,52 @@ title: "Step 4: Validate Mapping"
 weight: 44
 ---
 
+Before you validate the entire mapping you have to run the mapper and the actual data
+
+Tell amazonq: Go ahead and run the mapper and the actual data
+
+image4-validate0.png on images/exercise1
+
+Like the linting process, it may catch errors and correct them.  Usually it sees the problem and fixes it.  If it cannot fix it, it will report the error and you will have to go back and correct the mapping. 
+
+These kinds of errors can also occur as we mapped from the schema, not the actual data.  This is where the rubber meets the road and you may learn even more about your data. So pay attention so you can maybe catch these things earlier in the process.
+
+as before this is a great learning opportunity!
+
+When it does fisnish you will see a report like this:
+
+image4-validate0b.png on images/exercise1
+
 ## Validate the Mapping with JSON Analyzer
 
-### Overview
+It also knows the next step is the json analyzer and may even run it for you.  If not you can run it yourself.
 
-Before loading data into Senzing, validate that your mapping produces correct Senzing JSON format. Use the JSON analyzer tool to verify the mapped output.
+Tell amazonq: Run the JSON analyzer on the mapped customer JSON
 
-## Run the JSON Analyzer
+Why run the json analyzer? Because it runs a different set of checks than the linting process which just says senzing can load it.  The json analyzer produces errors, warnings and information about your data. Such as low population percents, values that are expected to be more unique than they are.  
 
-**Command to use:**
-```bash
-TODO: Placeholder command for analyzing the mapped customer JSON
-```
 
-**What you should see:**
+See what it says about your mapped customer data!
 
-![Step 4 - JSON Analyzer Output](/images/exercise1/step4_json_analyzer_placeholder.png)
+You will see the following:
 
-## Interpret the Results
+image4-validate1.png on images/exercise1
+image4-validate2.png on images/exercise1
+image4-validate3.png on images/exercise1
 
-**TODO:** Instructions for interpreting analyzer output will go here.
+Of course any errors need to be addressed, but as far as the warnings and info ... In the end, the data is what it is.  it just nice to know these things in case something can be done about it!
 
-Placeholder for:
-- Understanding color-coded output (GREEN=recognized features, YELLOW=payload, RED=errors)
-- Verifying all required fields are present
-- Checking for unregistered data sources
-- Identifying sparse fields
-- Confirming feature mappings are correct
+Double check to see if there were any errors
 
-**Expected results:**
-- All Senzing features should be GREEN
-- DATA_SOURCE should be recognized
-- No RED errors
-- Payload fields in YELLOW (expected)
+Ask amazonq: were there any errors
 
-{{% notice warning %}}
-If you see RED errors, fix them before proceeding to data loading.
-{{% /notice %}}
+image4-validate3.png on images/exercise1
+
+You can even ask the AI to add the data source for you!
+
+tell amazonq: add the data source for me
+
+
 
 {{% notice info %}}
 **Checkpoint:** Your mapped data should pass validation with no errors.

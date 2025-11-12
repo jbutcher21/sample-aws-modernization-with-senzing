@@ -18,23 +18,19 @@ Rather than reading lengthy documentation, let's use AI to explore the workshop 
 
 First, let's open Amazon Q Developer and give it context about the workshop folder.
 
-Click the Amazon Q icon in the left side panel of your IDE
+Open Amazon Q Developer (click the Q icon in the left side panel of your IDE)
 
-**Ask Amazon Q:** `Use the senzing folder as context for this session`
-
-This tells Q to reference all the files in the senzing folder when answering your questions.
-
-**What you should see:**
+**Tell Amazon Q:** `Use the senzing folder as context for this session`
 
 ![Opening Amazon Q and setting context](/images/overview/ask_qdev0.png)
+
+This tells Q to reference all the files in the senzing folder when answering your questions.
 
 ---
 
 ## Question 1: What does the senzing folder contain?
 
 **Ask Amazon Q:** `What does the senzing folder contain?`
-
-**What you should see:**
 
 ![Question 1 - Senzing folder contents](/images/overview/ask_qdev1.png)
 
@@ -48,8 +44,6 @@ This tells Q to reference all the files in the senzing folder when answering you
 
 **Ask Amazon Q:** `What does the mapping assistant prompt do?`
 
-**What you should see:**
-
 ![Question 2 - Mapping assistant prompt](/images/overview/ask_qdev2.png)
 
 {{% notice info %}}
@@ -61,8 +55,6 @@ This tells Q to reference all the files in the senzing folder when answering you
 ## Question 3: What are those senzing tools and when do I use them?
 
 **Ask Amazon Q:** `What are those senzing tools and when do I use them?`
-
-**What you should see:**
 
 ![Question 3 - Senzing tools](/images/overview/ask_qdev3.png)
 

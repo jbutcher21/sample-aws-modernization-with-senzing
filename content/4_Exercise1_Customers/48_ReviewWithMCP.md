@@ -15,7 +15,7 @@ Now that data is loaded, you can use conversational AI to query and understand t
 
 ### Example Question 1: Get an Entity
 
-**Ask Amazon Q:** `Get entity 1`
+**Tell Amazon Q:** `Get entity 1`
 
 **What you should see:**
 
