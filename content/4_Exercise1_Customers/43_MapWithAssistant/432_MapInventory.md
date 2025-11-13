@@ -5,23 +5,25 @@ weight: 432
 
 ## Stage 2: INVENTORY - Analyze Schema
 
-Provide the customer schema you generated in Step 2.
+Provide the customer schema you generated in Step 2 so the AI can extract all source fields.
 
-**Tell Amazon Q:** `Let's map the customer schema I have open`
+### Provide Your Schema
 
-![INVENTORY stage - Schema analysis begins](/images/exercise1/3-mapping2.png)
+**Tell Amazon Q:** `Use the customer schema I have open`
 
-![INVENTORY stage - Schema summary](/images/exercise1/3-mapping3.png)
+(Make sure your `customer_schema.md` file is open in the editor)
 
-The AI will analyze the schema and may ask clarifying questions about field meanings or data patterns. This is your opportunity to:
-- Correct any assumptions the AI makes
-- Clarify ambiguous field names
-- Explain business context
+![Customer Inventory 1](/images/exercise1/7-inventory1.png)
+![Customer Inventory 2](/images/exercise1/7-inventory2.png)
 
-When you're satisfied with the schema understanding:
+The assistant confirms: **"✅ STAGE 2 COMPLETE - All fields enumerated"**
 
-**Tell Amazon Q:** `OK to proceed`
+### Advance to Planning
+
+When you're satisfied with the field extraction:
+
+**Tell Amazon Q:** `Yes`
 
 {{% notice info %}}
-**Checkpoint:** The AI should have presented a summary of your source schema fields and confirmed it understands the data structure before moving to the PLANNING stage.
+**Checkpoint:** Q should list all 19 source fields categorized by their purpose before moving to PLANNING.
 {{% /notice %}}

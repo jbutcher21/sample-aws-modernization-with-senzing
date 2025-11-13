@@ -5,27 +5,59 @@ weight: 435
 
 ## Stage 5: OUTPUTS - Generate Code and Docs
 
-The AI generates three files:
+The AI generates three production-ready files that document and implement your mapping.
 
-![Generated mapper files](/images/exercise1/3-mapping16.png)
+![Output code and documentation 1](/images/exercise1/11-output1.png)
+![Output code and documentation 2](/images/exercise1/11-output2.png)
 
-1. **`customers_mapper.py`** - Production-ready Python mapper
-2. **`customers_mapper.md`** - Detailed mapping documentation
-3. **`README.md`** - Usage instructions
+### The Generated Files
 
-These are perfect files for checking into a github project!
+**STAGE 5: OUTPUTS - Generating Implementation**
 
-**Open the files to review:**
+The AI creates three files in `workshop/workspace/customers/`:
 
-![Reviewing generated files](/images/exercise1/3-mapping17.png)
+**1. README.md - Usage Instructions**
+- How to run the mapper
+- Command-line syntax
+- Testing guidance
+- Prerequisites
 
-Navigate to `workshop/workspace/customers/` and open each file to review:
-- If you are a programmer, can you follow the mapper code?
-- Does the documentation explain all decisions?
-- Are there any fields you want to revisit?
+**2. customers_mapper.md - Mapping Specification**
+- Complete field-by-field documentation
+- Mapping rationale for each decision
+- Conditional logic explanations
+- Citations to Senzing specification sections
+- Confidence scores for each mapping
+
+**3. customers_mapper.py - Python Implementation**
+- Production-ready mapper code
+- CSV input, JSONL output
+- Error handling
+- Conditional logic for PERSON vs ORGANIZATION
+- Dynamic identifier routing
+- ~150-200 lines of well-commented Python
+
+### Review the Generated Files
+
+Navigate to `workshop/workspace/customers/` and open each file:
+
+**Review customers_mapper.py:**
+- Can you follow the conditional logic?
+- Does it handle both PERSON and ORGANIZATION correctly?
+- Is the identifier routing clear?
+
+**Review customers_mapper.md:**
+- Does it explain all mapping decisions?
+- Are the citations helpful for understanding?
+- Would a new team member understand this mapping?
+
+**Review README.md:**
+- Can you run the mapper from these instructions?
+- Are all prerequisites listed?
+- Is the testing guidance clear?
 
 {{% notice tip %}}
-**Iteration is Ok!** If you want to change any mappings, you can ask Q to regenerate specific sections or start a new mapping session.
+**Production Ready:** These files are designed to be checked into version control. The documentation preserves the mapping knowledge for future maintenance.
 {{% /notice %}}
 
 ---
@@ -45,8 +77,6 @@ The Mapping Assistant doesn't just generate code—it teaches you about entity r
 {{% notice tip %}}
 **Learning Opportunity:** Please ask the AI questions as you go!  This teaches you what makes a valid Senzing JSON record and common mapping mistakes to avoid.
 {{% /notice %}}
-
-
 
 {{% notice info %}}
 **Checkpoint:** You should have three files in `workshop/workspace/customers/`: `customers_mapper.py`, `customers_mapper.md`, and `README.md`. Review them to ensure they match your requirements.

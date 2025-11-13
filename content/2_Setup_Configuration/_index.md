@@ -6,20 +6,58 @@ weight: 2
 
 # Setup and Configuration
 
-## Overview
+### Overview
 
-Welcome to the setup phase! In this module, you'll access your pre-configured cloud development environment and connect to the AI tools you'll use throughout the workshop.
+Welcome to the Amazon Q Workshop! 🚀 Before diving into the hands-on activities, you need to complete the setup phase to ensure your development environment is properly configured.
 
-All software, tools, and workshop materials are already installed in your cloud environment - you just need to authenticate and verify everything is ready.
+This module will guide you through accessing your development environment and connecting to Amazon Q Developer, whether you're participating in an AWS-hosted event or running the workshop independently.
 
-## Setup Steps
+### Goals
 
 In this module you will:
 
-1. **Join the AWS Workshop Event** - Access Workshop Studio with your event code
-2. **Access Your Cloud IDE** - Log into your pre-configured code-server environment
-3. **Authenticate Amazon Q Developer** - Connect to AI assistance with AWS Builder ID
-4. **Configure Senzing MCP Server** - Enable AI-powered entity resolution queries
-5. **Review Resources** - Bookmark important documentation and support links
+1. Access your development environment (cloud-based IDE or local setup)
 
-Let's get started with [joining the workshop event]({{< ref "/2_Setup_Configuration/21_AWS_Guided_Event/211_JoinWorkshopEvent" >}})!
+2. Connect to Amazon Q Developer using appropriate authentication
+
+3. Verify your setup is ready for the workshop activities
+
+### Setup Options
+
+You can run the workshop either as part of an AWS event or on your own. Based on your scenario, choose the relevant tab:
+
+{{< tabs >}}
+{{% tab name="🏢 AWS-hosted event" %}}
+
+If you are attending an AWS-hosted event, you will:
+
+1. Access a cloud-based Integrated Development Environment (IDE) that has been provisioned on your behalf with all needed software and sample code repository that will be used throughout the workshop.
+
+2. Connect to Amazon Q Developer in your IDE and the CLI using an AWS Builder ID.
+
+To learn how to access your cloud-hosted IDE, please head to [AWS-hosted event section]({{< ref "/2_Setup_Configuration/21_AWS_Guided_Event" >}})
+
+{{% /tab %}}
+
+{{% tab name="💻 Self-guided" %}}
+
+If you are running this workshop on your own AWS account, you'll need to:
+
+1. Setup Visual Studio Code in your local machine with all needed plugins and dependencies
+
+2. Download the workshop code
+
+3. Set up authentication for Amazon Q Developer in your IDE and the CLI using either your organization's IDC Professional license or using an AWS Builder ID.
+
+{{% notice warning %}}
+If you are running this workshop on your own AWS account, remember to delete all resources by following the [Clean Up Resources]({{< ref "/7_Cleanup" >}}) section to avoid unnecessary charges.
+{{% /notice %}}
+
+To learn how to configure your local development environment, please head to [Self-guided section]({{< ref "/2_Setup_Configuration/22_Own_AWS_Account" >}})
+
+{{% /tab %}}
+{{< /tabs >}}
+
+{{% notice warning %}}
+The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.
+{{% /notice %}}

@@ -5,105 +5,105 @@ weight: 434
 
 ## Stage 4: MAPPING - Field-by-Field Decisions
 
-This is the core of the mapping process. The AI will present how each field maps to Senzing.
+This is the core of the mapping process. The AI will present a complete field disposition table with confidence scores.
 
-![MAPPING stage - Field mappings](/images/exercise1/3-mapping6.png)
+![Customer Mapping 1](/images/exercise1/9-mapping1.png)
+![Customer Mapping 2](/images/exercise1/9-mapping2.png)
 
-For each field, the AI shows:
-- **Senzing feature** (for matching) or **Payload attribute** (for storage only)
-- **Special processing** (parsing, transformations, etc.)
-- **Citation** - Which section of the spec justified this decision
-- **Confidence** - How certain the AI is about this mapping
+### The Field Disposition Table
 
-{{% notice warning %}}
-**Review Carefully:** Don't blindly accept the mappings. The AI cites its reasoning, but you must validate each decision based on your business requirements and data quality.
+This is the most critical stage of the mapping process. Take your time here to understand each decision the AI makes.
+
+{{% notice tip %}}
+**Learning Opportunity:** This stage offers the best opportunity to understand entity resolution concepts. Don't rush through - ask questions about anything unclear!
 {{% /notice %}}
 
-### Ask Questions About Mappings
+### Ask Questions About the Table Structure
 
-After presenting all mappings, the AI gives you a chance to ask questions:
+The mapping table may look confusing at first. Ask the AI to explain the key elements:
 
-![MAPPING stage - Question opportunity](/images/exercise1/3-mapping7.png)
+**Ask Amazon Q:** `What does the REF column mean?`
 
-**Example questions to consider:**
+**Ask Amazon Q:** `What does the confidence score indicate?`
 
-**Question 1: Name Parsing**
+**Ask Amazon Q:** `What is RECORD_TYPE and why does it matter?`
 
-**Ask Amazon Q:** `Should we really be parsing those names and what will it do on organizations?`
+**Ask Amazon Q:** `Explain the logic for NAME_FULL vs NAME_ORG`
 
-![Name parsing explanation](/images/exercise1/3-mapping8.png)
+The AI will explain how it uses the Senzing specification to make each decision.
 
-**Question 2: Address Mapping**
+### Review Mapping Decisions Carefully
 
-**Ask Amazon Q:** `Why did you map to ADDR_FULL rather than ADDR_LINE1?`
+While the AI gets many mappings correct, it can make mistakes based on limited context from your schema.
 
-![Address mapping explanation](/images/exercise1/3-mapping9.png)
+**Common issues to watch for:**
 
-**Question 3: Understanding Payload**
+**Address Mapping:**
+- The AI might map `address` to `ADDR_FULL` based on sample values in your schema
+- If your address field contains only street addresses, `ADDR_LINE1` may be more appropriate
+- Example correction: **Tell Amazon Q:** `Change the address mapping from ADDR_FULL to ADDR_LINE1`
 
-**Ask Amazon Q:** `So what is payload and why did you map those fields to it?`
+**Name Parsing:**
+- The AI may suggest parsing `customer_name` into `NAME_FIRST` and `NAME_LAST`
+- This works well if your data is consistent, but can fail on varied formats
+- If you prefer unparsed names: **Tell Amazon Q:** `Map customer_name to NAME_FULL without parsing`
 
-![Payload explanation - part 1](/images/exercise1/3-mapping10.png)
+**Identifier Types:**
 
-![Payload explanation - part 2](/images/exercise1/3-mapping11.png)
+If your data has dynamic identifier patterns (like `id_type` and `id_number` fields), verify the AI mapped all possible type codes. The schema generator only shows the most common values.
 
-### Handle Mapping Issues
+**Ask Amazon Q:** `What are all the possible values for id_type in the source data?`
 
-The AI may identify potential problems. For example, REGISTRATION_DATE has special meaning in Senzing:
+Once you have the complete list, verify each code maps to the correct Senzing feature:
+- `SSN` → SSN_NUMBER
+- `DL` → DRIVERS_LICENSE_NUMBER
+- `PASSPORT` → PASSPORT_NUMBER
+- `NATIONAL_ID` → NATIONAL_ID_NUMBER
 
-**Ask Amazon Q:** `What does the spec say about REGISTRATION_DATE?`
-
-![REGISTRATION_DATE issue identified](/images/exercise1/3-mapping12.png)
-
-![REGISTRATION_DATE options](/images/exercise1/3-mapping13.png)
-
-**Make your choice:**
-
-**Ask Amazon Q:** `I choose B, but what shall we call it?`
-
-![Suggested alternative name](/images/exercise1/3-mapping14.png)
-
-**Tell Amazon Q:** `Call it CUSTOMER_SINCE`
-
-The AI will regenerate the full mapping table with your changes and ask if you're ready to proceed.
-
-**Tell Amazon Q:** `Yes`
-
----
-
-## Validate Sample Records with the Linter
-
-Before generating the final code, the AI will create sample JSON records and validate them with the linter to ensure the mapping is correct.
-
-**Tell Amazon Q:** `OK to proceed`
-
-{{% notice warning %}}
-**Security Approval Required:** The AI will ask permission to run the Python linter script. Always review what the AI wants to run before approving.
-{{% /notice %}}
-
-The AI will:
-1. Generate sample Senzing JSON records based on your mappings
-2. Run the linter to validate JSON structure and required fields
-3. Self-correct if errors are found
-4. May ask you questions if it encounters ambiguous issues
-
-**What to expect during validation:**
-
-- **Errors are rare** - And are usually handled without needing guidance.
-- **Self-correction** - Watch as the AI identifies issues, explains what's wrong, and fixes them
-- **Questions** - The AI may ask you to clarify field meanings or choose between options
-- **You can intervene** - Press Escape to stop and ask "What are you doing?" or "What does the entity spec say about [field]?"
+If the AI missed any codes: **Tell Amazon Q:** `Add mapping for id_type='CEDULA' to NATIONAL_ID_NUMBER`
 
 {{% notice note %}}
-**Catch Mistakes Here:** If we hadn't caught the REGISTRATION_DATE issue earlier, the AI would have found it here during validation and asked you to resolve it. The linter is your safety net!
+**Don't Worry About Perfection:** Additional validation steps will catch issues during the linter stage. Focus on understanding the major decisions and correcting obvious problems. This workflow is designed to help you iterate quickly to a working result - which is the only proof that truly matters.
 {{% /notice %}}
 
-When validation succeeds:
+### Review and Approve
 
-![Sample validation successful](/images/exercise1/3-mapping15.png)
+Once you've asked your questions and made any corrections:
 
-**Tell Amazon Q:** `Yes`
+**Tell Amazon Q:** `The mappings look good, proceed to validation`
+
+### Linter Validation
+
+The AI will generate sample JSON records and run the Senzing linter to validate the mapping structure. The AI can usually self-correct any errors, but may ask for clarification.
+
+{{% notice tip %}}
+**You Can Intervene:** If the AI is doing something you don't understand, press Escape and ask questions before it continues.
+{{% /notice %}}
+
+**Common validation issue - REGISTRATION_DATE:**
+
+If your source data has a field called `registration_date`, the linter may flag it because Senzing has a reserved feature called REGISTRATION_DATE (for legal business incorporation dates).
+
+If this happens:
+
+**Ask Amazon Q:** `Does our customer registration date qualify as the Senzing REGISTRATION_DATE feature?`
+
+The AI will explain that customer registration dates don't match the Senzing feature definition. The solution is to keep it as payload and rename it:
+
+**Tell Amazon Q:** `Rename registration_date to CUSTOMER_SINCE_DATE in the payload`
+
+When validation succeeds, you'll see confirmation:
+
+![Linter validation successful](/images/exercise1/10-linter-pass.png)
+
+The assistant confirms: **"✅ STAGE 4 COMPLETE - Mapping validated"**
+
+### Advance to Outputs
+
+When the linter validates successfully:
+
+**Tell Amazon Q:** `yes`
 
 {{% notice info %}}
-**Checkpoint:** The AI should have successfully validated sample JSON records with the linter. If there were errors, they should have been resolved before proceeding to generate the final mapper code.
+**Checkpoint:** Q should present a complete field disposition table with confidence scores, generate valid sample JSON, and pass linter validation before moving to OUTPUTS.
 {{% /notice %}}

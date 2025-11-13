@@ -26,16 +26,15 @@ By completing this exercise, you will:
 
 ## Exercise Steps
 
-This exercise follows a structured 8-step workflow:
+This exercise follows a structured 7-step workflow:
 
 1. **Examine the source data** - Understand what data you're working with
-2. **Provide or create the schema** - Document the data structure
-3. **Use the Senzing Mapping Assistant** - AI-guided mapping workflow
+2. **Generate the schema** - Document the data structure
+3. **Use the Senzing Mapping Assistant** - AI-guided mapping workflow (5 stages)
 4. **Validate the mapping** - Verify output with JSON analyzer
-5. **Load the data in Senzing** - Import mapped records
-6. **Take a snapshot** - Capture resolution results
-7. **Analyze the snapshot** - Review statistics and examples
-8. **Review with MCP server** - Ask how and why questions
+5. **Load the data** - Import mapped records into Senzing
+6. **Analyze resolved data** - Capture snapshot, review statistics, and explore entities
+7. **Key takeaways** - Reflect on AI-assisted development
 
 **Estimated Time:** 30-45 minutes
 

@@ -3,43 +3,29 @@ title: "Step 5: Load Data"
 weight: 45
 ---
 
-## Load the Data in Senzing
+## Configure and Load Data into Senzing
 
-### Overview
+Now that your mapping is validated, configure the DATA_SOURCE and load the customer data into Senzing for entity resolution.
 
-Now that your mapping is validated, load the customer data into Senzing for entity resolution. Senzing will analyze the records and identify which ones represent the same real-world entities.
+### Step 1: Add the DATA_SOURCE
 
-## Load the Mapped Data
+**Ask Amazon Q:** `Add the data source for me`
 
-**Command to use:**
-```bash
-TODO: Placeholder command for loading customer data into Senzing
-```
+![Add data source 1](/images/exercise1/13-config1.png)
+![Add data source 2](/images/exercise1/13-config2.png)
 
-**What you should see:**
+### Step 2: Load the Mapped Records
 
-![Step 5 - Loading Data](/images/exercise1/step5_load_data_placeholder.png)
+**Ask Amazon Q:** `Yes` to the prior question, or `load the mapped customer records into Senzing`
 
-## Monitor the Load Process
+![Load Senzing 1](/images/exercise1/14-load1.png)
+![Load Senzing 2](/images/exercise1/14-load2.png)
 
-**TODO:** Instructions for monitoring data loading will go here.
 
-Placeholder for:
-- Running the load command
-- Watching progress indicators
-- Verifying successful completion
-- Checking for any load errors
-- Understanding what Senzing is doing during load
-
-**Expected results:**
-- All 120 records loaded successfully
-- No errors or warnings
-- Data ready for entity resolution analysis
-
-{{% notice tip %}}
-Senzing processes records in real-time, performing entity resolution as data loads.
+{{% notice info %}}
+**Real-Time Resolution:** Unlike batch systems, Senzing resolves entities as data loads. By the time loading completes, all 120 records have been fully processed and resolved.
 {{% /notice %}}
 
 {{% notice info %}}
-**Checkpoint:** All customer records should be loaded into Senzing without errors.
+**Checkpoint:** All 120 customer records should be loaded with 8 redo records processed. No errors should occur.
 {{% /notice %}}

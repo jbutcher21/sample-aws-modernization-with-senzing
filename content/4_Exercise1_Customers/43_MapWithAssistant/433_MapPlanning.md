@@ -7,25 +7,77 @@ weight: 433
 
 The AI automatically moves to planning and presents a high-level mapping strategy.
 
-![PLANNING stage - Mapping strategy](/images/exercise1/3-mapping4.png)
+![Customer Planning 1](/images/exercise1/8-planning1.png)
+![Customer Planning 2](/images/exercise1/8-planning2.png)
 
-The AI will:
-- Suggest a DATA_SOURCE name (you can change this)
-- Identify entity types (PERSON vs ORGANIZATION)
-- Explain how it will handle special cases (like dynamic identifiers)
+### The Mapping Strategy
 
-**Understanding key concepts:**
+**STAGE 3: PLANNING - High-Level Approach**
 
-If you see unfamiliar terms, ask about them! For example:
+The AI will present its strategy:
 
-**Ask Amazon Q:** `What is that dynamic identifier handling?`
+**Master Entity: Customer Records**
+- Entity represents both persons and organizations
+- Source contains 114 individuals + 6 companies
 
-![PLANNING stage - Explaining dynamic identifiers](/images/exercise1/3-mapping5.png)
+**DATA_SOURCE Code:**
+- Proposed name: **CUSTOMERS**
+- Represents the source system for these records
+- Must be uppercase per Senzing convention
 
-{{% notice info %}}
-**Dynamic Identifiers:** Many source systems use codes for identifier types (e.g., "SSN", "DL", "PASSPORT"). The AI must map each code to the correct Senzing feature. If your data has many identifier types, ask the AI to enumerate all possible values.
+**Entity Logic:**
+- **customer_type** field controls RECORD_TYPE
+  - "I" (Individual) → RECORD_TYPE: PERSON
+  - "C" (Company) → RECORD_TYPE: ORGANIZATION
+- Conditional mapping based on entity type
+
+**Mapping Approach:**
+- **Single-pass processing** - One mapper handles both types
+- **Conditional field mapping:**
+  - PERSON records: customer_name → NAME_FULL (parsed)
+  - ORGANIZATION records: customer_name → NAME_ORG (unparsed)
+
+**Special Handling: Dynamic Identifiers**
+The AI identifies the id_type/id_number/id_country pattern and plans to map:
+- **PASSPORT** → PASSPORT_NUMBER + PASSPORT_COUNTRY
+- **DRIVERS_LICENSE** → DRIVERS_LICENSE_NUMBER + DRIVERS_LICENSE_STATE
+- **SSN** → SSN_NUMBER
+- **NATIONAL_ID** → NATIONAL_ID_NUMBER + NATIONAL_ID_COUNTRY
+
+The assistant confirms: **"✅ STAGE 3 COMPLETE - Strategy defined"**
+
+{{% notice note %}}
+**Important:** Remember, your response may not match this exactly, as the AI's output can vary.
 {{% /notice %}}
 
-When you understand the strategy and have answered any questions:
+### Ask Questions!
 
-**Tell Amazon Q:** `OK to proceed`
+This is your opportunity to clarify any strategy decisions before field mapping begins.
+
+You probably see something about `dynamic identifiers` ...
+
+**Ask Amazon Q:** `What are dynamic identifiers?`
+
+### Give Direction!
+
+If you don't like the data source it assigned ...
+
+**Tell Amazon Q:** `Call the data source CUSTOMER`
+
+If you want to only load person records ...
+
+**Tell Amazon Q:** `Filter out the companies`
+
+### Advance to Mapping
+
+When you understand the strategy:
+
+**Tell Amazon Q:** `yes`
+
+{{% notice tip %}}
+**LEARNING OPPORTUNITY:** The more questions you ask the more you will learn!
+{{% /notice %}}
+
+{{% notice info %}}
+**Checkpoint:** You and Q should agree on the high level strategy for mapping customers.
+{{% /notice %}}

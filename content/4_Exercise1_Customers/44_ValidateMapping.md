@@ -3,53 +3,43 @@ title: "Step 4: Validate Mapping"
 weight: 44
 ---
 
-Before you validate the entire mapping you have to run the mapper and the actual data
+## Run the Mapper on Full Dataset
 
-Tell amazonq: Go ahead and run the mapper and the actual data
+Now that you have a mapper, test it on the complete customer dataset to generate the Senzing JSON output.
 
-image4-validate0.png on images/exercise1
+### Execute the Mapper
 
-Like the linting process, it may catch errors and correct them.  Usually it sees the problem and fixes it.  If it cannot fix it, it will report the error and you will have to go back and correct the mapping. 
+**Tell Amazon Q:** `Run the mapper on the actual data`
 
-These kinds of errors can also occur as we mapped from the schema, not the actual data.  This is where the rubber meets the road and you may learn even more about your data. So pay attention so you can maybe catch these things earlier in the process.
+![Output code and documentation 1](/images/exercise1/12-execute1.png)
+![Output code and documentation 2](/images/exercise1/12-execute2.png)
 
-as before this is a great learning opportunity!
+Q will execute the mapper, run the linter, and run the JSON analyzer - all steps documented in the Senzing tools reference.
 
-When it does fisnish you will see a report like this:
+### Managing AI Context
 
-image4-validate0b.png on images/exercise1
+If the analyzer output doesn't show errors or warnings, the AI may have lost context during the long conversation. When this happens, re-add the context using the `@` symbol.
 
-## Validate the Mapping with JSON Analyzer
+{{% notice tip %}}
+**Context Management:** Long conversations can cause AI to forget earlier instructions. Use the `@` symbol to re-add important reference files when needed.
+{{% /notice %}}
 
-It also knows the next step is the json analyzer and may even run it for you.  If not you can run it yourself.
+**Re-add context to Amazon Q:**
 
-Tell amazonq: Run the JSON analyzer on the mapped customer JSON
+1. In the Q chat input field, type `@` to open the context menu
+2. Select `SENZING_TOOLS_REFERENCE.md` from the list
+3. Press Enter to add it as context
 
-Why run the json analyzer? Because it runs a different set of checks than the linting process which just says senzing can load it.  The json analyzer produces errors, warnings and information about your data. Such as low population percents, values that are expected to be more unique than they are.  
+**Tell Amazon Q:** `@SENZING_TOOLS_REFERENCE.md Rerun the json analyzer on the mapped customer JSON`
 
-
-See what it says about your mapped customer data!
-
-You will see the following:
-
-image4-validate1.png on images/exercise1
-image4-validate2.png on images/exercise1
-image4-validate3.png on images/exercise1
-
-Of course any errors need to be addressed, but as far as the warnings and info ... In the end, the data is what it is.  it just nice to know these things in case something can be done about it!
-
-Double check to see if there were any errors
-
-Ask amazonq: were there any errors
-
-image4-validate3.png on images/exercise1
-
-You can even ask the AI to add the data source for you!
-
-tell amazonq: add the data source for me
-
-
+![Output code and documentation 1](/images/exercise1/12-execute3.png)
+![Output code and documentation 2](/images/exercise1/12-execute4.png)
+![Output code and documentation 2](/images/exercise1/12-execute5.png)
 
 {{% notice info %}}
-**Checkpoint:** Your mapped data should pass validation with no errors.
+**About Warnings:** Warnings highlight data quality considerations, but they're informational. The data is what it is - it's just good to know these patterns in case something can be improved at the source!
+{{% /notice %}}
+
+{{% notice info %}}
+**Checkpoint:** Your mapped data should pass validation with no errors. All 120 records should be valid Senzing JSON with features correctly recognized.
 {{% /notice %}}
