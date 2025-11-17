@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Running the Workshop at an AWS Guided Event on English</title>
-    <link>//localhost:1313/2_setup_configuration/21_aws_guided_event/index.html</link>
+    <link>/2_setup_configuration/21_aws_guided_event/index.html</link>
     <description>Recent content in Running the Workshop at an AWS Guided Event on English</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="//localhost:1313/2_setup_configuration/21_aws_guided_event/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/2_setup_configuration/21_aws_guided_event/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Join the workshop event</title>
-      <link>//localhost:1313/2_setup_configuration/21_aws_guided_event/211_joinworkshopevent.html</link>
+      <link>/2_setup_configuration/21_aws_guided_event/211_joinworkshopevent.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/2_setup_configuration/21_aws_guided_event/211_joinworkshopevent.html</guid>
-      <description>&lt;p&gt;If you are joining an AWS-hosted event, you will use a platform named &lt;em&gt;AWS Workshop Studio&lt;/em&gt;. This platform allows AWS field teams to run Workshops, Game Days, Boot camps, Immersion Days, and other events that require hands-on access to AWS accounts or resources.&lt;/p&gt;&#xA;&lt;p&gt;Follow the steps below to gain access to your Workshop Studio AWS account:&lt;/p&gt;&#xA;&lt;h4 id=&#34;step-1-go-to-workshop-studio&#34;&gt;Step 1: Go to Workshop Studio&lt;/h4&gt;&#xA;&lt;p&gt;Access your workshop here: &lt;a href=&#34;https://catalog.workshops.aws/join&#34; target=&#34;_blank&#34;&gt;Workshop Studio&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;step-2-choose-sign-in-method&#34;&gt;Step 2:. Choose Sign-In method.&lt;/h4&gt;&#xA;&lt;p style=&#34;text-align: center;&#34;&gt;&#xA;&lt;img alt=&#34;Sign In dialog&#34; src=&#34;//localhost:1313/images/aws_event/sign_in.png&#34;&gt;&#xA;&lt;/p&gt;</description>
+      <guid>/2_setup_configuration/21_aws_guided_event/211_joinworkshopevent.html</guid>
+      <description>&lt;p&gt;If you are joining an AWS-hosted event, you will use a platform named &lt;em&gt;AWS Workshop Studio&lt;/em&gt;. This platform allows AWS field teams to run Workshops, Game Days, Boot camps, Immersion Days, and other events that require hands-on access to AWS accounts or resources.&lt;/p&gt;&#xA;&lt;p&gt;Follow the steps below to gain access to your Workshop Studio AWS account:&lt;/p&gt;&#xA;&lt;h4 id=&#34;step-1-go-to-workshop-studio&#34;&gt;Step 1: Go to Workshop Studio&lt;/h4&gt;&#xA;&lt;p&gt;Access your workshop here: &lt;a href=&#34;https://catalog.workshops.aws/join&#34; target=&#34;_blank&#34;&gt;Workshop Studio&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;step-2-choose-sign-in-method&#34;&gt;Step 2:. Choose Sign-In method.&lt;/h4&gt;&#xA;&lt;p style=&#34;text-align: center;&#34;&gt;&#xA;&lt;img alt=&#34;Sign In dialog&#34; src=&#34;/images/aws_event/sign_in.png&#34;&gt;&#xA;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Accessing your IDE</title>
-      <link>//localhost:1313/2_setup_configuration/21_aws_guided_event/212_accessingide.html</link>
+      <link>/2_setup_configuration/21_aws_guided_event/212_accessingide.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/2_setup_configuration/21_aws_guided_event/212_accessingide.html</guid>
-      <description>&lt;h3 id=&#34;access-your-cloud-based-code-server-ide&#34;&gt;Access your cloud-based code-server IDE&lt;/h3&gt;&#xA;&lt;p&gt;For this workshop, you&amp;rsquo;ll use Visual Studio Code running on an Amazon EC2 instance via code-server. This provides a consistent development environment with all tools pre-configured.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Open the &lt;a href=&#34;https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US&#34; target=&#34;_blank&#34;&gt;Workshop Studio event dashboard&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Navigate to the &lt;strong&gt;Event Outputs&lt;/strong&gt; panel at the bottom of the page.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/codeserver/event_outputs.png?height=150px&#34; alt=&#34;Event Outputs&#34;&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Copy the &lt;strong&gt;Password&lt;/strong&gt; 🔑 - you&amp;rsquo;ll need this to authenticate.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Click on the &lt;strong&gt;URL&lt;/strong&gt; to open your cloud IDE in a new tab.&lt;/p&gt;</description>
+      <guid>/2_setup_configuration/21_aws_guided_event/212_accessingide.html</guid>
+      <description>&lt;h3 id=&#34;access-your-cloud-based-code-server-ide&#34;&gt;Access your cloud-based code-server IDE&lt;/h3&gt;&#xA;&lt;p&gt;For this workshop, you&amp;rsquo;ll use Visual Studio Code running on an Amazon EC2 instance via code-server. This provides a consistent development environment with all tools pre-configured.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Open the &lt;a href=&#34;https://catalog.us-east-1.prod.workshops.aws/event/dashboard/en-US&#34; target=&#34;_blank&#34;&gt;Workshop Studio event dashboard&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Navigate to the &lt;strong&gt;Event Outputs&lt;/strong&gt; panel at the bottom of the page.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;/images/codeserver/event_outputs.png?height=150px&#34; alt=&#34;Event Outputs&#34;&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Copy the &lt;strong&gt;Password&lt;/strong&gt; 🔑 - you&amp;rsquo;ll need this to authenticate.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Click on the &lt;strong&gt;URL&lt;/strong&gt; to open your cloud IDE in a new tab.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
