@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Senzing MCP Server Setup on English</title>
+    <link>//localhost:1313/2_setup_configuration/25_senzingmcpsetup/index.html</link>
+    <description>Recent content in Senzing MCP Server Setup on English</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/2_setup_configuration/25_senzingmcpsetup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Step 1: Configure the MCP Server</title>
+      <link>//localhost:1313/2_setup_configuration/25_senzingmcpsetup/251_configuremcpserver.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/2_setup_configuration/25_senzingmcpsetup/251_configuremcpserver.html</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;The Senzing MCP server and all required environment variables are pre-configured in your workshop environment. You just need to connect it to Amazon Q Developer.&lt;/p&gt;&#xA;&lt;h2 id=&#34;access-mcp-configuration&#34;&gt;Access MCP Configuration&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Open the Amazon Q chat&lt;/strong&gt; panel in your IDE&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Click the tools icon&lt;/strong&gt; in the chat interface to access MCP configuration&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/senzing_mcp/senzing_mcp1.png&#34; alt=&#34;MCP Tools Icon&#34;&gt;&lt;/p&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;&lt;strong&gt;Select the plus (+) symbol&lt;/strong&gt; to add a new MCP server&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/senzing_mcp/senzing_mcp2.png&#34; alt=&#34;MCP Add Icon&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/senzing_mcp/senzing_mcp3.png&#34; alt=&#34;MCP Tools Senzing Config&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Step 2: Authorize MCP Tools</title>
+      <link>//localhost:1313/2_setup_configuration/25_senzingmcpsetup/252_authorizetools.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/2_setup_configuration/25_senzingmcpsetup/252_authorizetools.html</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;After saving your MCP server configuration, Amazon Q will automatically detect the Senzing MCP tools and prompt you to authorize them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;authorization-prompt&#34;&gt;Authorization Prompt&lt;/h2&gt;&#xA;&lt;p&gt;You&amp;rsquo;ll see a prompt showing all available Senzing tools:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/senzing_mcp/senzing_mcp5.png&#34; alt=&#34;MCP Tools Authorization&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;choose-authorization-level&#34;&gt;Choose Authorization Level&lt;/h2&gt;&#xA;&#xA;&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;&lt;strong&gt;Choose your authorization preference:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Always allow&lt;/strong&gt;: Recommended for workshop - allows Q to use these tools automatically&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Ask&lt;/strong&gt;: You&amp;rsquo;ll be prompted before each tool use (more manual but gives you control)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Deny&lt;/strong&gt;: Blocks the tool from being used&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h3 id=&#34;recommendation&#34;&gt;Recommendation&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Select &amp;ldquo;Always allow&amp;rdquo;&lt;/strong&gt; for a smoother workshop experience.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Step 3: Verify the Integration</title>
+      <link>//localhost:1313/2_setup_configuration/25_senzingmcpsetup/253_verifyintegration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/2_setup_configuration/25_senzingmcpsetup/253_verifyintegration.html</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;Now that you&amp;rsquo;ve configured and authorized the Senzing MCP server, let&amp;rsquo;s verify that Amazon Q can successfully access and use the Senzing tools.&lt;/p&gt;&#xA;&lt;h2 id=&#34;test-1-list-available-tools&#34;&gt;Test 1: List Available Tools&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;In the Amazon Q chat&lt;/strong&gt;, ask:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;What MCP tools are available?&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/senzing_mcp/senzing_mcp6.png&#34; alt=&#34;MCP Tools List&#34;&gt;&lt;/p&gt;&#xA;&#xA;&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;These tools will become more useful once you&amp;rsquo;ve loaded entity data in later modules. For now, we&amp;rsquo;re just confirming the connection works.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h2 id=&#34;test-2-query-test-entity&#34;&gt;Test 2: Query Test Entity&lt;/h2&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Try a test query:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

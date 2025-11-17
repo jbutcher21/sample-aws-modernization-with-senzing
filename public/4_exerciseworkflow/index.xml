@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exercise Workflow Overview on English</title>
+    <link>//localhost:1313/4_exerciseworkflow/index.html</link>
+    <description>Recent content in Exercise Workflow Overview on English</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/4_exerciseworkflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Step-by-Step Workflow</title>
+      <link>//localhost:1313/4_exerciseworkflow/41_stepbystep.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/4_exerciseworkflow/41_stepbystep.html</guid>
+      <description>&lt;h2 id=&#34;the-complete-7-step-process&#34;&gt;The Complete 7-Step Process&lt;/h2&gt;&#xA;&lt;p&gt;This page details the workflow you&amp;rsquo;ll follow in both exercises. Each step builds on the previous one, creating a complete pipeline from raw source data to analyzed entity resolution results.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;step-1-examine-the-source-data&#34;&gt;STEP 1: Examine the Source Data&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Goal&lt;/strong&gt;: Understand the structure, format, and content of your source data&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;What you do:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;View the source file (CSV, JSON, etc.)&lt;/li&gt;&#xA;&lt;li&gt;Identify field names and data types&lt;/li&gt;&#xA;&lt;li&gt;Note any special characteristics (nested structures, conditional fields, etc.)&lt;/li&gt;&#xA;&lt;li&gt;Check data quality and completeness&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tools:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tools Reference</title>
+      <link>//localhost:1313/4_exerciseworkflow/42_toolsreference.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/4_exerciseworkflow/42_toolsreference.html</guid>
+      <description>&lt;h2 id=&#34;quick-reference-for-workshop-tools&#34;&gt;Quick Reference for Workshop Tools&lt;/h2&gt;&#xA;&lt;p&gt;This page provides quick command syntax for all tools used in the 7-step workflow. Bookmark this page for easy reference during the exercises.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;schema-generation&#34;&gt;Schema Generation&lt;/h2&gt;&#xA;&lt;h3 id=&#34;sz_schema_generatorpy&#34;&gt;sz_schema_generator.py&lt;/h3&gt;&#xA;&lt;p&gt;Analyzes source data and generates detailed schema documentation.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Basic usage:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 workshop/senzing/tools/sz_schema_generator.py &amp;lt;input_file&amp;gt; -o &amp;lt;output_schema&amp;gt;.md&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;For CSV files:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 workshop/senzing/tools/sz_schema_generator.py data.csv -o schema.md&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;For JSON files:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 workshop/senzing/tools/sz_schema_generator.py data.jsonl -o schema.md&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;: Markdown file with field analysis, types, sample values, and population rates&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

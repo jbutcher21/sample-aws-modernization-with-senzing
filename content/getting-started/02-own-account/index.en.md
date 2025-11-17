@@ -31,7 +31,7 @@ We will download the CloudFormation templates used to provision the resources, a
 
 2. In the menu bar, for **Select a Region**, choose the region in which you will be running the workshop.
 
-![Select Region](/static/images/own-account/select-region.png)
+![Select Region](/images/own-account/select-region.png)
 3. Run the following code in CloudShell terminal.
 
 :::code{showCopyAction=true showLineNumbers=false language=bash}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Mapping Problem on English</title>
+    <link>//localhost:1313/3_mappingproblem/index.html</link>
+    <description>Recent content in The Mapping Problem on English</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/3_mappingproblem/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mapping Challenges</title>
+      <link>//localhost:1313/3_mappingproblem/31_mappingchallenges.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/3_mappingproblem/31_mappingchallenges.html</guid>
+      <description>&lt;h2 id=&#34;why-data-mapping-is-hard&#34;&gt;Why Data Mapping Is Hard&lt;/h2&gt;&#xA;&lt;p&gt;Data mapping for entity resolution presents unique challenges that make it time-consuming and error-prone when done manually.&lt;/p&gt;&#xA;&lt;h3 id=&#34;challenge-1-understanding-complex-specifications&#34;&gt;Challenge 1: Understanding Complex Specifications&lt;/h3&gt;&#xA;&lt;p&gt;Entity resolution systems like Senzing support &lt;strong&gt;dozens of feature types&lt;/strong&gt; with &lt;strong&gt;hundreds of attributes&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;NAME features&lt;/strong&gt;: &lt;code&gt;NAME_FIRST&lt;/code&gt;, &lt;code&gt;NAME_LAST&lt;/code&gt;, &lt;code&gt;NAME_MIDDLE&lt;/code&gt;, &lt;code&gt;NAME_PREFIX&lt;/code&gt;, &lt;code&gt;NAME_SUFFIX&lt;/code&gt;, &lt;code&gt;NAME_ORG&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;ADDRESS features&lt;/strong&gt;: &lt;code&gt;ADDR_LINE1&lt;/code&gt;, &lt;code&gt;ADDR_LINE2&lt;/code&gt;, &lt;code&gt;ADDR_CITY&lt;/code&gt;, &lt;code&gt;ADDR_STATE&lt;/code&gt;, &lt;code&gt;ADDR_POSTAL_CODE&lt;/code&gt;, &lt;code&gt;ADDR_COUNTRY&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;PHONE features&lt;/strong&gt;: &lt;code&gt;PHONE_NUMBER&lt;/code&gt;, &lt;code&gt;PHONE_TYPE&lt;/code&gt;, &lt;code&gt;PHONE_COUNTRY&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Identifier features&lt;/strong&gt;: &lt;code&gt;SSN_NUMBER&lt;/code&gt;, &lt;code&gt;DRIVERS_LICENSE_NUMBER&lt;/code&gt;, &lt;code&gt;PASSPORT_NUMBER&lt;/code&gt;, &lt;code&gt;NATIONAL_ID_NUMBER&lt;/code&gt;, etc.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;The problem&lt;/strong&gt;: You must understand which attributes are required vs optional, what formats are expected, and how they interact with the entity resolution engine.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Senzing Entity Model</title>
+      <link>//localhost:1313/3_mappingproblem/32_senzingentitymodel.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/3_mappingproblem/32_senzingentitymodel.html</guid>
+      <description>&lt;h2 id=&#34;understanding-senzings-data-format&#34;&gt;Understanding Senzing&amp;rsquo;s Data Format&lt;/h2&gt;&#xA;&lt;p&gt;Senzing uses a standardized JSON format for entity resolution. Each record represents either a &lt;strong&gt;PERSON&lt;/strong&gt; or &lt;strong&gt;ORGANIZATION&lt;/strong&gt; entity and contains structured information that Senzing uses to find matches and relationships.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features-vs-payload-the-key-distinction&#34;&gt;Features vs Payload: The Key Distinction&lt;/h2&gt;&#xA;&lt;p&gt;The most important concept in Senzing mapping is the difference between &lt;strong&gt;Features&lt;/strong&gt; and &lt;strong&gt;Payload&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;h3 id=&#34;features-used-for-matching&#34;&gt;Features (Used for Matching)&lt;/h3&gt;&#xA;&lt;p&gt;Features are attributes that Senzing uses to &lt;strong&gt;identify and match entities across records&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI-Assisted Solution</title>
+      <link>//localhost:1313/3_mappingproblem/33_aiassistedsolution.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/3_mappingproblem/33_aiassistedsolution.html</guid>
+      <description>&lt;h2 id=&#34;how-ai-transforms-the-mapping-process&#34;&gt;How AI Transforms the Mapping Process&lt;/h2&gt;&#xA;&lt;p&gt;Instead of spending days manually mapping data, you can use AI assistance to complete the work in under an hour - with better results and complete documentation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-senzing-mapping-assistant&#34;&gt;The Senzing Mapping Assistant&lt;/h2&gt;&#xA;&lt;p&gt;This workshop teaches a &lt;strong&gt;structured, repeatable workflow&lt;/strong&gt; called the &lt;strong&gt;Senzing Mapping Assistant&lt;/strong&gt;. Rather than just asking AI to &amp;ldquo;write me a mapper,&amp;rdquo; you follow a 5-stage process that ensures correct, validated mappings every time.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Workshop Datasets</title>
+      <link>//localhost:1313/3_mappingproblem/34_workshopdatasets.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/3_mappingproblem/34_workshopdatasets.html</guid>
+      <description>&lt;h2 id=&#34;two-datasets-same-workflow&#34;&gt;Two Datasets, Same Workflow&lt;/h2&gt;&#xA;&lt;p&gt;This workshop includes two datasets that demonstrate the Senzing Mapping Assistant workflow at different complexity levels. Both follow the same 7-step process you learned in the previous sections.&lt;/p&gt;&#xA;&lt;h2 id=&#34;dataset-1-customer-data-exercise-1&#34;&gt;Dataset 1: Customer Data (Exercise 1)&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;File&lt;/strong&gt;: &lt;code&gt;workshop/workspace/customers/customers.csv&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Format&lt;/strong&gt;: CSV with 120 records&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Challenge Level&lt;/strong&gt;: ⭐⭐ Intermediate&lt;/p&gt;&#xA;&lt;h3 id=&#34;whats-in-this-dataset&#34;&gt;What&amp;rsquo;s in This Dataset?&lt;/h3&gt;&#xA;&lt;p&gt;A realistic customer database export containing:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;114 PERSON records&lt;/strong&gt; - Individual customers&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;6 ORGANIZATION records&lt;/strong&gt; - Business customers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This mimics real-world scenarios where a single data source contains multiple entity types.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
