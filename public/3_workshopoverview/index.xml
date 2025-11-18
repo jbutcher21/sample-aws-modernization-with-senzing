@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Workshop Overview on English</title>
-    <link>//localhost:1313/3_workshopoverview/index.html</link>
+    <link>/3_workshopoverview/index.html</link>
     <description>Recent content in Workshop Overview on English</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="//localhost:1313/3_workshopoverview/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/3_workshopoverview/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What is Data Mapping</title>
-      <link>//localhost:1313/3_workshopoverview/30_mappingchallenge.html</link>
+      <link>/3_workshopoverview/30_mappingchallenge.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/3_workshopoverview/30_mappingchallenge.html</guid>
+      <guid>/3_workshopoverview/30_mappingchallenge.html</guid>
       <description>&lt;h2 id=&#34;what-is-data-mapping&#34;&gt;What is Data Mapping?&lt;/h2&gt;&#xA;&lt;p&gt;Data mapping is the process of defining how data fields from a source system correspond to fields in a target system.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-data-mapping-is-hard&#34;&gt;Why Data Mapping is Hard&lt;/h2&gt;&#xA;&lt;p&gt;Data mapping projects face several common challenges:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Complex schemas on both sides&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Source systems may have dozens or hundreds of fields with unclear naming conventions&lt;/li&gt;&#xA;&lt;li&gt;Target systems (like Senzing) have their own complex specifications with specific requirements&lt;/li&gt;&#xA;&lt;li&gt;Understanding how fields relate across systems requires deep knowledge of both&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Subject matter experts are scarce&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Senzing&#39;s AI Assisted Approach</title>
-      <link>//localhost:1313/3_workshopoverview/31_mappingworkflow.html</link>
+      <link>/3_workshopoverview/31_mappingworkflow.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/3_workshopoverview/31_mappingworkflow.html</guid>
+      <guid>/3_workshopoverview/31_mappingworkflow.html</guid>
       <description>&lt;h2 id=&#34;traditional-vs-ai-assisted-mapping&#34;&gt;Traditional vs AI-Assisted Mapping&lt;/h2&gt;&#xA;&lt;h3 id=&#34;traditional-approach&#34;&gt;Traditional Approach&lt;/h3&gt;&#xA;&lt;p&gt;Manually analyzing fields, writing custom code, debugging issues, and updating documentation took &lt;strong&gt;days or weeks&lt;/strong&gt; for each data source. The process involved:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Reading through data dictionaries and sample files&lt;/li&gt;&#xA;&lt;li&gt;Consulting Senzing documentation repeatedly&lt;/li&gt;&#xA;&lt;li&gt;Writing mapper code from scratch&lt;/li&gt;&#xA;&lt;li&gt;Debugging field mappings and data transformations&lt;/li&gt;&#xA;&lt;li&gt;Maintaining separate documentation&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;senzings-ai-assisted-approach&#34;&gt;Senzing&amp;rsquo;s AI-Assisted Approach&lt;/h3&gt;&#xA;&lt;p&gt;With AI assistance and the Senzing Mapping Assistant workflow, you can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Automate schema analysis&lt;/strong&gt; - AI reads and understands your data structure&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Get guided decisions&lt;/strong&gt; on field mappings based on Senzing best practices&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Generate production-ready code&lt;/strong&gt; automatically from your mapping decisions&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Validate output automatically&lt;/strong&gt; using professional tools&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Complete mappings in hours&lt;/strong&gt; instead of days&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;what-makes-this-different&#34;&gt;What Makes This Different?&lt;/h2&gt;&#xA;&lt;p&gt;This isn&amp;rsquo;t just a coding exercise or simple code generation. You&amp;rsquo;ll learn a &lt;strong&gt;repeatable workflow&lt;/strong&gt; that combines:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Workshop Folder Tour</title>
-      <link>//localhost:1313/3_workshopoverview/32_workshopfolder.html</link>
+      <link>/3_workshopoverview/32_workshopfolder.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/3_workshopoverview/32_workshopfolder.html</guid>
-      <description>&lt;h2 id=&#34;opening-your-workshop-environment&#34;&gt;Opening Your Workshop Environment&lt;/h2&gt;&#xA;&lt;p&gt;All workshop materials are located in the &lt;code&gt;/home/ubuntu/workshop/&lt;/code&gt; directory.&lt;/p&gt;&#xA;&lt;p&gt;In this section, you&amp;rsquo;ll explore the workshop folder structure and learn how AI can help you quickly understand unfamiliar tools and documentation - a key skill you&amp;rsquo;ll use throughout the workshop.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Open this folder now in your IDE:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;In your code-server IDE, use the file explorer (left sidebar)&lt;/li&gt;&#xA;&lt;li&gt;Navigate to &lt;code&gt;/home/ubuntu/workshop/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Expand the folders to see the structure&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-workshop-folder-structure&#34;&gt;The Workshop Folder Structure&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/overview/workshop_open.png&#34; alt=&#34;Workshop folder in your IDE&#34;&gt;&lt;/p&gt;</description>
+      <guid>/3_workshopoverview/32_workshopfolder.html</guid>
+      <description>&lt;h2 id=&#34;opening-your-workshop-environment&#34;&gt;Opening Your Workshop Environment&lt;/h2&gt;&#xA;&lt;p&gt;All workshop materials are located in the &lt;code&gt;/home/ubuntu/workshop/&lt;/code&gt; directory.&lt;/p&gt;&#xA;&lt;p&gt;In this section, you&amp;rsquo;ll explore the workshop folder structure and learn how AI can help you quickly understand unfamiliar tools and documentation - a key skill you&amp;rsquo;ll use throughout the workshop.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Open this folder now in your IDE:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;In your code-server IDE, use the file explorer (left sidebar)&lt;/li&gt;&#xA;&lt;li&gt;Navigate to &lt;code&gt;/home/ubuntu/workshop/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Expand the folders to see the structure&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;the-workshop-folder-structure&#34;&gt;The Workshop Folder Structure&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;/images/overview/workshop_open.png&#34; alt=&#34;Workshop folder in your IDE&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Explore with AI</title>
-      <link>//localhost:1313/3_workshopoverview/33_explorewithai.html</link>
+      <link>/3_workshopoverview/33_explorewithai.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/3_workshopoverview/33_explorewithai.html</guid>
+      <guid>/3_workshopoverview/33_explorewithai.html</guid>
       <description>&lt;h2 id=&#34;using-ai-to-understand-the-workshop-files&#34;&gt;Using AI to Understand the Workshop Files&lt;/h2&gt;&#xA;&lt;p&gt;Rather than reading lengthy documentation, let&amp;rsquo;s use AI to explore the workshop folder structure. This demonstrates a key modern development skill: asking targeted questions to quickly understand unfamiliar codebases and tools.&lt;/p&gt;&#xA;&#xA;&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;strong&gt;Why ask AI?&lt;/strong&gt; Instead of reading lengthy documentation, you can ask targeted questions and get immediate, contextual answers. This is a key skill for modern developers!&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;opening-amazon-q-developer&#34;&gt;Opening Amazon Q Developer&lt;/h2&gt;&#xA;&lt;p&gt;First, let&amp;rsquo;s open Amazon Q Developer and give it context about the workshop folder.&lt;/p&gt;</description>
     </item>
   </channel>
