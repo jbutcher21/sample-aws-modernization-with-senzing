@@ -69,7 +69,7 @@ To create a profile:
 
 1. In your terminal, run:
 
-   ```bash
+   ```bash {copy}
    q login
    ```
 
@@ -85,7 +85,7 @@ To create a profile:
 
 4. Test your setup with:
 
-   ```bash
+   ```bash {copy}
    q chat "Hello, Amazon Q!" --no-interactive
    ```
 
@@ -132,13 +132,13 @@ The CLI provides access to experimental features that you can optionally enable:
 
 1. Launch the Q chat interface:
 
-```bash
+```bash {copy}
 q chat
 ```
 
 2. Access the experiments section:
 
-```bash
+```bash {copy}
 /experiment
 ```
 

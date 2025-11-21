@@ -7,11 +7,11 @@ weight: 66
 
 With data loaded and a snapshot captured, it's time to analyze the entity resolution results to understand what Senzing found.
 
-::alert[**IMPORTANT LESSON: Context Loss Across Sessions**
-
+:::alert{header="IMPORTANT LESSON: Context Loss Across Sessions" type="warning"}
 This step documents a real scenario that happened during workshop development. The mapping and loading were completed in one AI session, then **the session ended**. When analysis resumed in a new session, **the AI had lost all context** about what had been done.
 
-This section shows what happened, why it happened, and how to recover - a critical skill for working with AI on multi-day projects!]{type="warning"}
+This section shows what happened, why it happened, and how to recover - a critical skill for working with AI on multi-day projects!
+:::
 
 ---
 
@@ -91,8 +91,7 @@ Compacting the conversation:
 - ✅ **Reduces token count** so you have room to keep working
 - ✅ **Preserves enough context** to maintain continuity
 
-::alert[**The Lesson: Accept the Compact Offer**
-
+:::alert{header="The Lesson: Accept the Compact Offer" type="warning"}
 When AI warns "Context ~80% full" and offers to compact:
 - **SAY YES** to the compact offer
 - AI will compress the conversation history
@@ -101,7 +100,8 @@ When AI warns "Context ~80% full" and offers to compact:
 
 **DON'T** decline and hope for the best - at 100%, session WILL reset automatically.
 
-**In this exercise:** Data was loaded, ready to take snapshot. Context hit 80%, AI offered to compact. Should have said "yes, compact the conversation." Instead, took a chance and declined. Kept going without compacting → hit 100% → session reset → all context lost.]{type="warning"}
+**In this exercise:** Data was loaded, ready to take snapshot. Context hit 80%, AI offered to compact. Should have said "yes, compact the conversation." Instead, took a chance and declined. Kept going without compacting → hit 100% → session reset → all context lost.
+:::
 
 ---
 
@@ -216,7 +216,7 @@ While you can't always prevent sessions from ending, you can minimize recovery t
 ### 1. Document Progress
 
 Create markdown files tracking what you've done:
-```bash
+```bash {copy}
 # Create a progress log
 cat > mapping_progress.md << 'EOF'
 # FTM Watchlist Mapping Progress
@@ -240,7 +240,7 @@ EOF
 ### 2. Save Key Information
 
 Keep a file with important paths and facts:
-```bash
+```bash {copy}
 cat > session_context.md << 'EOF'
 # Session Context
 

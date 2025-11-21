@@ -13,7 +13,7 @@ Now it's time to run the mapper on the actual FTM data and validate the results 
 
 Execute the mapper script on the actual FTM watchlist data:
 
-```bash
+```bash {copy}
 python3 ftm_mapper.py ftm.jsonl ftm_senzing.jsonl
 ```
 
@@ -42,7 +42,7 @@ Pass 4: Adding Directorship relationships...
 
 First validation: Check that the JSON is structurally correct:
 
-```bash
+```bash {copy}
 python3 senzing/tools/lint_senzing_json.py ftm_senzing.jsonl
 ```
 
@@ -64,7 +64,7 @@ All records have required fields (DATA_SOURCE, RECORD_ID)
 
 Second validation: Check that Senzing will recognize and use the mapped data:
 
-```bash
+```bash {copy}
 python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md
 ```
 
@@ -72,7 +72,7 @@ python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md
 
 Read the analysis results:
 
-```bash
+```bash {copy}
 cat analysis.md
 ```
 
@@ -112,7 +112,7 @@ The analyzer found **critical errors**: DATA_SOURCE codes not registered in Senz
 
 Create a configuration file to register both DATA_SOURCE codes:
 
-```bash
+```bash {copy}
 cat > ftm_config.g2c << 'EOF'
 addDataSource CORP_FILINGS
 addDataSource SANCTIONS
@@ -122,7 +122,7 @@ EOF
 
 Run the configuration tool:
 
-```bash
+```bash {copy}
 source ~/.bashrc && sz_configtool -f ftm_config.g2c
 ```
 
@@ -143,7 +143,7 @@ Saving configuration...
 
 Run the analyzer again to confirm errors are resolved:
 
-```bash
+```bash {copy}
 python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md
 cat analysis.md
 ```

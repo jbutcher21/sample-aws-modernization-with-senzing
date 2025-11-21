@@ -26,7 +26,7 @@ workspace/watchlist/ftm.jsonl
 - **Relationship pointers** - Entities reference other entities by ID
 
 **Sample FTM Record:**
-```json
+```json {copy}
 {
   "id": "sanctions-person-1006",
   "schema": "Person",
@@ -56,7 +56,7 @@ Generate a schema for the ftm.jsonl file I have open
 
 The AI will run the schema generator tool:
 
-```bash
+```bash {copy}
 python3 senzing/tools/sz_schema_generator.py workspace/watchlist/ftm.jsonl -o workspace/watchlist/ftm_schema.md
 ```
 

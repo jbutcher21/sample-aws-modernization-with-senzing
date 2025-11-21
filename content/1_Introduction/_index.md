@@ -52,7 +52,7 @@ Throughout this workshop, you'll encounter various visual elements:
 {{% /notice %}}
 
 **Code Blocks:**
-```bash
+```bash {copy}
 # Command-line instructions look like this
 python3 mapper.py input.csv -o output.jsonl
 ```

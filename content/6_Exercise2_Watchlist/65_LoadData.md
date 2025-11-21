@@ -13,7 +13,7 @@ With validation complete and all critical errors resolved, load the watchlist da
 
 Use the Senzing file loader to import the mapped JSONL:
 
-```bash
+```bash {copy}
 source ~/.bashrc && sz_file_loader -f ftm_senzing.jsonl
 ```
 
@@ -69,7 +69,7 @@ Some records could match in multiple ways. Senzing flags these for human review:
 
 Capture the current entity resolution state for analysis:
 
-```bash
+```bash {copy}
 source ~/.bashrc && sz_snapshot -o ftm-watchlist-snapshot-$(date +%Y-%m-%d) -Q
 ```
 
@@ -127,7 +127,7 @@ These cross-source matches are the **most interesting findings** from entity res
 
 Verify the data loaded correctly by checking record counts:
 
-```bash
+```bash {copy}
 source ~/.bashrc && sz_explorer -query 'DATA_SOURCE=SANCTIONS'
 ```
 
@@ -136,7 +136,7 @@ source ~/.bashrc && sz_explorer -query 'DATA_SOURCE=SANCTIONS'
 - Verify some have merged sanction payload attributes
 - Check that relationships are present
 
-```bash
+```bash {copy}
 source ~/.bashrc && sz_explorer -query 'DATA_SOURCE=CORP_FILINGS'
 ```
 

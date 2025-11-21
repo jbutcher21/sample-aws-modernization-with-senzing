@@ -42,7 +42,7 @@ The AI loads five critical reference files:
 
 The AI confirms the linter is functional by running a self-test:
 
-```bash
+```bash {copy}
 python3 senzing/tools/lint_senzing_json.py --help
 ```
 
