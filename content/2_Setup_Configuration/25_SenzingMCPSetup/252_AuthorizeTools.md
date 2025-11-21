@@ -1,7 +1,7 @@
----
-title: "Step 2: Authorize MCP Tools"
-weight: 252
----
++++
+title = "Step 2: Authorize MCP Tools"
+weight = 252
++++
 
 ## Overview
 
@@ -11,7 +11,7 @@ After saving your MCP server configuration, Amazon Q will automatically detect t
 
 You'll see a prompt showing all available Senzing tools:
 
-![MCP Tools Authorization](/static/images/senzing_mcp/senzing_mcp5.png)
+![MCP Tools Authorization](/images/senzing_mcp/senzing_mcp5.png)
 
 ## Choose Authorization Level
 
@@ -31,7 +31,7 @@ This setting:
 - Creates a more natural conversational AI experience
 - Can be changed later in Amazon Q settings if needed
 
-::alert["Always allow" is safe in this workshop environment since you control all the data and queries. In production environments with sensitive data, you might prefer "Ask" for additional oversight.]{type="info"}
+{{% notice info %}}"Always allow" is safe in this workshop environment since you control all the data and queries. In production environments with sensitive data, you might prefer "Ask" for additional oversight.{{% /notice %}}
 
 ## Authorization Scope
 
@@ -43,7 +43,6 @@ The authorization applies to:
 ## Next Steps
 
 Once you've authorized the tools, you're ready to verify the integration is working correctly!
-
 
 Ensure you've authorized at least some Senzing tools before proceeding to verification.
 

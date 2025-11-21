@@ -1,2 +1,2 @@
-public/
-review/
+assets/*
+!assets/README.md

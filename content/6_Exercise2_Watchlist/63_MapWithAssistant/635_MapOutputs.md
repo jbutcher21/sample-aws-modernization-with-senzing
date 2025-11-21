@@ -1,7 +1,7 @@
----
-title: "Stage 5: OUTPUTS"
-weight: 635
----
++++
+title = "Stage 5: OUTPUTS"
+weight = 635
++++
 
 ## Stage 5: Generate Mapper Code and Documentation
 
@@ -232,7 +232,7 @@ python3 senzing/tools/lint_senzing_json.py sample_output.jsonl
 
 **Result:** ✅ **PASSED** - No JSON syntax errors
 
-::alert[**Always lint sample output during development!** Finding structural errors early prevents having to fix broken mapper code later.]{type="info"}
+{{% notice info %}}**Always lint sample output during development!** Finding structural errors early prevents having to fix broken mapper code later.{{% /notice %}}
 
 ---
 

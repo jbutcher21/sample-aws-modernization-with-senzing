@@ -1,8 +1,8 @@
----
-title: "What is Data Mapping"
-chapter: false
-weight: 30
----
++++
+title = "What is Data Mapping"
+chapter = false
+weight = 30
++++
 
 Data mapping is the process of defining how data fields from a source system correspond to fields in a target system.
 
@@ -25,5 +25,4 @@ Data mapping projects face several common challenges:
 - Testing mappings to verify correctness requires multiple iterations
 - Edge cases and data quality issues only emerge during implementation
 - Documentation is often incomplete or outdated
-
 

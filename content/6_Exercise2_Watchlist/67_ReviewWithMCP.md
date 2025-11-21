@@ -1,13 +1,13 @@
----
-title: "Step 7: Review with MCP Server"
-weight: 67
----
++++
+title = "Step 7: Review with MCP Server"
+weight = 67
++++
 
 ## Deep Entity Investigation Using Senzing MCP
 
 Now that context is recovered and you understand the snapshot results, use the Senzing MCP server to investigate specific entities, relationships, and resolution logic.
 
-::alert[**MCP Server Advantage**: While snapshots give you statistics, the MCP server lets you ask "how" and "why" questions about specific entities and matches. This is where AI-assisted analysis really shines!]{type="info"}
+{{% notice warning %}}**MCP Server Advantage**: While snapshots give you statistics, the MCP server lets you ask "how" and "why" questions about specific entities and matches. This is where AI-assisted analysis really shines!]{type="info"}
 
 ---
 
@@ -60,7 +60,7 @@ Show me the entity that appears in all three data sources (CUSTOMERS, SANCTIONS,
 **Relationships:**
 - Owns Mullenkrants Autoworks GmbH (100%)
 
-::alert[**Critical Finding**: A Platinum customer is on the sanctions list for arms trafficking! This is exactly the kind of hidden risk entity resolution reveals.]{type="warning"}
+::alert[**Critical Finding**: A Platinum customer is on the sanctions list for arms trafficking! This is exactly the kind of hidden risk entity resolution reveals.{{% /notice %}}
 
 ---
 
@@ -202,11 +202,11 @@ Entity 100014 (Faisal Siddiqui)
 - International network suggests sophisticated operation
 - Second sanctioned individual in management raises red flags
 
-::alert[**Compliance Impact**: This network would trigger enhanced due diligence requirements:
+{{% notice warning %}}**Compliance Impact**: This network would trigger enhanced due diligence requirements:
 - Know Your Customer (KYC) violations
 - Anti-Money Laundering (AML) concerns
 - Sanctions compliance issues
-- Potential need to freeze accounts and report to authorities]{type="warning"}
+- Potential need to freeze accounts and report to authorities{{% /notice %}}
 
 ---
 

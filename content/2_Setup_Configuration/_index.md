@@ -1,10 +1,8 @@
----
-title: "Setup and Configuration"
-chapter: true
-weight: 2
----
-
-# Setup and Configuration
++++
+title = "Setup and Configuration"
+chapter = true
+weight = 2
++++
 
 ### Overview
 
@@ -26,8 +24,9 @@ In this module you will:
 
 You can run the workshop either as part of an AWS event or on your own. Based on your scenario, choose the relevant tab:
 
-{{< tabs >}}
-{{% tab name="🏢 AWS-hosted event" %}}
+::::tabs{variant="container"}
+
+:::tab{label="AWS-Hosted Event"}
 
 If you are attending an AWS-hosted event, you will:
 
@@ -35,11 +34,11 @@ If you are attending an AWS-hosted event, you will:
 
 2. Connect to Amazon Q Developer in your IDE and the CLI using an AWS Builder ID.
 
-To learn how to access your cloud-hosted IDE, please head to [AWS-hosted event section]({{< ref "/2_Setup_Configuration/21_AWS_Guided_Event" >}})
+To learn how to access your cloud-hosted IDE, please head to [AWS-hosted event section](21_AWS_Guided_Event)
 
-{{% /tab %}}
+:::
 
-{{% tab name="💻 Self-guided" %}}
+:::tab{label="Self-Guided"}
 
 If you are running this workshop on your own AWS account, you'll need to:
 
@@ -49,15 +48,11 @@ If you are running this workshop on your own AWS account, you'll need to:
 
 3. Set up authentication for Amazon Q Developer in your IDE and the CLI using either your organization's IDC Professional license or using an AWS Builder ID.
 
-{{% notice warning %}}
-If you are running this workshop on your own AWS account, remember to delete all resources by following the [Clean Up Resources]({{< ref "/7_Cleanup" >}}) section to avoid unnecessary charges.
-{{% /notice %}}
+{{% notice warning %}}If you are running this workshop on your own AWS account, remember to delete all resources by following the [Clean Up Resources](/7_Cleanup) section to avoid unnecessary charges.{{% /notice %}}
 
-To learn how to configure your local development environment, please head to [Self-guided section]({{< ref "/2_Setup_Configuration/22_Own_AWS_Account" >}})
+To learn how to configure your local development environment, please head to [Self-guided section](22_Own_AWS_Account)
 
-{{% /tab %}}
-{{< /tabs >}}
+:::
 
-{{% notice warning %}}
-The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.
-{{% /notice %}}
+::::
+{{% notice warning %}}The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.{{% /notice %}}

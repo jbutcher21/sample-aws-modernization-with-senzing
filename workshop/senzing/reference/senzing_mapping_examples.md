@@ -510,3 +510,4 @@ Lint
 - Files: `examples/example7_person.json`, `examples/example7_org.json`
 - Command: `python lint_senzing_json.py --input examples/example7_person.json`
 - Expected: Pass (exit 0), no warnings (same for the org file)
+</struct></attribute-name></section-id>

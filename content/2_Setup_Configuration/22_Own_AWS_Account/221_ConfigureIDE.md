@@ -1,7 +1,7 @@
----
-title: "Configure your IDE"
-weight: 221
----
++++
+title = "Configure your IDE"
+weight = 221
++++
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ For this workshop, you'll need:
    - Click the Extensions icon in the left sidebar
    - Search for "**Amazon Q**" and click Install
 
-   ![Install Amazon Q extension](/static/images/on_your_own/q_plugin.png)
+   ![Install Amazon Q extension](/images/on_your_own/q_plugin.png)
 
 ## Next Steps
 

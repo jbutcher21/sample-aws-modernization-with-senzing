@@ -1,7 +1,7 @@
----
-title: "Step 3: Verify the Integration"
-weight: 253
----
++++
+title = "Step 3: Verify the Integration"
+weight = 253
++++
 
 ## Overview
 
@@ -15,9 +15,9 @@ Now that you've configured and authorized the Senzing MCP server, let's verify t
    What MCP tools are available?
    ```
 
-![MCP Tools List](/static/images/senzing_mcp/senzing_mcp6.png)
+![MCP Tools List](/images/senzing_mcp/senzing_mcp6.png)
 
-::alert[These tools will become more useful once you've loaded entity data in later modules. For now, we're just confirming the connection works.]{type="info"}
+{{% notice info %}}These tools will become more useful once you've loaded entity data in later modules. For now, we're just confirming the connection works.{{% /notice %}}
 
 ## Test 2: Query Test Entity
 
@@ -27,7 +27,7 @@ Now that you've configured and authorized the Senzing MCP server, let's verify t
    Get entity1
    ```
 
-![Test Entity Query](/static/images/senzing_mcp/senzing_mcp7.png)
+![Test Entity Query](/images/senzing_mcp/senzing_mcp7.png)
 
 ### Expected Result
 
@@ -38,7 +38,7 @@ The important part is that:
 - The tool executed without errors
 - You received a valid response (even though the entity doesn't exist)
 
-::alert[A response like "entity 1 does not exist" or "no entity found" confirms the MCP server is working correctly!]{type="info"}
+{{% notice info %}}A response like "entity 1 does not exist" or "no entity found" confirms the MCP server is working correctly!{{% /notice %}}
 
 ## What This Means
 
@@ -62,9 +62,7 @@ If you encounter errors:
 
 ## Wrap Up
 
-
 Ensure the MCP server is configured and you can see Senzing tools in Amazon Q before proceeding.
-
 
 Congratulations! You've successfully connected Amazon Q Developer to the Senzing MCP server!
 

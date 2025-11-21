@@ -1,7 +1,7 @@
----
-title: "Stage 1: INIT"
-weight: 631
----
++++
+title = "Stage 1: INIT"
+weight = 631
++++
 
 ## Stage 1: Initialize the Mapping Assistant
 
@@ -87,7 +87,7 @@ After Stage 1, the AI has complete knowledge of:
 
 ## Validation Checkpoint
 
-::alert[**Verify**: The AI should explicitly list all 5 files it loaded. If it skips any or says a file is unavailable, stop and troubleshoot before proceeding.]{type="info"}
+{{% notice info %}}**Verify**: The AI should explicitly list all 5 files it loaded. If it skips any or says a file is unavailable, stop and troubleshoot before proceeding.{{% /notice %}}
 
 The AI should confirm:
 - ✅ All 5 reference files loaded successfully
@@ -107,7 +107,7 @@ This staged approach prevents common AI mapping errors:
 3. **Tool readiness**: Validation tools are tested before generating output
 4. **Explicit knowledge**: You see exactly what the AI knows before it starts making decisions
 
-::alert[**Compare to Exercise 1**: In the customer mapping exercise, this stage was shown with detailed screenshots of each file being loaded. Here, we summarize the result. The underlying process is identical.]{type="info"}
+{{% notice info %}}**Compare to Exercise 1**: In the customer mapping exercise, this stage was shown with detailed screenshots of each file being loaded. Here, we summarize the result. The underlying process is identical.{{% /notice %}}
 
 ---
 
