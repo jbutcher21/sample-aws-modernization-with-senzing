@@ -59,4 +59,4 @@ As you continue to the next exercises, consider:
 
 ::alert[**The AI is a Tool, Not a Replacement:** Notice that throughout this exercise, YOU made the important decisions - what fields to map, how to handle edge cases, whether mappings made sense. The AI accelerated execution, but your judgment drove the outcome.]{type="warning"}
 
-::alert[**What's Next:** Ready to apply these skills to more complex data? The bonus watchlist exercise introduces international names, relationships, and nested data structures - all mappable with the same workflow you just mastered.]{type="warning"}
+::alert[**What's Next.*]{type="info"}

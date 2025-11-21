@@ -47,7 +47,7 @@ Instead, you'll use the Senzing schema generator tool to create a comprehensive 
 - Sample values and ranges
 - Field statistics
 
-::alert[**Pro Tip:** For complex schemas the tool cannot handle, locate the official schema documentation or ask AI to help extract schema information from documentation.]{type="warning"}
+::alert[**Pro Tip.*]{type="info"}
 
 ## Generate the Schema with Amazon Q
 

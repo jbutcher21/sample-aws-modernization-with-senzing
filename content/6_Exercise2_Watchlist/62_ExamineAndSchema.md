@@ -7,7 +7,7 @@ weight = 62
 
 Before mapping any data to Senzing format, you need to understand its structure. Unlike the customer CSV file in Exercise 1, this watchlist data is in **FollowTheMoney (FTM) JSON format** - a more complex format with nested structures and relationships.
 
-::alert[**FTM Format**: FollowTheMoney is an open-source data model designed for investigative journalism and anti-corruption work. It's used by OpenSanctions, OCCRP, and other transparency initiatives to model entities, relationships, and sanctions data.]{type="warning"}
+::alert[**FTM Format.*]{type="info"}
 
 ---
 
@@ -60,7 +60,7 @@ The AI will run the schema generator tool:
 python3 senzing/tools/sz_schema_generator.py workspace/watchlist/ftm.jsonl -o workspace/watchlist/ftm_schema.md
 ```
 
-::alert[**Why Generate a Schema?** The schema generator extracts all field names, data types, sample values, and coverage statistics. This gives you and the AI a complete understanding of what data you're working with.]{type="warning"}
+::alert[**Why Generate.*]{type="info"}
 
 ---
 

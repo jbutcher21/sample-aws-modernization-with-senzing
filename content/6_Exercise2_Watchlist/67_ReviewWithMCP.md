@@ -7,7 +7,7 @@ weight = 67
 
 Now that context is recovered and you understand the snapshot results, use the Senzing MCP server to investigate specific entities, relationships, and resolution logic.
 
-::alert[**MCP Server Advantage**: While snapshots give you statistics, the MCP server lets you ask "how" and "why" questions about specific entities and matches. This is where AI-assisted analysis really shines!]{type="warning"}
+::alert[**MCP Server Advantage.*]{type="info"}
 
 ---
 
