@@ -33,7 +33,7 @@ Look at what Amazon Q has already told you, without you even asking:
 - The **compression rate was high** - did you expect that?
 - An interesting entity to check out is **Entity 1, which has 5 records**
 
-{{% notice info %}}**The Power of Proactive AI:** The AI didn't wait for you to ask questions - it analyzed the snapshot and surfaced the most important insights automatically. This is AI working for you.{{% /notice %}}
+::alert[**The Power of Proactive AI:** The AI didn't wait for you to ask questions - it analyzed the snapshot and surfaced the most important insights automatically. This is AI working for you.]{type="warning"}
 
 ### Traditional Analysis with sz_explorer
 
@@ -56,7 +56,7 @@ This is the traditional exploratory data analysis (EDA) interface. It provides a
 
 Here's where it gets really cool. A snapshot only contains stats and entity IDs - no PII. That's where the MCP server comes in. Let's try a couple of things.
 
-{{% notice info %}}**Tip:** If Amazon Q loses context or can't access the MCP tools, you can refresh the connection by opening the MCP server configuration (click the MCP icon in the status bar), clicking "Edit" on the Senzing server, and clicking "Save" without making changes. This reconnects the server.{{% /notice %}}
+::alert[**Tip:** If Amazon Q loses context or can't access the MCP tools, you can refresh the connection by opening the MCP server configuration (click the MCP icon in the status bar), clicking "Edit" on the Senzing server, and clicking "Save" without making changes. This reconnects the server.]{type="warning"}
 
 We already know that Entity 1 is the most interesting entity in the snapshot. So let's start there.
 
@@ -86,13 +86,13 @@ Try some of these:
 
 **Ask Amazon Q:** `what relationships might qualify for a household and why? Can't just be same address, can it?`
 
-{{% notice info %}}**Natural Language Exploration:** That last question about households? I had to refine it a bit to get exactly what I wanted. That's the beauty of conversational AI - you can iterate on your questions until you get the insight you're looking for. Try it yourself!{{% /notice %}}
+::alert[**Natural Language Exploration:** That last question about households? I had to refine it a bit to get exactly what I wanted. That's the beauty of conversational AI - you can iterate on your questions until you get the insight you're looking for. Try it yourself!]{type="warning"}
 
 ---
 
 ## Exercise 3 Complete!
 
-{{% notice info %}}**Checkpoint:** You've captured snapshots, analyzed resolution statistics, explored the traditional sz_explorer tool, and used the MCP server to conversationally investigate entity resolution decisions.{{% /notice %}}
+::alert[**Checkpoint:** You've captured snapshots, analyzed resolution statistics, explored the traditional sz_explorer tool, and used the MCP server to conversationally investigate entity resolution decisions.]{type="warning"}
 
 You now have hands-on experience with the complete Senzing workflow - from mapping to loading to analysis. More importantly, you've seen how AI assistance transforms every step: from generating schemas, to validating mappings, to exploring resolved entities.
 

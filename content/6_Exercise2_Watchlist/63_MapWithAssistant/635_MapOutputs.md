@@ -83,7 +83,7 @@ sz_file_loader -f ftm_senzing.jsonl
 
 #### Multi-Pass Processing
 
-```python {copy}
+```python
 # Pass 1: Process master entities (Person and Company)
 for record in ftm_records:
     if record['schema'] == 'Person':
@@ -117,7 +117,7 @@ for record in ftm_records:
 
 FTM properties are arrays, so the mapper iterates through values:
 
-```python {copy}
+```python
 def map_person(ftm_record):
     features = []
 
@@ -144,7 +144,7 @@ def map_person(ftm_record):
 
 All master entities get a REL_ANCHOR so they can be referenced:
 
-```python {copy}
+```python
 features.append({
     'REL_ANCHOR_DOMAIN': 'SANCTIONS',  # or 'CORP_FILINGS'
     'REL_ANCHOR_KEY': record['id']
@@ -153,7 +153,7 @@ features.append({
 
 Relationships use REL_POINTER to reference other entities:
 
-```python {copy}
+```python
 features.append({
     'REL_POINTER_DOMAIN': 'CORP_FILINGS',
     'REL_POINTER_KEY': 'company-123',
@@ -169,7 +169,7 @@ The AI generates sample Senzing JSON and validates it with the linter.
 
 ### Sample Person Entity (with merged sanction + identifier)
 
-```json {copy}
+```json
 {
   "DATA_SOURCE": "SANCTIONS",
   "RECORD_ID": "sanctions-person-1006",
@@ -201,7 +201,7 @@ The AI generates sample Senzing JSON and validates it with the linter.
 
 ### Sample Company Entity (with relationships)
 
-```json {copy}
+```json
 {
   "DATA_SOURCE": "CORP_FILINGS",
   "RECORD_ID": "corp-filings-company-3088",
@@ -226,13 +226,13 @@ The AI generates sample Senzing JSON and validates it with the linter.
 
 ### Linter Validation
 
-```bash {copy}
+```bash
 python3 senzing/tools/lint_senzing_json.py sample_output.jsonl
 ```
 
 **Result:** ✅ **PASSED** - No JSON syntax errors
 
-{{% notice info %}}**Always lint sample output during development!** Finding structural errors early prevents having to fix broken mapper code later.{{% /notice %}}
+::alert[**Always lint sample output during development!** Finding structural errors early prevents having to fix broken mapper code later.]{type="warning"}
 
 ---
 
@@ -283,7 +283,7 @@ Running the linter on sample output catches issues before processing 73 records:
 
 ### 4. FTM Arrays Require Iteration
 Every property is an array, even if most records have single values:
-```python {copy}
+```python
 # WRONG - causes errors when array is empty or has multiple values
 name = record['properties']['firstName'][0]
 

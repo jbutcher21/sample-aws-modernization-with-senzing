@@ -14,7 +14,7 @@ In this section, you will:
 2. Authorize MCP tools for Amazon Q to use
 3. Verify the integration is working
 
-{{% notice info %}}The MCP server provides 8+ tools for entity search, relationship analysis, and resolution explanation. This makes it easy to explore and understand entity resolution results using conversational AI.{{% /notice %}}
+::alert[The MCP server provides 8+ tools for entity search, relationship analysis, and resolution explanation. This makes it easy to explore and understand entity resolution results using conversational AI.]{type="warning"}
 
 ## Prerequisites
 
@@ -45,4 +45,4 @@ Throughout this workshop, you'll use this integration to:
 
 Let's begin by configuring the MCP server connection!
 
-{{% notice info %}}The setup process takes approximately 5-10 minutes. Follow each step carefully for a smooth experience.{{% /notice %}}
+::alert[The setup process takes approximately 5-10 minutes. Follow each step carefully for a smooth experience.]{type="warning"}

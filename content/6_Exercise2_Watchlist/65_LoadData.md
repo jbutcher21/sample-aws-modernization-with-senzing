@@ -13,7 +13,7 @@ With validation complete and all critical errors resolved, load the watchlist da
 
 Use the Senzing file loader to import the mapped JSONL:
 
-```bash {copy}
+```bash
 source ~/.bashrc && sz_file_loader -f ftm_senzing.jsonl
 ```
 
@@ -35,11 +35,11 @@ Entity Resolution Statistics:
 ✅ Load completed successfully
 ```
 
-{{% notice info %}}**What Just Happened:**
+::alert[**What Just Happened:**
 - All 39 records loaded successfully (no data errors)
 - Senzing evaluated 259 potential matches across all data sources
 - 5 matches were "ambiguous" (could match multiple ways - Senzing will flag these)
-- Processing took under 1 minute (this is a small dataset){{% /notice %}}
+- Processing took under 1 minute (this is a small dataset)]{type="warning"}
 
 ---
 
@@ -69,7 +69,7 @@ Some records could match in multiple ways. Senzing flags these for human review:
 
 Capture the current entity resolution state for analysis:
 
-```bash {copy}
+```bash
 source ~/.bashrc && sz_snapshot -o ftm-watchlist-snapshot-$(date +%Y-%m-%d) -Q
 ```
 
@@ -88,13 +88,13 @@ Snapshot complete:
 ✅ Snapshot written to: ftm-watchlist-snapshot-2025-11-16.json
 ```
 
-{{% notice info %}}**What is a Snapshot?**
+::alert[**What is a Snapshot?**
 A snapshot is a JSON file containing comprehensive entity resolution statistics:
 - Record and entity counts by data source
 - Compression rates (how many duplicates were found)
 - Cross-source matches (same entity in multiple systems)
 - Relationship counts
-- Match quality breakdown (definitive, possible, ambiguous){{% /notice %}}
+- Match quality breakdown (definitive, possible, ambiguous)]{type="warning"}
 
 ---
 
@@ -127,7 +127,7 @@ These cross-source matches are the **most interesting findings** from entity res
 
 Verify the data loaded correctly by checking record counts:
 
-```bash {copy}
+```bash
 source ~/.bashrc && sz_explorer -query 'DATA_SOURCE=SANCTIONS'
 ```
 
@@ -136,7 +136,7 @@ source ~/.bashrc && sz_explorer -query 'DATA_SOURCE=SANCTIONS'
 - Verify some have merged sanction payload attributes
 - Check that relationships are present
 
-```bash {copy}
+```bash
 source ~/.bashrc && sz_explorer -query 'DATA_SOURCE=CORP_FILINGS'
 ```
 

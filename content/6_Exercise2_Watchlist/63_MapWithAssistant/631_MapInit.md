@@ -11,12 +11,12 @@ The first stage loads all reference materials and tests validation tools. This g
 
 ## Your Prompt
 
-```
+```bash
 Yes, let's start the AI-assisted mapping workflow for ftm.jsonl
 ```
 
 Or if starting fresh:
-```
+```bash
 Load the Senzing Mapping Assistant and help me map ftm.jsonl to Senzing format
 ```
 
@@ -42,7 +42,7 @@ The AI loads five critical reference files:
 
 The AI confirms the linter is functional by running a self-test:
 
-```bash {copy}
+```bash
 python3 senzing/tools/lint_senzing_json.py --help
 ```
 
@@ -51,7 +51,7 @@ python3 senzing/tools/lint_senzing_json.py --help
 ### 3. Confirm Schema Availability
 
 The AI verifies the schema file exists and is accessible:
-```
+```bash
 workspace/watchlist/ftm_schema.md
 ```
 
@@ -87,7 +87,7 @@ After Stage 1, the AI has complete knowledge of:
 
 ## Validation Checkpoint
 
-{{% notice info %}}**Verify**: The AI should explicitly list all 5 files it loaded. If it skips any or says a file is unavailable, stop and troubleshoot before proceeding.{{% /notice %}}
+::alert[**Verify**: The AI should explicitly list all 5 files it loaded. If it skips any or says a file is unavailable, stop and troubleshoot before proceeding.]{type="warning"}
 
 The AI should confirm:
 - ✅ All 5 reference files loaded successfully
@@ -107,7 +107,7 @@ This staged approach prevents common AI mapping errors:
 3. **Tool readiness**: Validation tools are tested before generating output
 4. **Explicit knowledge**: You see exactly what the AI knows before it starts making decisions
 
-{{% notice info %}}**Compare to Exercise 1**: In the customer mapping exercise, this stage was shown with detailed screenshots of each file being loaded. Here, we summarize the result. The underlying process is identical.{{% /notice %}}
+::alert[**Compare to Exercise 1**: In the customer mapping exercise, this stage was shown with detailed screenshots of each file being loaded. Here, we summarize the result. The underlying process is identical.]{type="warning"}
 
 ---
 

@@ -11,19 +11,19 @@ Now that you've configured and authorized the Senzing MCP server, let's verify t
 
 1. **In the Amazon Q chat**, ask:
 
-   ```
+   ```bash
    What MCP tools are available?
    ```
 
 ![MCP Tools List](/images/senzing_mcp/senzing_mcp6.png)
 
-{{% notice info %}}These tools will become more useful once you've loaded entity data in later modules. For now, we're just confirming the connection works.{{% /notice %}}
+::alert[These tools will become more useful once you've loaded entity data in later modules. For now, we're just confirming the connection works.]{type="warning"}
 
 ## Test 2: Query Test Entity
 
 2. **Try a test query:**
 
-   ```
+   ```bash
    Get entity1
    ```
 
@@ -38,7 +38,7 @@ The important part is that:
 - The tool executed without errors
 - You received a valid response (even though the entity doesn't exist)
 
-{{% notice info %}}A response like "entity 1 does not exist" or "no entity found" confirms the MCP server is working correctly!{{% /notice %}}
+::alert[A response like "entity 1 does not exist" or "no entity found" confirms the MCP server is working correctly!]{type="warning"}
 
 ## What This Means
 

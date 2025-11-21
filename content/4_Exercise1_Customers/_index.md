@@ -36,6 +36,6 @@ This exercise follows a structured 7-step workflow:
 
 **Estimated Time:** 30-45 minutes
 
-{{% notice info %}}Complete each step before moving to the next. Each step builds on the previous one.{{% /notice %}}
+::alert[Complete each step before moving to the next. Each step builds on the previous one.]{type="warning"}
 
 Let's get started!

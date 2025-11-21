@@ -37,14 +37,14 @@ This workshop is designed for:
 
 Throughout this workshop, you'll encounter various visual elements:
 
-{{% notice warning %}}**Tips** provide helpful suggestions and best practices.]{type="info"}
+::alert[**Tips** provide helpful suggestions and best practices.]{type="warning"}
 
-{{% notice info %}}**Info boxes** highlight important information or context.{{% /notice %}}
+::alert[**Info boxes** highlight important information or context.]{type="warning"}
 
-::alert[**Warnings** alert you to common pitfalls or important considerations.{{% /notice %}}
+::alert[**Warnings** alert you to common pitfalls or important considerations.]{type="warning"}
 
 **Code Blocks:**
-```bash {copy}
+```bash
 # Command-line instructions look like this
 python3 mapper.py input.csv -o output.jsonl
 ```

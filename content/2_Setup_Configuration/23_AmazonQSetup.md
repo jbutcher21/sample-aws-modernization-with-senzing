@@ -9,7 +9,7 @@ In this section, you will:
 
 1. Set up authentication for **both** the Amazon Q IDE extension and CLI using AWS Builder ID
 
-{{% notice warning %}}*Using [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)?* See the [Amazon Q Developer documentation](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/getting-started-idc.html) for instructions on connecting Amazon Q with your IDC configuration.{{% /notice %}}
+::alert[*Using [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)?* See the [Amazon Q Developer documentation](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/getting-started-idc.html) for instructions on connecting Amazon Q with your IDC configuration.]{type="warning"}
 
 :::expand{header="Don't have an AWS Builder ID?"}
 
@@ -31,7 +31,7 @@ To create a profile:
 
 ## Authentication Setup
 
-{{% notice info %}}**Important:** Complete authentication for both the IDE Plugin and CLI tabs below to access Amazon Q's full capabilities.{{% /notice %}}
+::alert[**Important:** Complete authentication for both the IDE Plugin and CLI tabs below to access Amazon Q's full capabilities.]{type="warning"}
 
 ::::tabs{variant="container"}
 
@@ -69,7 +69,7 @@ To create a profile:
 
 1. In your terminal, run:
 
-   ```bash {copy}
+   ```bash
    q login
    ```
 
@@ -85,7 +85,7 @@ To create a profile:
 
 4. Test your setup with:
 
-   ```bash {copy}
+   ```bash
    q chat "Hello, Amazon Q!" --no-interactive
    ```
 
@@ -111,7 +111,7 @@ To make Amazon Q aware of your entire codebase:
 
 ![Workspace Index](/images/setup/workspace-index.gif?height=500px)
 
-{{% notice info %}}Initial workspace indexing takes 1-20 minutes and may increase CPU usage. Subsequent changes update the index incrementally.{{% /notice %}}
+::alert[Initial workspace indexing takes 1-20 minutes and may increase CPU usage. Subsequent changes update the index incrementally.]{type="warning"}
 
 #### Example queries using workspace context
 
@@ -129,13 +129,13 @@ The CLI provides access to experimental features that you can optionally enable:
 
 1. Launch the Q chat interface:
 
-```bash {copy}
+```bash
 q chat
 ```
 
 2. Access the experiments section:
 
-```bash {copy}
+```bash
 /experiment
 ```
 
@@ -153,7 +153,7 @@ q chat
 
 ## Wrap up
 
-{{% notice info %}}**Checkpoint:** Ensure you have completed authentication and feature setup for both the IDE Plugin and CLI before proceeding.{{% /notice %}}
+::alert[**Checkpoint:** Ensure you have completed authentication and feature setup for both the IDE Plugin and CLI before proceeding.]{type="warning"}
 
 You've now configured Amazon Q in both your IDE and CLI using your AWS Builder ID, giving you AI assistance across different interfaces.
 

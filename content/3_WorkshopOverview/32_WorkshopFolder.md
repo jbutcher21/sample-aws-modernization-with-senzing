@@ -41,7 +41,7 @@ workshop/
 └── solutions/                            # Complete reference implementations
 ```
 
-{{% notice info %}}The solutions folder is provided so you can catch up if you fall behind or check your work. Try the exercise yourself first - that's where the learning happens!{{% /notice %}}
+::alert[The solutions folder is provided so you can catch up if you fall behind or check your work. Try the exercise yourself first - that's where the learning happens!]{type="warning"}
 
 ---
 

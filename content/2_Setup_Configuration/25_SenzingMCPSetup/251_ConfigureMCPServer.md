@@ -27,7 +27,7 @@ The Senzing MCP server and all required environment variables are pre-configured
    - **Global** (recommended): Saves to `~/.aws/amazonq/default.json` - available for all projects
    - **Local**: Saves to `.amazonq/default.json` in current workspace only
 
-{{% notice warning %}}We recommend **Global** scope so the Senzing MCP server is available in all your projects.]{type="info"}
+::alert[We recommend **Global** scope so the Senzing MCP server is available in all your projects.]{type="warning"}
 
 ## Configure Server Settings
 
@@ -41,7 +41,7 @@ The Senzing MCP server and all required environment variables are pre-configured
    | **Arguments** | (leave empty) |
    | **Timeout** | `60000` (60 seconds) |
 
-   {{% notice info %}}Use the **full absolute path** for Command as shown above. This is the pre-installed location in your workshop environment.{{% /notice %}}
+   ::alert[Use the **full absolute path** for Command as shown above. This is the pre-installed location in your workshop environment.]{type="warning"}
 
 ## Add Environment Variables
 
@@ -55,7 +55,7 @@ The Senzing MCP server and all required environment variables are pre-configured
    | `LD_LIBRARY_PATH` | `/opt/senzing/er/lib` |
    | `PYTHONPATH` | `/home/ubuntu/.local/bin:/opt/senzing/er/sdk/python` |
 
-   ::alert[Copy and paste each value exactly as shown. The `SENZING_ENGINE_CONFIGURATION_JSON` value should be on a single line.{{% /notice %}}
+   ::alert[Copy and paste each value exactly as shown. The `SENZING_ENGINE_CONFIGURATION_JSON` value should be on a single line.]{type="warning"}
 
 ## Save Configuration
 

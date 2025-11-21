@@ -7,7 +7,7 @@ weight = 67
 
 Now that context is recovered and you understand the snapshot results, use the Senzing MCP server to investigate specific entities, relationships, and resolution logic.
 
-{{% notice warning %}}**MCP Server Advantage**: While snapshots give you statistics, the MCP server lets you ask "how" and "why" questions about specific entities and matches. This is where AI-assisted analysis really shines!]{type="info"}
+::alert[**MCP Server Advantage**: While snapshots give you statistics, the MCP server lets you ask "how" and "why" questions about specific entities and matches. This is where AI-assisted analysis really shines!]{type="warning"}
 
 ---
 
@@ -16,7 +16,7 @@ Now that context is recovered and you understand the snapshot results, use the S
 The snapshot showed **1 entity spans all three data sources**. Let's find it and understand how it came together.
 
 ### Prompt
-```
+```bash
 Show me the entity that appears in all three data sources (CUSTOMERS, SANCTIONS, CORP_FILINGS)
 ```
 
@@ -60,7 +60,7 @@ Show me the entity that appears in all three data sources (CUSTOMERS, SANCTIONS,
 **Relationships:**
 - Owns Mullenkrants Autoworks GmbH (100%)
 
-::alert[**Critical Finding**: A Platinum customer is on the sanctions list for arms trafficking! This is exactly the kind of hidden risk entity resolution reveals.{{% /notice %}}
+::alert[**Critical Finding**: A Platinum customer is on the sanctions list for arms trafficking! This is exactly the kind of hidden risk entity resolution reveals.]{type="error"}
 
 ---
 
@@ -69,7 +69,7 @@ Show me the entity that appears in all three data sources (CUSTOMERS, SANCTIONS,
 Understanding **how** this entity came together reveals Senzing's cross-language and international format handling.
 
 ### Prompt
-```
+```bash
 how did this entity come together
 ```
 
@@ -157,7 +157,7 @@ All matches scored 90+ (out of 100), indicating strong evidence:
 Now let's map out the corporate structure and relationships.
 
 ### Prompt
-```
+```bash
 show his relationships in a simple graph view
 ```
 
@@ -202,11 +202,11 @@ Entity 100014 (Faisal Siddiqui)
 - International network suggests sophisticated operation
 - Second sanctioned individual in management raises red flags
 
-{{% notice warning %}}**Compliance Impact**: This network would trigger enhanced due diligence requirements:
+::alert[**Compliance Impact**: This network would trigger enhanced due diligence requirements:
 - Know Your Customer (KYC) violations
 - Anti-Money Laundering (AML) concerns
 - Sanctions compliance issues
-- Potential need to freeze accounts and report to authorities{{% /notice %}}
+- Potential need to freeze accounts and report to authorities]{type="warning"}
 
 ---
 
@@ -215,7 +215,7 @@ Entity 100014 (Faisal Siddiqui)
 For any two entities, you can ask Senzing to explain the matching logic.
 
 ### Prompt
-```
+```bash
 explain why Entity 91 and Entity 90 are related
 ```
 
@@ -242,25 +242,25 @@ This is a **declared relationship** from source data, not a match Senzing discov
 ## Common Investigation Patterns
 
 ### Finding Watchlist Hits
-```
+```bash
 Show me all entities that have both CUSTOMERS and SANCTIONS records
 ```
 Returns entities that are both customers and on watchlists - high-priority review cases.
 
 ### Exploring Networks
-```
+```bash
 expand network from Entity 91 showing all relationships up to 2 degrees
 ```
 Shows complete network including indirect connections.
 
 ### Understanding Specific Matches
-```
+```bash
 explain why entity 91 matched with CUSTOMERS:2063
 ```
 Shows exact features and scores that led to the match.
 
 ### Finding Ambiguous Cases
-```
+```bash
 show me entities with ambiguous matches that need review
 ```
 Lists cases where Senzing found multiple possible matches requiring human judgment.

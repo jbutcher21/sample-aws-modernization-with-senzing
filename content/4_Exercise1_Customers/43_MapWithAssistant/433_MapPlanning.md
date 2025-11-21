@@ -72,6 +72,6 @@ When you understand the strategy:
 
 **Tell Amazon Q:** `yes`
 
-{{% notice info %}}**LEARNING OPPORTUNITY:** The more questions you ask the more you will learn!{{% /notice %}}
+::alert[**LEARNING OPPORTUNITY:** The more questions you ask the more you will learn!]{type="warning"}
 
-{{% notice info %}}**Checkpoint:** You and Q should agree on the high level strategy for mapping customers.{{% /notice %}}
+::alert[**Checkpoint:** You and Q should agree on the high level strategy for mapping customers.]{type="warning"}

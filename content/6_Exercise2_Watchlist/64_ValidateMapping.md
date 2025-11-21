@@ -13,7 +13,7 @@ Now it's time to run the mapper on the actual FTM data and validate the results 
 
 Execute the mapper script on the actual FTM watchlist data:
 
-```bash {copy}
+```bash
 python3 ftm_mapper.py ftm.jsonl ftm_senzing.jsonl
 ```
 
@@ -34,7 +34,7 @@ Pass 4: Adding Directorship relationships...
 ✅ Output written to: ftm_senzing.jsonl
 ```
 
-{{% notice warning %}}**39 entities from 73 records:** This is expected! Sanction, Ownership, and Directorship records aren't separate entities - they're metadata and relationships merged onto the 39 master entities (33 Person + 6 Company).]{type="info"}
+::alert[**39 entities from 73 records:** This is expected! Sanction, Ownership, and Directorship records aren't separate entities - they're metadata and relationships merged onto the 39 master entities (33 Person + 6 Company).]{type="warning"}
 
 ---
 
@@ -42,7 +42,7 @@ Pass 4: Adding Directorship relationships...
 
 First validation: Check that the JSON is structurally correct:
 
-```bash {copy}
+```bash
 python3 senzing/tools/lint_senzing_json.py ftm_senzing.jsonl
 ```
 
@@ -52,11 +52,11 @@ python3 senzing/tools/lint_senzing_json.py ftm_senzing.jsonl
 All records have required fields (DATA_SOURCE, RECORD_ID)
 ```
 
-{{% notice info %}}**What the linter checks:**
+::alert[**What the linter checks:**
 - Valid JSON syntax (no missing commas, brackets, etc.)
 - Required fields present (DATA_SOURCE, RECORD_ID)
 - FEATURES array structure correct
-- No obvious structural issues{{% /notice %}}
+- No obvious structural issues]{type="warning"}
 
 ---
 
@@ -64,15 +64,15 @@ All records have required fields (DATA_SOURCE, RECORD_ID)
 
 Second validation: Check that Senzing will recognize and use the mapped data:
 
-```bash {copy}
+```bash
 python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md
 ```
 
-{{% notice info %}}**Important:** According to the tools reference documentation, the analyzer outputs to a `.md` file. You must then **read the markdown file** to see the results, not just look at console output!{{% /notice %}}
+::alert[**Important:** According to the tools reference documentation, the analyzer outputs to a `.md` file. You must then **read the markdown file** to see the results, not just look at console output!]{type="warning"}
 
 Read the analysis results:
 
-```bash {copy}
+```bash
 cat analysis.md
 ```
 
@@ -103,16 +103,16 @@ ERROR: DATA_SOURCE not found: SANCTIONS
 
 The analyzer found **critical errors**: DATA_SOURCE codes not registered in Senzing.
 
-{{% notice warning %}}**Critical vs Non-Critical:**
+::alert[**Critical vs Non-Critical:**
 - **Critical errors** (red) - Must fix before loading. Senzing will reject the data.
 - **Warnings** (orange) - Should review but don't block loading.
-- **Info** (yellow) - Payload attributes, expected and fine.{{% /notice %}}
+- **Info** (yellow) - Payload attributes, expected and fine.]{type="warning"}
 
 ### Configure Data Sources
 
 Create a configuration file to register both DATA_SOURCE codes:
 
-```bash {copy}
+```bash
 cat > ftm_config.g2c << 'EOF'
 addDataSource CORP_FILINGS
 addDataSource SANCTIONS
@@ -122,7 +122,7 @@ EOF
 
 Run the configuration tool:
 
-```bash {copy}
+```bash
 source ~/.bashrc && sz_configtool -f ftm_config.g2c
 ```
 
@@ -143,7 +143,7 @@ Saving configuration...
 
 Run the analyzer again to confirm errors are resolved:
 
-```bash {copy}
+```bash
 python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md
 cat analysis.md
 ```
@@ -189,7 +189,7 @@ Ready to load into Senzing!
 - **GREEN** - Feature attributes recognized by Senzing, will be used for matching
 - **YELLOW** - Payload attributes, stored with entity but don't affect matching
 - **ORANGE** - Warnings about data coverage (usually expected)
-- **RED** - Critical errors that must be fixed{{% /notice %}}
+- **RED** - Critical errors that must be fixed]{type="warning"}
 
 ---
 

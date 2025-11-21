@@ -19,7 +19,7 @@ For this workshop, you'll need:
 
 1. Clone or download the workshop repository:
 
-   ```bash {copy}
+   ```bash
    git clone https://github.com/your-org/senzing-workshop.git
    cd senzing-workshop
    ```

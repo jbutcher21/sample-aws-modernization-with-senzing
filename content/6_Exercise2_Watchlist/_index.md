@@ -38,8 +38,8 @@ This exercise follows the same 8-step workflow as Exercise 1:
 
 **Estimated Time:** 30-45 minutes
 
-{{% notice info %}}Watchlist data presents new challenges: nested JSON structures, international names, and relationships. Apply what you learned in Exercise 1!{{% /notice %}}
+::alert[Watchlist data presents new challenges: nested JSON structures, international names, and relationships. Apply what you learned in Exercise 1!]{type="warning"}
 
-{{% notice info %}}This exercise builds on Exercise 1. You'll see how watchlist entities resolve against customer data.{{% /notice %}}
+::alert[This exercise builds on Exercise 1. You'll see how watchlist entities resolve against customer data.]{type="warning"}
 
 Let's get started!

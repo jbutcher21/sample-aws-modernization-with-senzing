@@ -7,18 +7,18 @@ weight = 634
 
 This is the core mapping stage where every field gets a disposition: **Feature** (used for matching), **Payload** (stored but not matched), or **Ignored** (not needed).
 
-{{% notice warning %}}**This is where your domain expertise matters most.** The AI can suggest mappings based on Senzing patterns, but you need to verify they make business sense for your use case.]{type="info"}
+::alert[**This is where your domain expertise matters most.** The AI can suggest mappings based on Senzing patterns, but you need to verify they make business sense for your use case.]{type="warning"}
 
 ---
 
 ## Your Prompt
 
-```
+```bash
 Show me the full mapping table for all 31 fields
 ```
 
 Or:
-```
+```bash
 Proceed to Stage 4: Map each field to Senzing format
 ```
 
@@ -92,7 +92,7 @@ During this stage, several important corrections were made based on questions an
 ### Correction 1: Identifier Types
 
 **Your Question:**
-```
+```bash
 Are you sure those are all the identifier types, and how do you know?
 ```
 
@@ -111,14 +111,14 @@ After checking actual FTM records, the AI found **nested identifier records**:
 - **1 Driver's License record** → Maps to `DRIVERS_LICENSE_NUMBER` + `DRIVERS_LICENSE_STATE`
 - **2 SSN records** → Maps to `SSN_NUMBER`
 
-{{% notice info %}}**Critical Lesson**: Always verify AI assumptions against actual data! The schema showed general identifier fields (`idNumber`, `passportNumber`), but nested identifier records had specific types that required different Senzing features.{{% /notice %}}
+::alert[**Critical Lesson**: Always verify AI assumptions against actual data! The schema showed general identifier fields (`idNumber`, `passportNumber`), but nested identifier records had specific types that required different Senzing features.]{type="warning"}
 
 ---
 
 ### Correction 2: Company Relationships
 
 **Your Question:**
-```
+```bash
 I didn't see any rel_pointers in the json examples, don't companies have relationships as well?
 ```
 
@@ -133,17 +133,17 @@ After checking actual data, you found:
 - Company-to-company ownership relationships exist
 - All use `REL_POINTER_ROLE = "OWNER_OF"`
 
-{{% notice warning %}}**Key Learning**: Don't assume relationship patterns. Check actual data to find all variations:
+::alert[**Key Learning**: Don't assume relationship patterns. Check actual data to find all variations:
 - Person → Company (directorship)
 - Person → Company (ownership)
-- Company → Company (ownership){{% /notice %}}
+- Company → Company (ownership)]{type="warning"}
 
 ---
 
 ### Correction 3: Relationship Roles
 
 **Your Question:**
-```
+```bash
 What are my options for assigning roles to relationship pointers?
 ```
 
@@ -162,7 +162,7 @@ Based on the Senzing specification, standard roles include:
 - `ULTIMATE_PARENT`
 
 **Your Decision:**
-```
+```bash
 Use PRINCIPAL_OF for principals and PRESIDENT_OF for presidents
 ```
 
@@ -171,14 +171,14 @@ Use PRINCIPAL_OF for principals and PRESIDENT_OF for presidents
 - Directorship with role="Principal" → `"PRINCIPAL_OF"`
 - Directorship with role="President" → `"PRESIDENT_OF"`
 
-{{% notice info %}}**Role Precision**: Using specific roles (`PRESIDENT_OF` vs generic `DIRECTOR_OF`) provides better relationship clarity and supports more precise network analysis.{{% /notice %}}
+::alert[**Role Precision**: Using specific roles (`PRESIDENT_OF` vs generic `DIRECTOR_OF`) provides better relationship clarity and supports more precise network analysis.]{type="warning"}
 
 ---
 
 ### Correction 4: Previous Names for Organizations
 
 **Your Correction:**
-```
+```bash
 previous name should be name_org, not name_full
 ```
 
@@ -191,14 +191,14 @@ NAME_FULL is for person names.
 **Corrected Mapping:**
 - Company `previousName` → `NAME_ORG` with usage type `PRIOR`
 
-{{% notice info %}}**Senzing Convention**: `NAME_FULL` is for people, `NAME_ORG` is for organizations. Using the wrong feature can degrade matching quality.{{% /notice %}}
+::alert[**Senzing Convention**: `NAME_FULL` is for people, `NAME_ORG` is for organizations. Using the wrong feature can degrade matching quality.]{type="warning"}
 
 ---
 
 ### Question 5: Company Identifiers
 
 **Your Question:**
-```
+```bash
 Aren't there any identifiers for companies?
 ```
 
@@ -209,7 +209,7 @@ After checking the actual FTM data, no company identifier fields were found in t
 - Jurisdiction (country)
 - Incorporation date
 
-::alert[**Dataset-Specific**: Not all datasets have all field types. This watchlist happens to lack company identifiers (tax IDs, registration numbers). Other datasets might include them.{{% /notice %}}
+::alert[**Dataset-Specific**: Not all datasets have all field types. This watchlist happens to lack company identifiers (tax IDs, registration numbers). Other datasets might include them.]{type="warning"}
 
 ---
 

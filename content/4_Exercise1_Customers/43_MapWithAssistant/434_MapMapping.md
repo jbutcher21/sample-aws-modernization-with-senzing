@@ -14,7 +14,7 @@ This is the core of the mapping process. The AI will present a complete field di
 
 This is the most critical stage of the mapping process. Take your time here to understand each decision the AI makes.
 
-{{% notice info %}}**Learning Opportunity:** This stage offers the best opportunity to understand entity resolution concepts. Don't rush through - ask questions about anything unclear!{{% /notice %}}
+::alert[**Learning Opportunity:** This stage offers the best opportunity to understand entity resolution concepts. Don't rush through - ask questions about anything unclear!]{type="warning"}
 
 ### Ask Questions About the Table Structure
 
@@ -72,7 +72,7 @@ Once you've asked your questions and made any corrections:
 
 The AI will generate sample JSON records and run the Senzing linter to validate the mapping structure. The AI can usually self-correct any errors, but may ask for clarification.
 
-{{% notice info %}}**You Can Intervene:** If the AI is doing something you don't understand, press Escape and ask questions before it continues.{{% /notice %}}
+::alert[**You Can Intervene:** If the AI is doing something you don't understand, press Escape and ask questions before it continues.]{type="warning"}
 
 **Common validation issue - REGISTRATION_DATE:**
 
@@ -98,4 +98,4 @@ When the linter validates successfully:
 
 **Tell Amazon Q:** `yes`
 
-{{% notice info %}}**Checkpoint:** Q should present a complete field disposition table with confidence scores, generate valid sample JSON, and pass linter validation before moving to OUTPUTS.{{% /notice %}}
+::alert[**Checkpoint:** Q should present a complete field disposition table with confidence scores, generate valid sample JSON, and pass linter validation before moving to OUTPUTS.]{type="warning"}

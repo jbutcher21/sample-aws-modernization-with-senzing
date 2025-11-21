@@ -7,7 +7,7 @@ weight = 63
 
 Now that you understand the FTM data structure, it's time to map it to Senzing format using the **Senzing Mapping Assistant** - an AI-guided workflow with 5 structured stages.
 
-{{% notice warning %}}**AI-Assisted Mapping**: The Senzing Mapping Assistant is a prompt-based system that guides an AI through the complete mapping process. It has access to all Senzing documentation, examples, and validation tools, making it an expert mapping partner.]{type="info"}
+::alert[**AI-Assisted Mapping**: The Senzing Mapping Assistant is a prompt-based system that guides an AI through the complete mapping process. It has access to all Senzing documentation, examples, and validation tools, making it an expert mapping partner.]{type="warning"}
 
 ---
 
@@ -38,7 +38,7 @@ Each stage has a specific purpose and validation checkpoints:
 - Demonstrates how to handle complex data
 - **You can complete this faster by learning from Exercise 1 patterns**
 
-{{% notice info %}}**Efficiency Note**: If you completed Exercise 1, you already understand the workflow. Use this exercise to see how the same process handles more complex data structures and relationships.{{% /notice %}}
+::alert[**Efficiency Note**: If you completed Exercise 1, you already understand the workflow. Use this exercise to see how the same process handles more complex data structures and relationships.]{type="warning"}
 
 ---
 
@@ -47,12 +47,12 @@ Each stage has a specific purpose and validation checkpoints:
 To begin AI-assisted mapping, you need to load the Senzing Mapping Assistant prompt. There are two ways to do this:
 
 **Option 1: Using the @ reference (if available)**
-```
+```bash
 @senzing
 ```
 
 **Option 2: Explicitly load the prompt file**
-```
+```bash
 Read and follow the instructions in:
 /home/ubuntu/workshop/senzing/prompts/senzing_mapping_assistant.md
 ```
@@ -83,7 +83,7 @@ Don't expect perfection on the first try! This exercise shows **real corrections
 - Discovering missed relationship patterns
 - Clarifying Senzing conventions (NAME_ORG vs NAME_FULL)
 
-{{% notice info %}}**Important**: The AI is knowledgeable but not infallible. **Your domain expertise is crucial.** Question assumptions, verify against actual data, and correct mistakes when you spot them.{{% /notice %}}
+::alert[**Important**: The AI is knowledgeable but not infallible. **Your domain expertise is crucial.** Question assumptions, verify against actual data, and correct mistakes when you spot them.]{type="warning"}
 
 ---
 
@@ -104,6 +104,6 @@ Each page is standalone, so you can jump to specific stages to see how particula
 2. The schema file (`ftm_schema.md`)
 3. The source data file (`ftm.jsonl`)
 
-This lets you quickly verify AI suggestions against actual data.{{% /notice %}}
+This lets you quickly verify AI suggestions against actual data.]{type="warning"}
 
 **Ready? Let's start with Stage 1: INIT →**
