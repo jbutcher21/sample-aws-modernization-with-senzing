@@ -1,13 +1,13 @@
----
-title: "Stage 2: INVENTORY"
-weight: 632
----
++++
+title = "Stage 2: INVENTORY"
+weight = 632
++++
 
 ## Stage 2: Extract Complete Field Inventory
 
 The AI analyzes the schema file and extracts every single field with data types and sample values. This creates a complete inventory to map in later stages.
 
-::alert[**Critical Quality Check**: This stage includes an **integrity check** to prevent AI hallucination. The AI must count the fields it extracted and verify the count matches what it displayed. This prevents "phantom fields" from appearing in the mapping.]{type="warning"}
+{{% notice warning %}}**Critical Quality Check**: This stage includes an **integrity check** to prevent AI hallucination. The AI must count the fields it extracted and verify the count matches what it displayed. This prevents "phantom fields" from appearing in the mapping.{{% /notice %}}
 
 ---
 
@@ -95,7 +95,7 @@ The AI performs a critical validation:
 
 ✅ **INTEGRITY CHECK PASSED**: 31 extracted = 31 displayed (no hallucinated fields)
 
-::alert[**Why This Matters**: Without this check, AIs sometimes "invent" fields that seem plausible but don't actually exist in the data. This can cause mapper code to fail or produce incorrect output. Always verify this count matches!]{type="info"}
+{{% notice info %}}**Why This Matters**: Without this check, AIs sometimes "invent" fields that seem plausible but don't actually exist in the data. This can cause mapper code to fail or produce incorrect output. Always verify this count matches!{{% /notice %}}
 
 ---
 
@@ -133,7 +133,7 @@ Before proceeding, verify:
 - ✅ All field categories are shown (Root, Person, Company, Relationship, Sanction, Identifier)
 - ✅ Data types are noted (mostly arrays of strings)
 
-::alert[**If the count is wrong**: Stop and ask the AI to re-extract fields. Review the schema file manually to identify what was missed or hallucinated.]{type="info"}
+{{% notice info %}}**If the count is wrong**: Stop and ask the AI to re-extract fields. Review the schema file manually to identify what was missed or hallucinated.{{% /notice %}}
 
 ---
 

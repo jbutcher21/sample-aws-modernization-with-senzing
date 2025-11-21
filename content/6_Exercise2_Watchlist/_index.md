@@ -1,8 +1,8 @@
----
-title: "Exercise 2: Watchlist"
-chapter: true
-weight: 6
----
++++
+title = "Exercise 2: Watchlist"
+chapter = true
+weight = 6
++++
 
 # Exercise 2: Watchlist
 
@@ -38,12 +38,8 @@ This exercise follows the same 8-step workflow as Exercise 1:
 
 **Estimated Time:** 30-45 minutes
 
-{{% notice tip %}}
-Watchlist data presents new challenges: nested JSON structures, international names, and relationships. Apply what you learned in Exercise 1!
-{{% /notice %}}
+{{% notice info %}}Watchlist data presents new challenges: nested JSON structures, international names, and relationships. Apply what you learned in Exercise 1!{{% /notice %}}
 
-{{% notice info %}}
-This exercise builds on Exercise 1. You'll see how watchlist entities resolve against customer data.
-{{% /notice %}}
+{{% notice info %}}This exercise builds on Exercise 1. You'll see how watchlist entities resolve against customer data.{{% /notice %}}
 
 Let's get started!

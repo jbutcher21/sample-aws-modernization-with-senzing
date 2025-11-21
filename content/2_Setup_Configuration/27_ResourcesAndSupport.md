@@ -1,8 +1,8 @@
----
-title: "Resources and Support"
-chapter: false
-weight: 27
----
++++
+title = "Resources and Support"
+chapter = false
+weight = 27
++++
 
 Now that your environment is configured, here are important resources you can reference throughout the workshop.
 
@@ -17,7 +17,7 @@ Now that your environment is configured, here are important resources you can re
 - Check the troubleshooting sections within each module
 - Consult the Senzing and AWS documentation links below
 
-::alert[All workshop modules include validation checkpoints. If you encounter issues, check that you've completed each validation step before proceeding.]{type="info"}
+{{% notice info %}}All workshop modules include validation checkpoints. If you encounter issues, check that you've completed each validation step before proceeding.{{% /notice %}}
 
 ## Senzing Resources
 
@@ -43,7 +43,7 @@ Amazon Q Developer provides:
 - Integration with your IDE
 - Access to AWS documentation and best practices
 
-::alert[You'll use Amazon Q Developer extensively in Module 4 when mapping customer data. Familiarize yourself with its chat interface in your IDE.]{type="info"}
+{{% notice info %}}You'll use Amazon Q Developer extensively in Module 4 when mapping customer data. Familiarize yourself with its chat interface in your IDE.{{% /notice %}}
 
 ## Next Steps
 

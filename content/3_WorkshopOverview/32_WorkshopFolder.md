@@ -1,8 +1,8 @@
----
-title: "Workshop Folder Tour"
-chapter: false
-weight: 32
----
++++
+title = "Workshop Folder Tour"
+chapter = false
+weight = 32
++++
 
 ## Opening Your Workshop Environment
 
@@ -17,7 +17,7 @@ In this section, you'll explore the workshop folder structure and learn how AI c
 
 ## The Workshop Folder Structure
 
-![Workshop folder in your IDE](/static/images/overview/workshop_open.png)
+![Workshop folder in your IDE](/images/overview/workshop_open.png)
 
 ### Here is a brief explanation of the main folders and their contents:
 
@@ -41,7 +41,7 @@ workshop/
 └── solutions/                            # Complete reference implementations
 ```
 
-::alert[The solutions folder is provided so you can catch up if you fall behind or check your work. Try the exercise yourself first - that's where the learning happens!]{type="info"}
+{{% notice info %}}The solutions folder is provided so you can catch up if you fall behind or check your work. Try the exercise yourself first - that's where the learning happens!{{% /notice %}}
 
 ---
 

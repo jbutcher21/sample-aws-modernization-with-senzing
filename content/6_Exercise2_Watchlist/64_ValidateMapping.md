@@ -1,7 +1,7 @@
----
-title: "Step 4: Validate Mapping"
-weight: 64
----
++++
+title = "Step 4: Validate Mapping"
+weight = 64
++++
 
 ## Run the Mapper and Validate Output
 
@@ -34,7 +34,7 @@ Pass 4: Adding Directorship relationships...
 ✅ Output written to: ftm_senzing.jsonl
 ```
 
-::alert[**39 entities from 73 records:** This is expected! Sanction, Ownership, and Directorship records aren't separate entities - they're metadata and relationships merged onto the 39 master entities (33 Person + 6 Company).]{type="info"}
+{{% notice warning %}}**39 entities from 73 records:** This is expected! Sanction, Ownership, and Directorship records aren't separate entities - they're metadata and relationships merged onto the 39 master entities (33 Person + 6 Company).]{type="info"}
 
 ---
 
@@ -52,11 +52,11 @@ python3 senzing/tools/lint_senzing_json.py ftm_senzing.jsonl
 All records have required fields (DATA_SOURCE, RECORD_ID)
 ```
 
-::alert[**What the linter checks:**
+{{% notice info %}}**What the linter checks:**
 - Valid JSON syntax (no missing commas, brackets, etc.)
 - Required fields present (DATA_SOURCE, RECORD_ID)
 - FEATURES array structure correct
-- No obvious structural issues]{type="info"}
+- No obvious structural issues{{% /notice %}}
 
 ---
 
@@ -68,7 +68,7 @@ Second validation: Check that Senzing will recognize and use the mapped data:
 python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md
 ```
 
-::alert[**Important:** According to the tools reference documentation, the analyzer outputs to a `.md` file. You must then **read the markdown file** to see the results, not just look at console output!]{type="warning"}
+{{% notice info %}}**Important:** According to the tools reference documentation, the analyzer outputs to a `.md` file. You must then **read the markdown file** to see the results, not just look at console output!{{% /notice %}}
 
 Read the analysis results:
 
@@ -103,10 +103,10 @@ ERROR: DATA_SOURCE not found: SANCTIONS
 
 The analyzer found **critical errors**: DATA_SOURCE codes not registered in Senzing.
 
-::alert[**Critical vs Non-Critical:**
+{{% notice warning %}}**Critical vs Non-Critical:**
 - **Critical errors** (red) - Must fix before loading. Senzing will reject the data.
 - **Warnings** (orange) - Should review but don't block loading.
-- **Info** (yellow) - Payload attributes, expected and fine.]{type="warning"}
+- **Info** (yellow) - Payload attributes, expected and fine.{{% /notice %}}
 
 ### Configure Data Sources
 
@@ -189,7 +189,7 @@ Ready to load into Senzing!
 - **GREEN** - Feature attributes recognized by Senzing, will be used for matching
 - **YELLOW** - Payload attributes, stored with entity but don't affect matching
 - **ORANGE** - Warnings about data coverage (usually expected)
-- **RED** - Critical errors that must be fixed]{type="info"}
+- **RED** - Critical errors that must be fixed{{% /notice %}}
 
 ---
 

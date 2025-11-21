@@ -1,7 +1,7 @@
----
-title: "Step 3: Map with Assistant"
-weight: 43
----
++++
+title = "Step 3: Map with Assistant"
+weight = 43
++++
 
 ## Map Data with the Senzing Mapping Assistant
 
@@ -17,18 +17,16 @@ The Mapping Assistant guides you through:
 4. **MAPPING** - Map each field to Senzing features or payload
 5. **OUTPUTS** - Generate mapper script, documentation, and sample output
 
-{{% notice tip %}}
-**Key Principle:** The AI guides you through each stage, but you make the final decisions. Answer questions thoughtfully, validate suggestions, and don't hesitate to ask "why?" about any mapping choice.
-{{% /notice %}}
+{{% notice warning %}}**Key Principle:** The AI guides you through each stage, but you make the final decisions. Answer questions thoughtfully, validate suggestions, and don't hesitate to ask "why?" about any mapping choice.]{type="info"}
 
-{{% notice warning %}}
-**AI Variability:** AI responses may differ from what's shown in this workshop. This is normal - AI models generate contextual responses based on your specific data and environment. If your AI's response differs:
+::alert[**AI Variability:** AI responses may differ from what's shown in this workshop. This is normal - AI models generate contextual responses based on your specific data and environment.{{% /notice %}}
+
+**If your AI's response differs:**
 
 1. **Follow the AI's guidance** - It's analyzing your actual data
 2. **Ask clarifying questions** if something seems unclear
 3. **Use the workshop examples as reference** but adapt to your AI's approach
 4. **Focus on the end goal** - a working mapper that handles your data correctly
-{{% /notice %}}
 
 ---
 

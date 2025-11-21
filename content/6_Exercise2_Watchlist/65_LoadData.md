@@ -1,7 +1,7 @@
----
-title: "Step 5: Load Data into Senzing"
-weight: 65
----
++++
+title = "Step 5: Load Data into Senzing"
+weight = 65
++++
 
 ## Load Mapped Data and Take Snapshot
 
@@ -35,11 +35,11 @@ Entity Resolution Statistics:
 ✅ Load completed successfully
 ```
 
-::alert[**What Just Happened:**
+{{% notice info %}}**What Just Happened:**
 - All 39 records loaded successfully (no data errors)
 - Senzing evaluated 259 potential matches across all data sources
 - 5 matches were "ambiguous" (could match multiple ways - Senzing will flag these)
-- Processing took under 1 minute (this is a small dataset)]{type="info"}
+- Processing took under 1 minute (this is a small dataset){{% /notice %}}
 
 ---
 
@@ -88,13 +88,13 @@ Snapshot complete:
 ✅ Snapshot written to: ftm-watchlist-snapshot-2025-11-16.json
 ```
 
-::alert[**What is a Snapshot?**
+{{% notice info %}}**What is a Snapshot?**
 A snapshot is a JSON file containing comprehensive entity resolution statistics:
 - Record and entity counts by data source
 - Compression rates (how many duplicates were found)
 - Cross-source matches (same entity in multiple systems)
 - Relationship counts
-- Match quality breakdown (definitive, possible, ambiguous)]{type="info"}
+- Match quality breakdown (definitive, possible, ambiguous){{% /notice %}}
 
 ---
 

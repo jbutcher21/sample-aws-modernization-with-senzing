@@ -1,7 +1,7 @@
----
-title: "Step 8: Key Takeaways"
-weight: 68
----
++++
+title = "Step 8: Key Takeaways"
+weight = 68
++++
 
 ## Lessons Learned from Watchlist Mapping
 
@@ -367,4 +367,4 @@ Entity resolution is both science and art:
 
 ---
 
-::alert[**What's Next?** Try mapping your own data! Start with the Workflow Summary (Step 1) as a guide, use the 5-stage mapping assistant, and apply the validation and analysis techniques you've learned. Good luck!]{type="info"}
+{{% notice info %}}**What's Next?** Try mapping your own data! Start with the Workflow Summary (Step 1) as a guide, use the 5-stage mapping assistant, and apply the validation and analysis techniques you've learned. Good luck!{{% /notice %}}

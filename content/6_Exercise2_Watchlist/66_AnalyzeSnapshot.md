@@ -1,17 +1,17 @@
----
-title: "Step 6: Analyze Snapshot"
-weight: 66
----
++++
+title = "Step 6: Analyze Snapshot"
+weight = 66
++++
 
 ## Analyzing Entity Resolution Results
 
 With data loaded and a snapshot captured, it's time to analyze the entity resolution results to understand what Senzing found.
 
-::alert[**IMPORTANT LESSON: Context Loss Across Sessions**
+{{% notice warning %}}**IMPORTANT LESSON: Context Loss Across Sessions**
 
 This step documents a real scenario that happened during workshop development. The mapping and loading were completed in one AI session, then **the session ended**. When analysis resumed in a new session, **the AI had lost all context** about what had been done.
 
-This section shows what happened, why it happened, and how to recover - a critical skill for working with AI on multi-day projects!]{type="warning"}
+This section shows what happened, why it happened, and how to recover - a critical skill for working with AI on multi-day projects!{{% /notice %}}
 
 ---
 
@@ -91,7 +91,7 @@ Compacting the conversation:
 - ✅ **Reduces token count** so you have room to keep working
 - ✅ **Preserves enough context** to maintain continuity
 
-::alert[**The Lesson: Accept the Compact Offer**
+{{% notice warning %}}**The Lesson: Accept the Compact Offer**
 
 When AI warns "Context ~80% full" and offers to compact:
 - **SAY YES** to the compact offer
@@ -101,7 +101,7 @@ When AI warns "Context ~80% full" and offers to compact:
 
 **DON'T** decline and hope for the best - at 100%, session WILL reset automatically.
 
-**In this exercise:** Data was loaded, ready to take snapshot. Context hit 80%, AI offered to compact. Should have said "yes, compact the conversation." Instead, took a chance and declined. Kept going without compacting → hit 100% → session reset → all context lost.]{type="warning"}
+**In this exercise:** Data was loaded, ready to take snapshot. Context hit 80%, AI offered to compact. Should have said "yes, compact the conversation." Instead, took a chance and declined. Kept going without compacting → hit 100% → session reset → all context lost.{{% /notice %}}
 
 ---
 

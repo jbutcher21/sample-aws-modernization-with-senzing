@@ -1,7 +1,7 @@
----
-title: "Step 4: Validate Mapping"
-weight: 44
----
++++
+title = "Step 4: Validate Mapping"
+weight = 44
++++
 
 ## Run the Mapper on Full Dataset
 
@@ -11,8 +11,8 @@ Now that you have a mapper, test it on the complete customer dataset to generate
 
 **Tell Amazon Q:** `Run the mapper on the actual data`
 
-![Output code and documentation 1](/static/images/exercise1/12-execute1.png)
-![Output code and documentation 2](/static/images/exercise1/12-execute2.png)
+![Output code and documentation 1](/images/exercise1/12-execute1.png)
+![Output code and documentation 2](/images/exercise1/12-execute2.png)
 
 Q will execute the mapper, run the linter, and run the JSON analyzer - all steps documented in the Senzing tools reference.
 
@@ -20,7 +20,7 @@ Q will execute the mapper, run the linter, and run the JSON analyzer - all steps
 
 If the analyzer output doesn't show errors or warnings, the AI may have lost context during the long conversation. When this happens, re-add the context using the `@` symbol.
 
-::alert[**Context Management:** Long conversations can cause AI to forget earlier instructions. Use the `@` symbol to re-add important reference files when needed.]{type="info"}
+{{% notice info %}}**Context Management:** Long conversations can cause AI to forget earlier instructions. Use the `@` symbol to re-add important reference files when needed.{{% /notice %}}
 
 **Re-add context to Amazon Q:**
 
@@ -30,10 +30,10 @@ If the analyzer output doesn't show errors or warnings, the AI may have lost con
 
 **Tell Amazon Q:** `@SENZING_TOOLS_REFERENCE.md Rerun the json analyzer on the mapped customer JSON`
 
-![Output code and documentation 1](/static/images/exercise1/12-execute3.png)
-![Output code and documentation 2](/static/images/exercise1/12-execute4.png)
-![Output code and documentation 2](/static/images/exercise1/12-execute5.png)
+![Output code and documentation 1](/images/exercise1/12-execute3.png)
+![Output code and documentation 2](/images/exercise1/12-execute4.png)
+![Output code and documentation 2](/images/exercise1/12-execute5.png)
 
-::alert[**About Warnings:** Warnings highlight data quality considerations, but they're informational. The data is what it is - it's just good to know these patterns in case something can be improved at the source!]{type="info"}
+{{% notice info %}}**About Warnings:** Warnings highlight data quality considerations, but they're informational. The data is what it is - it's just good to know these patterns in case something can be improved at the source!{{% /notice %}}
 
-::alert[**Checkpoint:** Your mapped data should pass validation with no errors. All 120 records should be valid Senzing JSON with features correctly recognized.]{type="info"}
+{{% notice info %}}**Checkpoint:** Your mapped data should pass validation with no errors. All 120 records should be valid Senzing JSON with features correctly recognized.{{% /notice %}}
