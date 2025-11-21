@@ -232,9 +232,7 @@ python3 senzing/tools/lint_senzing_json.py sample_output.jsonl
 
 **Result:** ✅ **PASSED** - No JSON syntax errors
 
-{{% notice tip %}}
-**Always lint sample output during development!** Finding structural errors early prevents having to fix broken mapper code later.
-{{% /notice %}}
+::alert[**Always lint sample output during development!** Finding structural errors early prevents having to fix broken mapper code later.]{type="info"}
 
 ---
 

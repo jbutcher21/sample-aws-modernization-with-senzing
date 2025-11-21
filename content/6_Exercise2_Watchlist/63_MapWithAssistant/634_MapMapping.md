@@ -7,9 +7,7 @@ weight: 634
 
 This is the core mapping stage where every field gets a disposition: **Feature** (used for matching), **Payload** (stored but not matched), or **Ignored** (not needed).
 
-{{% notice info %}}
-**This is where your domain expertise matters most.** The AI can suggest mappings based on Senzing patterns, but you need to verify they make business sense for your use case.
-{{% /notice %}}
+::alert[**This is where your domain expertise matters most.** The AI can suggest mappings based on Senzing patterns, but you need to verify they make business sense for your use case.]{type="info"}
 
 ---
 
@@ -113,9 +111,7 @@ After checking actual FTM records, the AI found **nested identifier records**:
 - **1 Driver's License record** → Maps to `DRIVERS_LICENSE_NUMBER` + `DRIVERS_LICENSE_STATE`
 - **2 SSN records** → Maps to `SSN_NUMBER`
 
-{{% notice warning %}}
-**Critical Lesson**: Always verify AI assumptions against actual data! The schema showed general identifier fields (`idNumber`, `passportNumber`), but nested identifier records had specific types that required different Senzing features.
-{{% /notice %}}
+::alert[**Critical Lesson**: Always verify AI assumptions against actual data! The schema showed general identifier fields (`idNumber`, `passportNumber`), but nested identifier records had specific types that required different Senzing features.]{type="warning"}
 
 ---
 
@@ -137,12 +133,10 @@ After checking actual data, you found:
 - Company-to-company ownership relationships exist
 - All use `REL_POINTER_ROLE = "OWNER_OF"`
 
-{{% notice tip %}}
-**Key Learning**: Don't assume relationship patterns. Check actual data to find all variations:
+::alert[**Key Learning**: Don't assume relationship patterns. Check actual data to find all variations:
 - Person → Company (directorship)
 - Person → Company (ownership)
-- Company → Company (ownership)
-{{% /notice %}}
+- Company → Company (ownership)]{type="info"}
 
 ---
 
@@ -177,9 +171,7 @@ Use PRINCIPAL_OF for principals and PRESIDENT_OF for presidents
 - Directorship with role="Principal" → `"PRINCIPAL_OF"`
 - Directorship with role="President" → `"PRESIDENT_OF"`
 
-{{% notice info %}}
-**Role Precision**: Using specific roles (`PRESIDENT_OF` vs generic `DIRECTOR_OF`) provides better relationship clarity and supports more precise network analysis.
-{{% /notice %}}
+::alert[**Role Precision**: Using specific roles (`PRESIDENT_OF` vs generic `DIRECTOR_OF`) provides better relationship clarity and supports more precise network analysis.]{type="info"}
 
 ---
 
@@ -199,9 +191,7 @@ NAME_FULL is for person names.
 **Corrected Mapping:**
 - Company `previousName` → `NAME_ORG` with usage type `PRIOR`
 
-{{% notice warning %}}
-**Senzing Convention**: `NAME_FULL` is for people, `NAME_ORG` is for organizations. Using the wrong feature can degrade matching quality.
-{{% /notice %}}
+::alert[**Senzing Convention**: `NAME_FULL` is for people, `NAME_ORG` is for organizations. Using the wrong feature can degrade matching quality.]{type="warning"}
 
 ---
 
@@ -219,9 +209,7 @@ After checking the actual FTM data, no company identifier fields were found in t
 - Jurisdiction (country)
 - Incorporation date
 
-{{% notice tip %}}
-**Dataset-Specific**: Not all datasets have all field types. This watchlist happens to lack company identifiers (tax IDs, registration numbers). Other datasets might include them.
-{{% /notice %}}
+::alert[**Dataset-Specific**: Not all datasets have all field types. This watchlist happens to lack company identifiers (tax IDs, registration numbers). Other datasets might include them.]{type="info"}
 
 ---
 

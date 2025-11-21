@@ -7,9 +7,7 @@ weight: 67
 
 Now that context is recovered and you understand the snapshot results, use the Senzing MCP server to investigate specific entities, relationships, and resolution logic.
 
-{{% notice tip %}}
-**MCP Server Advantage**: While snapshots give you statistics, the MCP server lets you ask "how" and "why" questions about specific entities and matches. This is where AI-assisted analysis really shines!
-{{% /notice %}}
+::alert[**MCP Server Advantage**: While snapshots give you statistics, the MCP server lets you ask "how" and "why" questions about specific entities and matches. This is where AI-assisted analysis really shines!]{type="info"}
 
 ---
 
@@ -62,9 +60,7 @@ Show me the entity that appears in all three data sources (CUSTOMERS, SANCTIONS,
 **Relationships:**
 - Owns Mullenkrants Autoworks GmbH (100%)
 
-{{% notice warning %}}
-**Critical Finding**: A Platinum customer is on the sanctions list for arms trafficking! This is exactly the kind of hidden risk entity resolution reveals.
-{{% /notice %}}
+::alert[**Critical Finding**: A Platinum customer is on the sanctions list for arms trafficking! This is exactly the kind of hidden risk entity resolution reveals.]{type="warning"}
 
 ---
 
@@ -206,13 +202,11 @@ Entity 100014 (Faisal Siddiqui)
 - International network suggests sophisticated operation
 - Second sanctioned individual in management raises red flags
 
-{{% notice warning %}}
-**Compliance Impact**: This network would trigger enhanced due diligence requirements:
+::alert[**Compliance Impact**: This network would trigger enhanced due diligence requirements:
 - Know Your Customer (KYC) violations
 - Anti-Money Laundering (AML) concerns
 - Sanctions compliance issues
-- Potential need to freeze accounts and report to authorities
-{{% /notice %}}
+- Potential need to freeze accounts and report to authorities]{type="warning"}
 
 ---
 

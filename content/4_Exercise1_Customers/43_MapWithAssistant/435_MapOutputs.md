@@ -7,8 +7,8 @@ weight: 435
 
 The AI generates three production-ready files that document and implement your mapping.
 
-![Output code and documentation 1](/images/exercise1/11-output1.png)
-![Output code and documentation 2](/images/exercise1/11-output2.png)
+![Output code and documentation 1](/static/images/exercise1/11-output1.png)
+![Output code and documentation 2](/static/images/exercise1/11-output2.png)
 
 ### The Generated Files
 
@@ -56,9 +56,7 @@ Navigate to `workshop/workspace/customers/` and open each file:
 - Are all prerequisites listed?
 - Is the testing guidance clear?
 
-{{% notice tip %}}
-**Production Ready:** These files are designed to be checked into version control. The documentation preserves the mapping knowledge for future maintenance.
-{{% /notice %}}
+::alert[**Production Ready:** These files are designed to be checked into version control. The documentation preserves the mapping knowledge for future maintenance.]{type="info"}
 
 ---
 
@@ -74,10 +72,6 @@ You've completed the AI-assisted mapping process:
 
 The Mapping Assistant doesn't just generate code—it teaches you about entity resolution while guiding you through validated, best-practice mappings.
 
-{{% notice tip %}}
-**Learning Opportunity:** Please ask the AI questions as you go!  This teaches you what makes a valid Senzing JSON record and common mapping mistakes to avoid.
-{{% /notice %}}
+::alert[**Learning Opportunity:** Please ask the AI questions as you go!  This teaches you what makes a valid Senzing JSON record and common mapping mistakes to avoid.]{type="info"}
 
-{{% notice info %}}
-**Checkpoint:** You should have three files in `workshop/workspace/customers/`: `customers_mapper.py`, `customers_mapper.md`, and `README.md`. Review them to ensure they match your requirements.
-{{% /notice %}}
+::alert[**Checkpoint:** You should have three files in `workshop/workspace/customers/`: `customers_mapper.py`, `customers_mapper.md`, and `README.md`. Review them to ensure they match your requirements.]{type="info"}

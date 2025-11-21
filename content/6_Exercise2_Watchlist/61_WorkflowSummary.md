@@ -7,9 +7,7 @@ weight: 61
 
 This table provides a complete overview of the watchlist mapping workflow. **You can complete the entire exercise by following this summary**, or dive into the detailed pages for deeper exploration.
 
-{{% notice tip %}}
-**Quick Start**: This summary shows every prompt and action needed to map FTM watchlist data to Senzing format. Use it as a standalone guide or reference as you work through the detailed pages.
-{{% /notice %}}
+::alert[**Quick Start**: This summary shows every prompt and action needed to map FTM watchlist data to Senzing format. Use it as a standalone guide or reference as you work through the detailed pages.]{type="info"}
 
 ---
 
@@ -49,8 +47,7 @@ Notice throughout this workflow:
 
 ---
 
-{{% notice warning %}}
-### 3. What To Do If Things Go Wrong
+::alert[### 3. What To Do If Things Go Wrong
 
 **Context Loss (80% Warning)**
 - **If AI warns "Context ~80% full" and offers to compact**: Say YES immediately
@@ -95,39 +92,57 @@ Simple approach:
 - Tell AI what to find: "Find the snapshot file in workspace/watchlist"
 - Tell AI what to do next: "Analyze it according to the tools reference"
 
-See [Step 6](../66_analyzesnapshot/) for the complete recovery example.
-{{% /notice %}}
+See [Step 6](../66_analyzesnapshot/) for the complete recovery example.]{type="warning"}
 
 ---
 
 | Step | Action / Prompt Used | Reason / Outcome |
 |------|---------------------|------------------|
-| **1. Generate Schema** | **Prompt:** "Generate a schema for the ftm.jsonl file I have open"<br>**AI runs:** `python3 senzing/tools/sz_schema_generator.py workspace/watchlist/ftm.jsonl -o workspace/watchlist/ftm_schema.md` | Understand the FTM data structure: 73 records, 5 schema types (Person, Company, Sanction, Ownership, Directorship), 31 unique fields |
-| **2. Start AI Mapping** | **Prompt:** "@senzing"<br>**Then:** "Yes" [to start AI-assisted mapping] | Load AI mapping assistant to guide through 5-stage workflow |
+| **1. Generate Schema** | **Prompt:** "Generate a schema for the ftm.jsonl file I have open"
+**AI runs:** `python3 senzing/tools/sz_schema_generator.py workspace/watchlist/ftm.jsonl -o workspace/watchlist/ftm_schema.md` | Understand the FTM data structure: 73 records, 5 schema types (Person, Company, Sanction, Ownership, Directorship), 31 unique fields |
+| **2. Start AI Mapping** | **Prompt:** "@senzing"
+**Then:** "Yes" [to start AI-assisted mapping] | Load AI mapping assistant to guide through 5-stage workflow |
 | **Stage 1: INIT** | AI loads 5 reference files: entity spec, examples, linter, identifier crosswalk, usage type crosswalk | Provides AI with complete Senzing knowledge base and validation tools |
-| **Stage 2: INVENTORY** | **Prompt:** "yes" [to proceed]<br>AI extracts all 31 fields from schema | Creates complete field inventory: root fields, Person attributes, relationship fields, identifier fields, sanction metadata. Integrity check: 31 extracted = 31 displayed |
-| **Stage 3: PLANNING** | AI identifies master entities (Person, Company) and DATA_SOURCE codes (SANCTIONS, CORP_FILINGS) | **Your correction:** "You say 3 master entity types but list 2: person and company. What is the third?"<br>**Result:** Corrected to 2 master types, 3 relationship types |
-| **Stage 4: MAPPING** | **Prompt:** "Show me the full mapping table first"<br>AI maps each field to Senzing features, payload, or ignored | **Key decisions:** Sanction records merge as payload, Ownership/Directorship become REL_POINTER relationships, identifiers merge onto Person entities |
+| **Stage 2: INVENTORY** | **Prompt:** "yes" [to proceed]
+AI extracts all 31 fields from schema | Creates complete field inventory: root fields, Person attributes, relationship fields, identifier fields, sanction metadata. Integrity check: 31 extracted = 31 displayed |
+| **Stage 3: PLANNING** | AI identifies master entities (Person, Company) and DATA_SOURCE codes (SANCTIONS, CORP_FILINGS) | **Your correction:** "You say 3 master entity types but list 2: person and company. What is the third?"
+**Result:** Corrected to 2 master types, 3 relationship types |
+| **Stage 4: MAPPING** | **Prompt:** "Show me the full mapping table first"
+AI maps each field to Senzing features, payload, or ignored | **Key decisions:** Sanction records merge as payload, Ownership/Directorship become REL_POINTER relationships, identifiers merge onto Person entities |
 | **Question: Identifier Types** | **Prompt:** "Are you sure those are all the identifier types, and how do you know?" | **Correction:** AI checked actual data and found DRIVERS_LICENSE and SSN (not just assumed from schema) |
 | **Question: Company Relationships** | **Prompt:** "I didn't see any rel_pointers in the json examples, don't companies have relationships as well?" | **Discovery:** Found company-to-company ownership (Universal Exports owns 3 subsidiaries) |
-| **Question: Relationship Roles** | **Prompt:** "What are my options for assigning roles to relationship pointers"<br>**Your decision:** "The principal and president" | **Result:** Use OWNER_OF for ownership, PRINCIPAL_OF/PRESIDENT_OF for directorships based on role values |
+| **Question: Relationship Roles** | **Prompt:** "What are my options for assigning roles to relationship pointers"
+**Your decision:** "The principal and president" | **Result:** Use OWNER_OF for ownership, PRINCIPAL_OF/PRESIDENT_OF for directorships based on role values |
 | **Question: Previous Names** | **Your correction:** "previous name should be name_org, not name_full" | **Fix:** For organizations, use NAME_ORG for previous names |
 | **Question: Company Identifiers** | **Prompt:** "Aren't there any identifiers for companies?" | **Result:** None in this dataset |
-| **Stage 5: OUTPUTS** | **Prompt:** "yes" [to proceed to JSON generation]<br>**Then:** "ok show me company json record examples and lint" | Complete mapping implementation with multi-pass processing for relationships. AI generates README.md, ftm_mapper.md (spec), ftm_mapper.py (code) |
-| **3. Run Mapper** | **Prompt:** "ok lets run it on the actual data"<br>**AI runs:** `python3 ftm_mapper.py ftm.jsonl ftm_senzing.jsonl` | **Result:** 39 Senzing entities generated from 73 FTM records |
+| **Stage 5: OUTPUTS** | **Prompt:** "yes" [to proceed to JSON generation]
+**Then:** "ok show me company json record examples and lint" | Complete mapping implementation with multi-pass processing for relationships. AI generates README.md, ftm_mapper.md (spec), ftm_mapper.py (code) |
+| **3. Run Mapper** | **Prompt:** "ok lets run it on the actual data"
+**AI runs:** `python3 ftm_mapper.py ftm.jsonl ftm_senzing.jsonl` | **Result:** 39 Senzing entities generated from 73 FTM records |
 | **4. Lint Output** | AI automatically runs: `python3 senzing/tools/lint_senzing_json.py ftm_senzing.jsonl` | **Result:** ✅ PASSED - No JSON syntax errors |
-| **5. Analyze Quality** | **Prompt:** "I didn't see any errors or warnings. please run the json analyzer again according to tools reference documentation"<br>**AI runs:** `python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md` | **Result:** ❌ Critical errors - DATA_SOURCE not found: CORP_FILINGS, SANCTIONS |
-| **6. Configure Data Sources** | **Prompt:** "I updated the senzing config. Run the json analyzer again"<br>**Then:** "yes" [to configure data sources]<br>**AI creates config and runs:** `sz_configtool -f ftm_config.g2c` | **Result:** ✅ Both data sources registered |
+| **5. Analyze Quality** | **Prompt:** "I didn't see any errors or warnings. please run the json analyzer again according to tools reference documentation"
+**AI runs:** `python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md` | **Result:** ❌ Critical errors - DATA_SOURCE not found: CORP_FILINGS, SANCTIONS |
+| **6. Configure Data Sources** | **Prompt:** "I updated the senzing config. Run the json analyzer again"
+**Then:** "yes" [to configure data sources]
+**AI creates config and runs:** `sz_configtool -f ftm_config.g2c` | **Result:** ✅ Both data sources registered |
 | **7. Re-analyze** | AI runs: `python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md` | **Result:** ✅ Critical Errors: 0 (resolved!), 13 Senzing features with good coverage |
-| **8. Load Data** | **Prompt:** "ok load it"<br>**AI runs:** `sz_file_loader -f ftm_senzing.jsonl` | **Result:** ✅ 39 records loaded, 0 errors, 0.0 minutes, 259 candidate matches evaluated |
-| **9. Take Snapshot** | **Prompt:** "ok take a snapshot"<br>**AI runs:** `sz_snapshot -o ftm-watchlist-snapshot-$(date +%Y-%m-%d) -Q` | Captures entity resolution statistics for analysis |
+| **8. Load Data** | **Prompt:** "ok load it"
+**AI runs:** `sz_file_loader -f ftm_senzing.jsonl` | **Result:** ✅ 39 records loaded, 0 errors, 0.0 minutes, 259 candidate matches evaluated |
+| **9. Take Snapshot** | **Prompt:** "ok take a snapshot"
+**AI runs:** `sz_snapshot -o ftm-watchlist-snapshot-$(date +%Y-%m-%d) -Q` | Captures entity resolution statistics for analysis |
 | **--- CONTEXT LOST ---** | **Session ended** → Context hit 100%, session reset | See Step 6 for what happened and recovery |
-| **10. Recover Context** | **New session - Prompt:** "did you compact"<br>**AI:** ❌ No memory of previous work | Had to recover by finding snapshot file |
-| **11. Find Snapshot** | **Prompt:** "@senzing" [re-explore]<br>**Then:** "do you still have access to the senzing mcp server?"<br>**Then:** "Its already loaded. can you find the snapshot on the watchlist directory and show it to me" | AI locates: ftm-watchlist-snapshot-2025-11-14.json |
+| **10. Recover Context** | **New session - Prompt:** "did you compact"
+**AI:** ❌ No memory of previous work | Had to recover by finding snapshot file |
+| **11. Find Snapshot** | **Prompt:** "@senzing" [re-explore]
+**Then:** "do you still have access to the senzing mcp server?"
+**Then:** "Its already loaded. can you find the snapshot on the watchlist directory and show it to me" | AI locates: ftm-watchlist-snapshot-2025-11-14.json |
 | **12. Analyze Snapshot** | **Prompt:** "in the senzing tools reference it tells you how to summarize the snapshot, can you do that" | **Result:** 92 entities from 159 total records (42% compression), 17 cross-source matches |
-| **13. Find Multi-Source Entity** | **Prompt:** "show that multi source entity"<br>**AI uses:** `get_entity(91)` via MCP server | **Discovery:** Alexander Vasiliev spans CUSTOMERS, SANCTIONS, CORP_FILINGS with Cyrillic name variants |
-| **14. Resolution Timeline** | **Prompt:** "how did this entity come together"<br>**AI uses:** `how_entity_resolved(91)` | **Insight:** Cross-language name matching (Cyrillic→Latin) and international phone format variations |
-| **15. Map Relationships** | **Prompt:** "show his relationships in a simple graph view"<br>**AI uses:** `get_entity()` calls for related entities | **Network:** Alexander Vasiliev owns Mullenkrants Autoworks, Faisal Siddiqui is President |
+| **13. Find Multi-Source Entity** | **Prompt:** "show that multi source entity"
+**AI uses:** `get_entity(91)` via MCP server | **Discovery:** Alexander Vasiliev spans CUSTOMERS, SANCTIONS, CORP_FILINGS with Cyrillic name variants |
+| **14. Resolution Timeline** | **Prompt:** "how did this entity come together"
+**AI uses:** `how_entity_resolved(91)` | **Insight:** Cross-language name matching (Cyrillic→Latin) and international phone format variations |
+| **15. Map Relationships** | **Prompt:** "show his relationships in a simple graph view"
+**AI uses:** `get_entity()` calls for related entities | **Network:** Alexander Vasiliev owns Mullenkrants Autoworks, Faisal Siddiqui is President |
 
 ---
 
@@ -161,6 +176,4 @@ The final numbers tell the story:
 
 ---
 
-{{% notice info %}}
-**Next Steps**: Continue to the detailed pages to see the full prompts, responses, and teaching moments, or jump straight to mapping your own FTM data using this workflow as a guide.
-{{% /notice %}}
+::alert[**Next Steps**: Continue to the detailed pages to see the full prompts, responses, and teaching moments, or jump straight to mapping your own FTM data using this workflow as a guide.]{type="info"}

@@ -13,8 +13,8 @@ Open Amazon Q Developer (if not already open)
 
 **Tell Amazon Q:** `Start the senzing mapping assistant`
 
-![Mapping Assistant 1](/images/exercise1/6-assistant1.png)
-![Mapping Assistant 2](/images/exercise1/6-assistant2.png)
+![Mapping Assistant 1](/static/images/exercise1/6-assistant1.png)
+![Mapping Assistant 2](/static/images/exercise1/6-assistant2.png)
 
 ### Why This Matters
 
@@ -26,10 +26,6 @@ By loading these references, the AI can:
 
 The assistant will now confirm: **"✅ STAGE 1 COMPLETE - Ready for INVENTORY"**
 
-{{% notice tip %}}
-**Interactive Learning:** If you're curious about any reference file, you can ask Q to explain it. For example: "What's in the identifier crosswalk?"
-{{% /notice %}}
+::alert[**Interactive Learning:** If you're curious about any reference file, you can ask Q to explain it. For example: "What's in the identifier crosswalk?"]{type="info"}
 
-{{% notice info %}}
-**Checkpoint:** Q should confirm all 5 reference files are loaded and the linter tool is validated.
-{{% /notice %}}
+::alert[**Checkpoint:** Q should confirm all 5 reference files are loaded and the linter tool is validated.]{type="info"}

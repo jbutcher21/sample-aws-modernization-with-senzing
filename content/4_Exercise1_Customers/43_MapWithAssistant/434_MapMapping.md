@@ -7,16 +7,14 @@ weight: 434
 
 This is the core of the mapping process. The AI will present a complete field disposition table with confidence scores.
 
-![Customer Mapping 1](/images/exercise1/9-mapping1.png)
-![Customer Mapping 2](/images/exercise1/9-mapping2.png)
+![Customer Mapping 1](/static/images/exercise1/9-mapping1.png)
+![Customer Mapping 2](/static/images/exercise1/9-mapping2.png)
 
 ### The Field Disposition Table
 
 This is the most critical stage of the mapping process. Take your time here to understand each decision the AI makes.
 
-{{% notice tip %}}
-**Learning Opportunity:** This stage offers the best opportunity to understand entity resolution concepts. Don't rush through - ask questions about anything unclear!
-{{% /notice %}}
+::alert[**Learning Opportunity:** This stage offers the best opportunity to understand entity resolution concepts. Don't rush through - ask questions about anything unclear!]{type="info"}
 
 ### Ask Questions About the Table Structure
 
@@ -62,9 +60,9 @@ Once you have the complete list, verify each code maps to the correct Senzing fe
 
 If the AI missed any codes: **Tell Amazon Q:** `Add mapping for id_type='CEDULA' to NATIONAL_ID_NUMBER`
 
-{{% notice note %}}
+
 **Don't Worry About Perfection:** Additional validation steps will catch issues during the linter stage. Focus on understanding the major decisions and correcting obvious problems. This workflow is designed to help you iterate quickly to a working result - which is the only proof that truly matters.
-{{% /notice %}}
+
 
 ### Review and Approve
 
@@ -76,9 +74,7 @@ Once you've asked your questions and made any corrections:
 
 The AI will generate sample JSON records and run the Senzing linter to validate the mapping structure. The AI can usually self-correct any errors, but may ask for clarification.
 
-{{% notice tip %}}
-**You Can Intervene:** If the AI is doing something you don't understand, press Escape and ask questions before it continues.
-{{% /notice %}}
+::alert[**You Can Intervene:** If the AI is doing something you don't understand, press Escape and ask questions before it continues.]{type="info"}
 
 **Common validation issue - REGISTRATION_DATE:**
 
@@ -94,7 +90,7 @@ The AI will explain that customer registration dates don't match the Senzing fea
 
 When validation succeeds, you'll see confirmation:
 
-![Linter validation successful](/images/exercise1/10-linter-pass.png)
+![Linter validation successful](/static/images/exercise1/10-linter-pass.png)
 
 The assistant confirms: **"✅ STAGE 4 COMPLETE - Mapping validated"**
 
@@ -104,6 +100,4 @@ When the linter validates successfully:
 
 **Tell Amazon Q:** `yes`
 
-{{% notice info %}}
-**Checkpoint:** Q should present a complete field disposition table with confidence scores, generate valid sample JSON, and pass linter validation before moving to OUTPUTS.
-{{% /notice %}}
+::alert[**Checkpoint:** Q should present a complete field disposition table with confidence scores, generate valid sample JSON, and pass linter validation before moving to OUTPUTS.]{type="info"}

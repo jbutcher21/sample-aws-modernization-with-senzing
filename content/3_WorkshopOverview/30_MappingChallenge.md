@@ -4,8 +4,6 @@ chapter: false
 weight: 30
 ---
 
-## What is Data Mapping?
-
 Data mapping is the process of defining how data fields from a source system correspond to fields in a target system.
 
 ## Why Data Mapping is Hard

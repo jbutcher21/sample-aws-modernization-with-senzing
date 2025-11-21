@@ -7,9 +7,7 @@ weight: 62
 
 Before mapping any data to Senzing format, you need to understand its structure. Unlike the customer CSV file in Exercise 1, this watchlist data is in **FollowTheMoney (FTM) JSON format** - a more complex format with nested structures and relationships.
 
-{{% notice info %}}
-**FTM Format**: FollowTheMoney is an open-source data model designed for investigative journalism and anti-corruption work. It's used by OpenSanctions, OCCRP, and other transparency initiatives to model entities, relationships, and sanctions data.
-{{% /notice %}}
+::alert[**FTM Format**: FollowTheMoney is an open-source data model designed for investigative journalism and anti-corruption work. It's used by OpenSanctions, OCCRP, and other transparency initiatives to model entities, relationships, and sanctions data.]{type="info"}
 
 ---
 
@@ -62,9 +60,7 @@ The AI will run the schema generator tool:
 python3 senzing/tools/sz_schema_generator.py workspace/watchlist/ftm.jsonl -o workspace/watchlist/ftm_schema.md
 ```
 
-{{% notice tip %}}
-**Why Generate a Schema?** The schema generator extracts all field names, data types, sample values, and coverage statistics. This gives you and the AI a complete understanding of what data you're working with.
-{{% /notice %}}
+::alert[**Why Generate a Schema?** The schema generator extracts all field names, data types, sample values, and coverage statistics. This gives you and the AI a complete understanding of what data you're working with.]{type="info"}
 
 ---
 
@@ -161,12 +157,10 @@ The schema analysis reveals several mapping challenges:
 4. **Mixed Entity Types**: Both Person and Organization entities in same dataset
 5. **International Data**: Name transliteration and format variations
 
-{{% notice warning %}}
-**Important**: This is significantly more complex than the customer CSV! The FTM format requires a **multi-pass processing strategy** where you:
+::alert[**Important**: This is significantly more complex than the customer CSV! The FTM format requires a **multi-pass processing strategy** where you:
 1. Process master entities (Person, Company)
 2. Merge metadata records (Sanction) onto masters
-3. Convert relationship records (Ownership, Directorship) to REL_POINTER format
-{{% /notice %}}
+3. Convert relationship records (Ownership, Directorship) to REL_POINTER format]{type="warning"}
 
 ---
 
@@ -174,6 +168,4 @@ The schema analysis reveals several mapping challenges:
 
 Now that you understand the data structure, you're ready to map it to Senzing format using the AI-assisted mapping workflow. The next section walks through the 5-stage Senzing Mapping Assistant process.
 
-{{% notice tip %}}
-**Pro Tip**: Keep the generated schema file (`ftm_schema.md`) open in a separate tab. You'll reference it frequently during the mapping process to verify field names, check sample values, and understand data coverage.
-{{% /notice %}}
+::alert[**Pro Tip**: Keep the generated schema file (`ftm_schema.md`) open in a separate tab. You'll reference it frequently during the mapping process to verify field names, check sample values, and understand data coverage.]{type="info"}

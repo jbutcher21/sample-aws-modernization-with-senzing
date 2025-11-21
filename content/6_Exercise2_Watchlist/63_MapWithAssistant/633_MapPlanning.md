@@ -44,9 +44,7 @@ The AI analyzes the five FTM schema types and proposes a strategy:
 
 ## Your Correction
 
-{{% notice warning %}}
-**Teaching Moment**: The AI initially said "3 master entity types" but only listed 2 (Person and Company). This is exactly the kind of error you should catch and correct!
-{{% /notice %}}
+::alert[**Teaching Moment**: The AI initially said "3 master entity types" but only listed 2 (Person and Company). This is exactly the kind of error you should catch and correct!]{type="warning"}
 
 **Your prompt:**
 ```
@@ -63,9 +61,7 @@ CORRECTED: 2 master entity types (Person, Company)
 I conflated "master entities" with "relationship types". Thank you for catching that!
 ```
 
-{{% notice tip %}}
-**Key Learning**: Always verify AI counts and categorizations. Simple arithmetic errors can indicate deeper misunderstandings that will cause problems later.
-{{% /notice %}}
+::alert[**Key Learning**: Always verify AI counts and categorizations. Simple arithmetic errors can indicate deeper misunderstandings that will cause problems later.]{type="info"}
 
 ---
 
@@ -85,9 +81,7 @@ Two separate DATA_SOURCE codes reflect the different domains:
 - Represents corporate registry domain
 - RECORD_ID format: `corp-filings-company-{id}`
 
-{{% notice info %}}
-**Why separate DATA_SOURCE codes?** This allows Senzing to track which system contributed which information. When a Person from SANCTIONS matches a director in CORP_FILINGS, you can see both sources in the resolved entity.
-{{% /notice %}}
+::alert[**Why separate DATA_SOURCE codes?** This allows Senzing to track which system contributed which information. When a Person from SANCTIONS matches a director in CORP_FILINGS, you can see both sources in the resolved entity.]{type="info"}
 
 ### Processing Strategy: Multi-Pass
 

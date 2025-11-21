@@ -7,8 +7,8 @@ weight: 433
 
 The AI automatically moves to planning and presents a high-level mapping strategy.
 
-![Customer Planning 1](/images/exercise1/8-planning1.png)
-![Customer Planning 2](/images/exercise1/8-planning2.png)
+![Customer Planning 1](/static/images/exercise1/8-planning1.png)
+![Customer Planning 2](/static/images/exercise1/8-planning2.png)
 
 ### The Mapping Strategy
 
@@ -46,9 +46,9 @@ The AI identifies the id_type/id_number/id_country pattern and plans to map:
 
 The assistant confirms: **"✅ STAGE 3 COMPLETE - Strategy defined"**
 
-{{% notice note %}}
+
 **Important:** Remember, your response may not match this exactly, as the AI's output can vary.
-{{% /notice %}}
+
 
 ### Ask Questions!
 
@@ -74,10 +74,6 @@ When you understand the strategy:
 
 **Tell Amazon Q:** `yes`
 
-{{% notice tip %}}
-**LEARNING OPPORTUNITY:** The more questions you ask the more you will learn!
-{{% /notice %}}
+::alert[**LEARNING OPPORTUNITY:** The more questions you ask the more you will learn!]{type="info"}
 
-{{% notice info %}}
-**Checkpoint:** You and Q should agree on the high level strategy for mapping customers.
-{{% /notice %}}
+::alert[**Checkpoint:** You and Q should agree on the high level strategy for mapping customers.]{type="info"}

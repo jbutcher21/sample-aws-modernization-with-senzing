@@ -15,7 +15,7 @@ First, open the workshop folder in your IDE to see the project structure.
 1. Navigate to the `workshop/` directory
 2. Expand the folder to see its contents
 
-![Basic Navigation and open folder](/images/exercise1/0-open.png)
+![Basic Navigation and open folder](/static/images/exercise1/0-open.png)
 
 ## Add the Senzing folder as context
 
@@ -26,17 +26,17 @@ First, open the workshop folder in your IDE to see the project structure.
 3. Select the `senzing` folder from the list
 4. Press Enter to add it as context
 
-![Adding senzing folder as context](/images/exercise1/0-context.png)
+![Adding senzing folder as context](/static/images/exercise1/0-context.png)
 
-{{% notice note %}}
+
 **Important:** When AI's fail it is because they do not have enough context. So let's add the senzing folder as context for this exercise. Later on, if you find the AI not responding properly, try using the @ sign again to remind it!
-{{% /notice %}}
+
 
 Now ask Amazon Q to explain what the senzing folder contains.
 
 **Tell Amazon Q:** `@senzing What does the senzing folder contain?`
 
-![Senzing folder structure](/images/exercise1/1-folders.png)
+![Senzing folder structure](/static/images/exercise1/1-folders.png)
 
 ### What You'll Discover
 
@@ -67,7 +67,7 @@ The Mapping Assistant is the key to this exercise. Ask Q to explain what it does
 
 **Ask Amazon Q:** `What does the mapping assistant prompt do?`
 
-![Mapping Assistant Prompt](/images/exercise1/2-prompt.png)
+![Mapping Assistant Prompt](/static/images/exercise1/2-prompt.png)
 
 ### The 5-Stage Mapping Workflow
 
@@ -89,7 +89,7 @@ The assistant creates a structured process:
 
 **Ask Amazon Q:** `What are those senzing tools and when do I use them?`
 
-![Tools reference explanation](/images/exercise1/3-tools.png)
+![Tools reference explanation](/static/images/exercise1/3-tools.png)
 
 ### Tool Workflow
 
@@ -101,10 +101,6 @@ The assistant creates a structured process:
 5. **Loader** → Load data into Senzing
 6. **Snapshot** → Analyze resolution results
 
-{{% notice tip %}}
-**Workshop Development Tools** (Python scripts) work anywhere. **Senzing Core Tools** require the Senzing environment to be configured.  (Already done in this workshop)
-{{% /notice %}}
+::alert[**Workshop Development Tools** (Python scripts) work anywhere. **Senzing Core Tools** require the Senzing environment to be configured.  (Already done in this workshop)]{type="info"}
 
-{{% notice info %}}
-**Checkpoint:** You should understand the senzing folder structure, the 5-stage Mapping Assistant workflow, and when to use each tool.
-{{% /notice %}}
+::alert[**Checkpoint:** You should understand the senzing folder structure, the 5-stage Mapping Assistant workflow, and when to use each tool.]{type="info"}

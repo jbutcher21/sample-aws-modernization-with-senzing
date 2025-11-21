@@ -35,13 +35,11 @@ Entity Resolution Statistics:
 ✅ Load completed successfully
 ```
 
-{{% notice info %}}
-**What Just Happened:**
+::alert[**What Just Happened:**
 - All 39 records loaded successfully (no data errors)
 - Senzing evaluated 259 potential matches across all data sources
 - 5 matches were "ambiguous" (could match multiple ways - Senzing will flag these)
-- Processing took under 1 minute (this is a small dataset)
-{{% /notice %}}
+- Processing took under 1 minute (this is a small dataset)]{type="info"}
 
 ---
 
@@ -90,15 +88,13 @@ Snapshot complete:
 ✅ Snapshot written to: ftm-watchlist-snapshot-2025-11-16.json
 ```
 
-{{% notice tip %}}
-**What is a Snapshot?**
+::alert[**What is a Snapshot?**
 A snapshot is a JSON file containing comprehensive entity resolution statistics:
 - Record and entity counts by data source
 - Compression rates (how many duplicates were found)
 - Cross-source matches (same entity in multiple systems)
 - Relationship counts
-- Match quality breakdown (definitive, possible, ambiguous)
-{{% /notice %}}
+- Match quality breakdown (definitive, possible, ambiguous)]{type="info"}
 
 ---
 
