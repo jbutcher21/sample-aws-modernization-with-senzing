@@ -1,10 +1,8 @@
----
-title: "Resources and Support"
-chapter: false
-weight: 27
----
-
-# Resources and Support
++++
+title = "Resources and Support"
+chapter = false
+weight = 27
++++
 
 Now that your environment is configured, here are important resources you can reference throughout the workshop.
 
@@ -19,9 +17,7 @@ Now that your environment is configured, here are important resources you can re
 - Check the troubleshooting sections within each module
 - Consult the Senzing and AWS documentation links below
 
-{{% notice tip %}}
-All workshop modules include validation checkpoints. If you encounter issues, check that you've completed each validation step before proceeding.
-{{% /notice %}}
+::alert[All workshop modules include validation checkpoints. If you encounter issues, check that you've completed each validation step before proceeding.]{type="info"}
 
 ## Senzing Resources
 
@@ -47,12 +43,10 @@ Amazon Q Developer provides:
 - Integration with your IDE
 - Access to AWS documentation and best practices
 
-{{% notice info %}}
-You'll use Amazon Q Developer extensively in Module 4 when mapping customer data. Familiarize yourself with its chat interface in your IDE.
-{{% /notice %}}
+::alert[You'll use Amazon Q Developer extensively in Module 4 when mapping customer data. Familiarize yourself with its chat interface in your IDE.]{type="info"}
 
 ## Next Steps
 
 With your environment configured and resources bookmarked, you're ready to learn about Senzing's entity resolution model and the mapping workflow.
 
-Continue to **Module 3: Understanding Senzing Mapping** to build the conceptual foundation before hands-on work.
+Continue to [Module 3: Workshop Overview](/3_WorkshopOverview) to build the conceptual foundation before hands-on work.

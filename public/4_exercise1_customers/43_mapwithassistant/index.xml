@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Step 3: Map with Assistant on English</title>
+    <link>//localhost:1313/4_exercise1_customers/43_mapwithassistant/index.html</link>
+    <description>Recent content in Step 3: Map with Assistant on English</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/4_exercise1_customers/43_mapwithassistant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stage 1: INIT</title>
+      <link>//localhost:1313/4_exercise1_customers/43_mapwithassistant/431_mapinit.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/4_exercise1_customers/43_mapwithassistant/431_mapinit.html</guid>
+      <description>&lt;h2 id=&#34;stage-1-init---load-references&#34;&gt;Stage 1: INIT - Load References&lt;/h2&gt;&#xA;&lt;p&gt;Start the Mapping Assistant to load the Senzing specification and examples into Q&amp;rsquo;s context.&lt;/p&gt;&#xA;&lt;h3 id=&#34;launch-the-mapping-assistant&#34;&gt;Launch the Mapping Assistant&lt;/h3&gt;&#xA;&lt;p&gt;Open Amazon Q Developer (if not already open)&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tell Amazon Q:&lt;/strong&gt; &lt;code&gt;Start the senzing mapping assistant&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/exercise1/6-assistant1.png&#34; alt=&#34;Mapping Assistant 1&#34;&gt;&#xA;&lt;img src=&#34;//localhost:1313/images/exercise1/6-assistant2.png&#34; alt=&#34;Mapping Assistant 2&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;why-this-matters&#34;&gt;Why This Matters&lt;/h3&gt;&#xA;&lt;p&gt;By loading these references, the AI can:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Make informed mapping decisions based on the official specification&lt;/li&gt;&#xA;&lt;li&gt;Cite specific sections when explaining choices&lt;/li&gt;&#xA;&lt;li&gt;Validate mappings against real examples&lt;/li&gt;&#xA;&lt;li&gt;Prevent hallucination by working from authoritative sources&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The assistant will now confirm: &lt;strong&gt;&amp;quot;✅ STAGE 1 COMPLETE - Ready for INVENTORY&amp;quot;&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stage 2: INVENTORY</title>
+      <link>//localhost:1313/4_exercise1_customers/43_mapwithassistant/432_mapinventory.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/4_exercise1_customers/43_mapwithassistant/432_mapinventory.html</guid>
+      <description>&lt;h2 id=&#34;stage-2-inventory---analyze-schema&#34;&gt;Stage 2: INVENTORY - Analyze Schema&lt;/h2&gt;&#xA;&lt;p&gt;Provide the customer schema you generated in Step 2 so the AI can extract all source fields.&lt;/p&gt;&#xA;&lt;h3 id=&#34;provide-your-schema&#34;&gt;Provide Your Schema&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Tell Amazon Q:&lt;/strong&gt; &lt;code&gt;Use the customer schema I have open&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;(Make sure your &lt;code&gt;customer_schema.md&lt;/code&gt; file is open in the editor)&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/exercise1/7-inventory1.png&#34; alt=&#34;Customer Inventory 1&#34;&gt;&#xA;&lt;img src=&#34;//localhost:1313/images/exercise1/7-inventory2.png&#34; alt=&#34;Customer Inventory 2&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;The assistant confirms: &lt;strong&gt;&amp;quot;✅ STAGE 2 COMPLETE - All fields enumerated&amp;quot;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;advance-to-planning&#34;&gt;Advance to Planning&lt;/h3&gt;&#xA;&lt;p&gt;When you&amp;rsquo;re satisfied with the field extraction:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stage 3: PLANNING</title>
+      <link>//localhost:1313/4_exercise1_customers/43_mapwithassistant/433_mapplanning.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/4_exercise1_customers/43_mapwithassistant/433_mapplanning.html</guid>
+      <description>&lt;h2 id=&#34;stage-3-planning---high-level-strategy&#34;&gt;Stage 3: PLANNING - High-Level Strategy&lt;/h2&gt;&#xA;&lt;p&gt;The AI automatically moves to planning and presents a high-level mapping strategy.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/exercise1/8-planning1.png&#34; alt=&#34;Customer Planning 1&#34;&gt;&#xA;&lt;img src=&#34;//localhost:1313/images/exercise1/8-planning2.png&#34; alt=&#34;Customer Planning 2&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-mapping-strategy&#34;&gt;The Mapping Strategy&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;STAGE 3: PLANNING - High-Level Approach&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The AI will present its strategy:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Master Entity: Customer Records&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Entity represents both persons and organizations&lt;/li&gt;&#xA;&lt;li&gt;Source contains 114 individuals + 6 companies&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;DATA_SOURCE Code:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Proposed name: &lt;strong&gt;CUSTOMERS&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Represents the source system for these records&lt;/li&gt;&#xA;&lt;li&gt;Must be uppercase per Senzing convention&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Entity Logic:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stage 4: MAPPING</title>
+      <link>//localhost:1313/4_exercise1_customers/43_mapwithassistant/434_mapmapping.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/4_exercise1_customers/43_mapwithassistant/434_mapmapping.html</guid>
+      <description>&lt;h2 id=&#34;stage-4-mapping---field-by-field-decisions&#34;&gt;Stage 4: MAPPING - Field-by-Field Decisions&lt;/h2&gt;&#xA;&lt;p&gt;This is the core of the mapping process. The AI will present a complete field disposition table with confidence scores.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/exercise1/9-mapping1.png&#34; alt=&#34;Customer Mapping 1&#34;&gt;&#xA;&lt;img src=&#34;//localhost:1313/images/exercise1/9-mapping2.png&#34; alt=&#34;Customer Mapping 2&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-field-disposition-table&#34;&gt;The Field Disposition Table&lt;/h3&gt;&#xA;&lt;p&gt;This is the most critical stage of the mapping process. Take your time here to understand each decision the AI makes.&lt;/p&gt;&#xA;&#xA;&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;&lt;strong&gt;Learning Opportunity:&lt;/strong&gt; This stage offers the best opportunity to understand entity resolution concepts. Don&amp;rsquo;t rush through - ask questions about anything unclear!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stage 5: OUTPUTS</title>
+      <link>//localhost:1313/4_exercise1_customers/43_mapwithassistant/435_mapoutputs.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/4_exercise1_customers/43_mapwithassistant/435_mapoutputs.html</guid>
+      <description>&lt;h2 id=&#34;stage-5-outputs---generate-code-and-docs&#34;&gt;Stage 5: OUTPUTS - Generate Code and Docs&lt;/h2&gt;&#xA;&lt;p&gt;The AI generates three production-ready files that document and implement your mapping.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//localhost:1313/images/exercise1/11-output1.png&#34; alt=&#34;Output code and documentation 1&#34;&gt;&#xA;&lt;img src=&#34;//localhost:1313/images/exercise1/11-output2.png&#34; alt=&#34;Output code and documentation 2&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-generated-files&#34;&gt;The Generated Files&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;STAGE 5: OUTPUTS - Generating Implementation&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The AI creates three files in &lt;code&gt;workshop/workspace/customers/&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. README.md - Usage Instructions&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How to run the mapper&lt;/li&gt;&#xA;&lt;li&gt;Command-line syntax&lt;/li&gt;&#xA;&lt;li&gt;Testing guidance&lt;/li&gt;&#xA;&lt;li&gt;Prerequisites&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. customers_mapper.md - Mapping Specification&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Complete field-by-field documentation&lt;/li&gt;&#xA;&lt;li&gt;Mapping rationale for each decision&lt;/li&gt;&#xA;&lt;li&gt;Conditional logic explanations&lt;/li&gt;&#xA;&lt;li&gt;Citations to Senzing specification sections&lt;/li&gt;&#xA;&lt;li&gt;Confidence scores for each mapping&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;3. customers_mapper.py - Python Implementation&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

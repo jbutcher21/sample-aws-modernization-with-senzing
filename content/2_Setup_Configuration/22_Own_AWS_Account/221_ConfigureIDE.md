@@ -1,7 +1,7 @@
----
-title: "Configure your IDE"
-weight: 221
----
++++
+title = "Configure your IDE"
+weight = 221
++++
 
 ## Prerequisites
 
@@ -32,8 +32,8 @@ For this workshop, you'll need:
    - Click the Extensions icon in the left sidebar
    - Search for "**Amazon Q**" and click Install
 
-   ![Install Amazon Q extension](/images/on_your_own/q_plugin.png?height=150px)
+   ![Install Amazon Q extension](/images/on_your_own/q_plugin.png)
 
 ## Next Steps
 
-You've successfully configured your IDE with all prerequisites. Proceed to [Connect using AWS Builder ID]({{< ref "/2_Setup_Configuration/23_AmazonQSetup" >}}) to connect to Amazon Q.
+You've successfully configured your IDE with all prerequisites. Proceed to [Connect using AWS Builder ID](/2_Setup_Configuration/23_AmazonQSetup) to connect to Amazon Q.

@@ -1,10 +1,8 @@
----
-title: "Clean Up Resources"
-chapter: true
-weight: 7
----
-
-# Clean Up Resources
++++
+title = "Clean Up Resources"
+chapter = true
+weight = 7
++++
 
 ## Overview
 
@@ -43,9 +41,7 @@ To ensure all resources are cleaned up:
 2. Review the AWS Cost Explorer for resource usage during the workshop period
 3. Set up billing alerts if you haven't already
 
-{{% notice info %}}
-Most of this workshop focuses on Amazon Q Developer setup and configuration, which doesn't create billable AWS resources. However, always verify your account to ensure no unexpected resources remain.
-{{% /notice %}}
+::alert[Most of this workshop focuses on Amazon Q Developer setup and configuration, which doesn't create billable AWS resources. However, always verify your account to ensure no unexpected resources remain.]{type="info"}
 
 ## Need Help?
 

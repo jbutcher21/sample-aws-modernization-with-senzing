@@ -1,7 +1,7 @@
----
-title: "Stage 3: PLANNING"
-weight: 433
----
++++
+title = "Stage 3: PLANNING"
+weight = 433
++++
 
 ## Stage 3: PLANNING - High-Level Strategy
 
@@ -46,9 +46,7 @@ The AI identifies the id_type/id_number/id_country pattern and plans to map:
 
 The assistant confirms: **"✅ STAGE 3 COMPLETE - Strategy defined"**
 
-{{% notice note %}}
 **Important:** Remember, your response may not match this exactly, as the AI's output can vary.
-{{% /notice %}}
 
 ### Ask Questions!
 
@@ -74,10 +72,6 @@ When you understand the strategy:
 
 **Tell Amazon Q:** `yes`
 
-{{% notice tip %}}
-**LEARNING OPPORTUNITY:** The more questions you ask the more you will learn!
-{{% /notice %}}
+::alert[**LEARNING OPPORTUNITY:** The more questions you ask the more you will learn!]{type="info"}
 
-{{% notice info %}}
-**Checkpoint:** You and Q should agree on the high level strategy for mapping customers.
-{{% /notice %}}
+::alert[**Checkpoint:** You and Q should agree on the high level strategy for mapping customers.]{type="info"}

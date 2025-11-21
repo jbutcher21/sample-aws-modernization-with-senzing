@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Running the Workshop in your own AWS Account on English</title>
+    <link>//localhost:1313/2_setup_configuration/22_own_aws_account/index.html</link>
+    <description>Recent content in Running the Workshop in your own AWS Account on English</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/2_setup_configuration/22_own_aws_account/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configure your IDE</title>
+      <link>//localhost:1313/2_setup_configuration/22_own_aws_account/221_configureide.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/2_setup_configuration/22_own_aws_account/221_configureide.html</guid>
+      <description>&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;&#xA;&lt;p&gt;For this workshop, you&amp;rsquo;ll need:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Tool&lt;/th&gt;&#xA;          &lt;th&gt;Purpose&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Integrated development environment (IDE) for writing, editing, and debugging code&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html&#34; target=&#34;_blank&#34;&gt;AWS CLI&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Command-line interface for AWS services, needed to interact with AWS resources&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line.html&#34; target=&#34;_blank&#34;&gt;Amazon Q CLI&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Command-line interface for Amazon Q Developer, enabling AI assistance directly from the terminal&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-in-IDE-setup.html&#34; target=&#34;_blank&#34;&gt;Amazon Q extension for Visual Studio Code&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td&gt;IDE extension that provides AI-powered code suggestions, chat assistance, and security scanning&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;a href=&#34;https://github.com/git-guides/install-git/&#34; target=&#34;_blank&#34;&gt;Git&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td&gt;Version control system for managing workshop code and tracking changes&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;setup-instructions&#34;&gt;Setup Instructions&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Clone or download the workshop repository:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

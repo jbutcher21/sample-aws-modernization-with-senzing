@@ -1,7 +1,7 @@
----
-title: "Step 2: Generate Schema"
-weight: 42
----
++++
+title = "Step 2: Generate Schema"
+weight = 42
++++
 
 ## First: Examine Your Source Data
 
@@ -47,9 +47,7 @@ Instead, you'll use the Senzing schema generator tool to create a comprehensive 
 - Sample values and ranges
 - Field statistics
 
-{{% notice tip %}}
-**Pro Tip:** For complex schemas the tool cannot handle, locate the official schema documentation or ask AI to help extract schema information from documentation.
-{{% /notice %}}
+::alert[**Pro Tip.*]{type="info"}
 
 ## Generate the Schema with Amazon Q
 
@@ -61,9 +59,7 @@ Open Amazon Q Developer (click the Q icon in the left sidebar)
 
 ![Request approval](/images/exercise1/5-security-example.png)
 
-{{% notice warning %}}
-**Security Note:** Notice that Q asks for your approval before running the schema generator. This is an important security feature - never give tools blanket access to run commands without review. Always verify what actions AI wants to take before approving.
-{{% /notice %}}
+::alert[**Security Note:** Notice that Q asks for your approval before running the schema generator. This is an important security feature - never give tools blanket access to run commands without review. Always verify what actions AI wants to take before approving.]{type="info"}
 
 Q Developer will run the schema generator tool and create a `customer_schema.md` file in your workspace.
 
@@ -72,7 +68,6 @@ Q Developer will run the schema generator tool and create a `customer_schema.md`
 Q Developer will run the schema generator tool and create a `customer_schema.md` file in your workspace.
 
 ![Amazon Q schema generation response](/images/exercise1/5-customer-schema.png)
-
 
 ## Review the Generated Schema
 
@@ -83,7 +78,6 @@ Q Developer will run the schema generator tool and create a `customer_schema.md`
 3. Compare the actual schema content with the AI summary below
 
 Does the summary match what you see in the file?
-
 
 ### Schema Analysis: 120 Records, 19 Fields
 
@@ -144,6 +138,4 @@ If you encounter issues generating the schema, a pre-generated version is availa
 
 `workshop/solutions/customers/customer_schema.md`
 
-{{% notice info %}}
-**Checkpoint:** You should have a `customer_schema.md` file that documents all fields, data types, and sample values from the customer CSV.
-{{% /notice %}}
+::alert[**Checkpoint:** You should have a `customer_schema.md` file that documents all fields, data types, and sample values from the customer CSV.]{type="info"}

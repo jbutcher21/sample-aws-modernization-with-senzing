@@ -1,7 +1,7 @@
----
-title: "Stage 1: INIT"
-weight: 431
----
++++
+title = "Stage 1: INIT"
+weight = 431
++++
 
 ## Stage 1: INIT - Load References
 
@@ -26,10 +26,6 @@ By loading these references, the AI can:
 
 The assistant will now confirm: **"✅ STAGE 1 COMPLETE - Ready for INVENTORY"**
 
-{{% notice tip %}}
-**Interactive Learning:** If you're curious about any reference file, you can ask Q to explain it. For example: "What's in the identifier crosswalk?"
-{{% /notice %}}
+::alert[**Interactive Learning:** If you're curious about any reference file, you can ask Q to explain it. For example: "What's in the identifier crosswalk?"]{type="info"}
 
-{{% notice info %}}
-**Checkpoint:** Q should confirm all 5 reference files are loaded and the linter tool is validated.
-{{% /notice %}}
+::alert[**Checkpoint:** Q should confirm all 5 reference files are loaded and the linter tool is validated.]{type="info"}

@@ -1,7 +1,7 @@
----
-title: "Step 5: Load Data"
-weight: 45
----
++++
+title = "Step 5: Load Data"
+weight = 45
++++
 
 ## Configure and Load Data into Senzing
 
@@ -21,11 +21,6 @@ Now that your mapping is validated, configure the DATA_SOURCE and load the custo
 ![Load Senzing 1](/images/exercise1/14-load1.png)
 ![Load Senzing 2](/images/exercise1/14-load2.png)
 
+::alert[**Real-Time Resolution:** Unlike batch systems, Senzing resolves entities as data loads. By the time loading completes, all 120 records have been fully processed and resolved.]{type="info"}
 
-{{% notice info %}}
-**Real-Time Resolution:** Unlike batch systems, Senzing resolves entities as data loads. By the time loading completes, all 120 records have been fully processed and resolved.
-{{% /notice %}}
-
-{{% notice info %}}
-**Checkpoint:** All 120 customer records should be loaded with 8 redo records processed. No errors should occur.
-{{% /notice %}}
+::alert[**Checkpoint:** All 120 customer records should be loaded with 8 redo records processed. No errors should occur.]{type="info"}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Step 3: Map with Senzing AI Assistant on English</title>
+    <link>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/index.html</link>
+    <description>Recent content in Step 3: Map with Senzing AI Assistant on English</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stage 1: INIT</title>
+      <link>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/631_mapinit.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/631_mapinit.html</guid>
+      <description>&lt;h2 id=&#34;stage-1-initialize-the-mapping-assistant&#34;&gt;Stage 1: Initialize the Mapping Assistant&lt;/h2&gt;&#xA;&lt;p&gt;The first stage loads all reference materials and tests validation tools. This gives the AI complete knowledge of Senzing&amp;rsquo;s data format, conventions, and validation requirements.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;your-prompt&#34;&gt;Your Prompt&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Yes, let&amp;#39;s start the AI-assisted mapping workflow for ftm.jsonl&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Or if starting fresh:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Load the Senzing Mapping Assistant and help me map ftm.jsonl to Senzing format&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;ai-response-summary&#34;&gt;AI Response Summary&lt;/h2&gt;&#xA;&lt;p&gt;The AI performs these initialization steps:&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-load-reference-files&#34;&gt;1. Load Reference Files&lt;/h3&gt;&#xA;&lt;p&gt;The AI loads five critical reference files:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stage 2: INVENTORY</title>
+      <link>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/632_mapinventory.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/632_mapinventory.html</guid>
+      <description>&lt;h2 id=&#34;stage-2-extract-complete-field-inventory&#34;&gt;Stage 2: Extract Complete Field Inventory&lt;/h2&gt;&#xA;&lt;p&gt;The AI analyzes the schema file and extracts every single field with data types and sample values. This creates a complete inventory to map in later stages.&lt;/p&gt;&#xA;&#xA;&lt;div class=&#34;notices warning&#34; &gt;&lt;p&gt;&lt;strong&gt;Critical Quality Check&lt;/strong&gt;: This stage includes an &lt;strong&gt;integrity check&lt;/strong&gt; to prevent AI hallucination. The AI must count the fields it extracted and verify the count matches what it displayed. This prevents &amp;ldquo;phantom fields&amp;rdquo; from appearing in the mapping.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stage 3: PLANNING</title>
+      <link>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/633_mapplanning.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/633_mapplanning.html</guid>
+      <description>&lt;h2 id=&#34;stage-3-determine-data_source-and-processing-strategy&#34;&gt;Stage 3: Determine DATA_SOURCE and Processing Strategy&lt;/h2&gt;&#xA;&lt;p&gt;Before mapping individual fields, you need to make high-level decisions about how to structure the data in Senzing. This stage determines DATA_SOURCE codes, entity types, and the overall processing strategy.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;your-prompt&#34;&gt;Your Prompt&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Proceed to Stage 3: Determine DATA_SOURCE codes and entity types&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;ai-initial-response&#34;&gt;AI Initial Response&lt;/h2&gt;&#xA;&lt;p&gt;The AI analyzes the five FTM schema types and proposes a strategy:&lt;/p&gt;&#xA;&lt;h3 id=&#34;master-entity-types&#34;&gt;Master Entity Types&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Master entities&lt;/strong&gt; are the primary records that will become Senzing entities:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stage 4: MAPPING</title>
+      <link>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/634_mapmapping.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/634_mapmapping.html</guid>
+      <description>&lt;h2 id=&#34;stage-4-field-by-field-mapping-decisions&#34;&gt;Stage 4: Field-by-Field Mapping Decisions&lt;/h2&gt;&#xA;&lt;p&gt;This is the core mapping stage where every field gets a disposition: &lt;strong&gt;Feature&lt;/strong&gt; (used for matching), &lt;strong&gt;Payload&lt;/strong&gt; (stored but not matched), or &lt;strong&gt;Ignored&lt;/strong&gt; (not needed).&lt;/p&gt;&#xA;&#xA;&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;&lt;strong&gt;This is where your domain expertise matters most.&lt;/strong&gt; The AI can suggest mappings based on Senzing patterns, but you need to verify they make business sense for your use case.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;your-prompt&#34;&gt;Your Prompt&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Show me the full mapping table for all 31 fields&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Or:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stage 5: OUTPUTS</title>
+      <link>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/635_mapoutputs.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/6_exercise2_watchlist/63_mapwithassistant/635_mapoutputs.html</guid>
+      <description>&lt;h2 id=&#34;stage-5-generate-mapper-code-and-documentation&#34;&gt;Stage 5: Generate Mapper Code and Documentation&lt;/h2&gt;&#xA;&lt;p&gt;The final stage generates three critical outputs: a mapper Python script, complete mapping documentation, and sample JSON with validation.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;your-prompt&#34;&gt;Your Prompt&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Generate the mapper code, documentation, and sample JSON&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Or:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Proceed to Stage 5: Generate outputs&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;ai-response-three-output-files&#34;&gt;AI Response: Three Output Files&lt;/h2&gt;&#xA;&lt;p&gt;The AI generates complete, production-ready files:&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-readmemd---usage-instructions&#34;&gt;1. README.md - Usage Instructions&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Quick start guide for using the mapper&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Contents:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;How to run the mapper&lt;/li&gt;&#xA;&lt;li&gt;Expected inputs and outputs&lt;/li&gt;&#xA;&lt;li&gt;Validation commands&lt;/li&gt;&#xA;&lt;li&gt;Loading instructions&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Example excerpt:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

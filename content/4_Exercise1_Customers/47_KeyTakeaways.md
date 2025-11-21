@@ -1,7 +1,7 @@
----
-title: "Step 7: Key Takeaways"
-weight: 47
----
++++
+title = "Step 7: Key Takeaways"
+weight = 47
++++
 
 ## The Power of Agentic AI
 
@@ -57,10 +57,6 @@ As you continue to the next exercises, consider:
 3. **What questions did you ask** that helped you understand entity resolution concepts better?
 4. **How might you apply** this AI-assisted approach to other data projects?
 
-{{% notice tip %}}
-**The AI is a Tool, Not a Replacement:** Notice that throughout this exercise, YOU made the important decisions - what fields to map, how to handle edge cases, whether mappings made sense. The AI accelerated execution, but your judgment drove the outcome.
-{{% /notice %}}
+::alert[**The AI is a Tool, Not a Replacement:** Notice that throughout this exercise, YOU made the important decisions - what fields to map, how to handle edge cases, whether mappings made sense. The AI accelerated execution, but your judgment drove the outcome.]{type="info"}
 
-{{% notice info %}}
-**What's Next:** Ready to apply these skills to more complex data? The bonus watchlist exercise introduces international names, relationships, and nested data structures - all mappable with the same workflow you just mastered.
-{{% /notice %}}
+::alert[**What's Next.*]{type="info"}

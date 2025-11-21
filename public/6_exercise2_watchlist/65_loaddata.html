@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.152.2">
+    <meta name="description" content="AWS Modernization Workshop">
+<meta name="author" content="Patrick Vassell">
+
+    <link rel="icon" href="https://awsmedia.s3.amazonaws.com/favicon.ico" type="image/x-icon" />
+
+    <title>Step 5: Load Data into Senzing :: English</title>
+
+    
+    <link href="/css/nucleus.css?1763752793" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1763752793" rel="stylesheet">
+    <link href="/css/hybrid.css?1763752793" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1763752793" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1763752793" rel="stylesheet">
+    <link href="/css/auto-complete.css?1763752793" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1763752793" rel="stylesheet">
+    <link href="/css/theme.css?1763752793" rel="stylesheet">
+    <link href="/css/tabs.css?1763752793" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1763752793" rel="stylesheet">
+    
+    <link href="/css/theme-mine.css?1763752793" rel="stylesheet">
+    
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/6_exercise2_watchlist/65_loaddata.html">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="50%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
+  
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1763752793"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1763752793"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1763752793"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/'><i class='fas fa-home'></i> One-click Entity Resolution</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1_introduction/index.html" title="Introduction" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1_introduction/index.html">
+          Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2_setup_configuration/index.html" title="Setup and Configuration" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2_setup_configuration/index.html">
+          Setup and Configuration
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2_setup_configuration/21_aws_guided_event/index.html" title="Running the Workshop at an AWS Guided Event" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2_setup_configuration/21_aws_guided_event/index.html">
+          Running the Workshop at an AWS Guided Event
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/21_aws_guided_event/211_joinworkshopevent.html" title="Join the workshop event" class="dd-item ">
+        <a href="/2_setup_configuration/21_aws_guided_event/211_joinworkshopevent.html">
+        Join the workshop event
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/21_aws_guided_event/212_accessingide.html" title="Accessing your IDE" class="dd-item ">
+        <a href="/2_setup_configuration/21_aws_guided_event/212_accessingide.html">
+        Accessing your IDE
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2_setup_configuration/22_own_aws_account/index.html" title="Running the Workshop in your own AWS Account" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2_setup_configuration/22_own_aws_account/index.html">
+          Running the Workshop in your own AWS Account
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/22_own_aws_account/221_configureide.html" title="Configure your IDE" class="dd-item ">
+        <a href="/2_setup_configuration/22_own_aws_account/221_configureide.html">
+        Configure your IDE
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/23_amazonqsetup.html" title="Amazon Q Setup" class="dd-item ">
+        <a href="/2_setup_configuration/23_amazonqsetup.html">
+        Amazon Q Setup
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2_setup_configuration/25_senzingmcpsetup/index.html" title="Senzing MCP Server Setup" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2_setup_configuration/25_senzingmcpsetup/index.html">
+          Senzing MCP Server Setup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/25_senzingmcpsetup/251_configuremcpserver.html" title="Step 1: Configure the MCP Server" class="dd-item ">
+        <a href="/2_setup_configuration/25_senzingmcpsetup/251_configuremcpserver.html">
+        Step 1: Configure the MCP Server
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/25_senzingmcpsetup/252_authorizetools.html" title="Step 2: Authorize MCP Tools" class="dd-item ">
+        <a href="/2_setup_configuration/25_senzingmcpsetup/252_authorizetools.html">
+        Step 2: Authorize MCP Tools
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/25_senzingmcpsetup/253_verifyintegration.html" title="Step 3: Verify the Integration" class="dd-item ">
+        <a href="/2_setup_configuration/25_senzingmcpsetup/253_verifyintegration.html">
+        Step 3: Verify the Integration
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/27_resourcesandsupport.html" title="Resources and Support" class="dd-item ">
+        <a href="/2_setup_configuration/27_resourcesandsupport.html">
+        Resources and Support
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3_workshopoverview/index.html" title="Workshop Overview" class="dd-item
+        
+        
+        
+        ">
+      <a href="/3_workshopoverview/index.html">
+          Workshop Overview
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3_workshopoverview/30_mappingchallenge.html" title="What is Data Mapping" class="dd-item ">
+        <a href="/3_workshopoverview/30_mappingchallenge.html">
+        What is Data Mapping
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3_workshopoverview/31_mappingworkflow.html" title="Senzing&#39;s AI Assisted Approach" class="dd-item ">
+        <a href="/3_workshopoverview/31_mappingworkflow.html">
+        Senzing&#39;s AI Assisted Approach
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3_workshopoverview/32_workshopfolder.html" title="Workshop Folder Tour" class="dd-item ">
+        <a href="/3_workshopoverview/32_workshopfolder.html">
+        Workshop Folder Tour
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3_workshopoverview/33_explorewithai.html" title="Explore with AI" class="dd-item ">
+        <a href="/3_workshopoverview/33_explorewithai.html">
+        Explore with AI
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4_exercise1_customers/index.html" title="Exercise 1: Customers" class="dd-item
+        
+        
+        
+        ">
+      <a href="/4_exercise1_customers/index.html">
+          Exercise 1: Customers
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/41_examinesourcedata.html" title="Step 1: Explore Senzing" class="dd-item ">
+        <a href="/4_exercise1_customers/41_examinesourcedata.html">
+        Step 1: Explore Senzing
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/42_createschema.html" title="Step 2: Generate Schema" class="dd-item ">
+        <a href="/4_exercise1_customers/42_createschema.html">
+        Step 2: Generate Schema
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/index.html" title="Step 3: Map with Assistant" class="dd-item
+        
+        
+        
+        ">
+      <a href="/4_exercise1_customers/43_mapwithassistant/index.html">
+          Step 3: Map with Assistant
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/431_mapinit.html" title="Stage 1: INIT" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/431_mapinit.html">
+        Stage 1: INIT
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/432_mapinventory.html" title="Stage 2: INVENTORY" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/432_mapinventory.html">
+        Stage 2: INVENTORY
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/433_mapplanning.html" title="Stage 3: PLANNING" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/433_mapplanning.html">
+        Stage 3: PLANNING
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/434_mapmapping.html" title="Stage 4: MAPPING" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/434_mapmapping.html">
+        Stage 4: MAPPING
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/435_mapoutputs.html" title="Stage 5: OUTPUTS" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/435_mapoutputs.html">
+        Stage 5: OUTPUTS
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/44_validatemapping.html" title="Step 4: Validate Mapping" class="dd-item ">
+        <a href="/4_exercise1_customers/44_validatemapping.html">
+        Step 4: Validate Mapping
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/45_loaddata.html" title="Step 5: Load Data" class="dd-item ">
+        <a href="/4_exercise1_customers/45_loaddata.html">
+        Step 5: Load Data
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/46_analyzeresolveddata.html" title="Step 6: Analyze Resolved Data" class="dd-item ">
+        <a href="/4_exercise1_customers/46_analyzeresolveddata.html">
+        Step 6: Analyze Resolved Data
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/47_keytakeaways.html" title="Step 7: Key Takeaways" class="dd-item ">
+        <a href="/4_exercise1_customers/47_keytakeaways.html">
+        Step 7: Key Takeaways
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6_exercise2_watchlist/index.html" title="Exercise 2: Watchlist" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/6_exercise2_watchlist/index.html">
+          Exercise 2: Watchlist
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/61_beforeyoustart.html" title="Before You Start" class="dd-item ">
+        <a href="/6_exercise2_watchlist/61_beforeyoustart.html">
+        Before You Start
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/62_workflowsteps.html" title="Workflow Steps" class="dd-item ">
+        <a href="/6_exercise2_watchlist/62_workflowsteps.html">
+        Workflow Steps
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_keyoutcomes.html" title="Key Outcomes" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_keyoutcomes.html">
+        Key Outcomes
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/index.html" title="Step 3: Map with Senzing AI Assistant" class="dd-item
+        
+        
+        
+        ">
+      <a href="/6_exercise2_watchlist/63_mapwithassistant/index.html">
+          Step 3: Map with Senzing AI Assistant
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/631_mapinit.html" title="Stage 1: INIT" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/631_mapinit.html">
+        Stage 1: INIT
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/632_mapinventory.html" title="Stage 2: INVENTORY" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/632_mapinventory.html">
+        Stage 2: INVENTORY
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/633_mapplanning.html" title="Stage 3: PLANNING" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/633_mapplanning.html">
+        Stage 3: PLANNING
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/634_mapmapping.html" title="Stage 4: MAPPING" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/634_mapmapping.html">
+        Stage 4: MAPPING
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/635_mapoutputs.html" title="Stage 5: OUTPUTS" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/635_mapoutputs.html">
+        Stage 5: OUTPUTS
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/64_keylearningpoints.html" title="Key Learning Points" class="dd-item ">
+        <a href="/6_exercise2_watchlist/64_keylearningpoints.html">
+        Key Learning Points
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/65_keytakeaways.html" title="Key Takeaways" class="dd-item ">
+        <a href="/6_exercise2_watchlist/65_keytakeaways.html">
+        Key Takeaways
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/65_loaddata.html" title="Step 5: Load Data into Senzing" class="dd-item active">
+        <a href="/6_exercise2_watchlist/65_loaddata.html">
+        Step 5: Load Data into Senzing
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7_cleanup/index.html" title="Clean Up Resources" class="dd-item
+        
+        
+        
+        ">
+      <a href="/7_cleanup/index.html">
+          Clean Up Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://awsworkshop.io"><i class='fas fa-graduation-cap'></i> Modernization Workshops</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://aws.amazon.com/builders-library/"><i class='fas fa-tools'></i> AWS Builders Library</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://aws.amazon.com/blogs/modernizing-with-aws/"><i class='far fa-lightbulb'></i> Modernization with AWS</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://eksworkshop.com/"><i class='fas fa-chalkboard-teacher'></i> EKS Workshop</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://ecsworkshop.com/"><i class='fas fa-chalkboard-teacher'></i> ECS Workshop</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://www.appmeshworkshop.com/"><i class='fas fa-chalkboard-teacher'></i> App Mesh Workshop</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+
+    <a href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a
+        href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | <a
+        href="https://modernization-workshop-bucket.s3-us-west-2.amazonaws.com/license/cc-license.html">CC BY-SA 4.0</a>
+
+</left>
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/index.html'>One-click Entity Resolution</a> > <a href='/6_exercise2_watchlist/index.html'>Exercise 2: Watchlist</a> > Step 5: Load Data into Senzing
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#load-mapped-data-and-take-snapshot">Load Mapped Data and Take Snapshot</a></li>
+    <li><a href="#step-1-load-the-data">Step 1: Load the Data</a></li>
+    <li><a href="#understanding-the-load-statistics">Understanding the Load Statistics</a>
+      <ul>
+        <li><a href="#records-loaded-39">Records Loaded: 39</a></li>
+        <li><a href="#candidate-matches-259">Candidate Matches: 259</a></li>
+        <li><a href="#ambiguous-matches-5">Ambiguous Matches: 5</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-2-take-a-snapshot">Step 2: Take a Snapshot</a></li>
+    <li><a href="#interpreting-the-snapshot-statistics">Interpreting the Snapshot Statistics</a>
+      <ul>
+        <li><a href="#159-records--92-entities-421-compression">159 Records → 92 Entities (42.1% Compression)</a></li>
+        <li><a href="#cross-source-matches-17">Cross-Source Matches: 17</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-3-quick-verification">Step 3: Quick Verification</a></li>
+    <li><a href="#common-loading-issues">Common Loading Issues</a></li>
+    <li><a href="#success-indicators">Success Indicators</a></li>
+    <li><a href="#what-happens-during-loading">What Happens During Loading?</a>
+      <ul>
+        <li><a href="#1-record-ingestion">1. Record Ingestion</a></li>
+        <li><a href="#2-entity-resolution">2. Entity Resolution</a></li>
+        <li><a href="#3-relationship-processing">3. Relationship Processing</a></li>
+        <li><a href="#4-indexing">4. Indexing</a></li>
+      </ul>
+    </li>
+    <li><a href="#key-learnings">Key Learnings</a>
+      <ul>
+        <li><a href="#load-time-scales">Load Time Scales</a></li>
+        <li><a href="#cross-source-matching-is-automatic">Cross-Source Matching is Automatic</a></li>
+        <li><a href="#compression-indicates-quality">Compression Indicates Quality</a></li>
+      </ul>
+    </li>
+    <li><a href="#next-steps">Next Steps</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Step 5: Load Data into Senzing
+            </h1>
+          
+
+        
+
+
+<h2 id="load-mapped-data-and-take-snapshot">Load Mapped Data and Take Snapshot</h2>
+<p>With validation complete and all critical errors resolved, load the watchlist data into Senzing to perform entity resolution.</p>
+<hr>
+<h2 id="step-1-load-the-data">Step 1: Load the Data</h2>
+<p>Use the Senzing file loader to import the mapped JSONL:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/.bashrc <span style="color:#f92672">&amp;&amp;</span> sz_file_loader -f ftm_senzing.jsonl
+</span></span></code></pre></div><p><strong>Expected Output:</strong></p>
+<pre tabindex="0"><code>Loading records from ftm_senzing.jsonl...
+
+Processing: |████████████████████████████████████████| 100%
+
+Load Summary:
+  Records loaded:        39
+  Records failed:         0
+  Processing time:        0.0 minutes
+
+Entity Resolution Statistics:
+  Candidate matches evaluated:  259
+  Ambiguous matches detected:     5
+
+✅ Load completed successfully
+</code></pre>
+<div class="notices info" ><p><strong>What Just Happened:</strong></p>
+<ul>
+<li>All 39 records loaded successfully (no data errors)</li>
+<li>Senzing evaluated 259 potential matches across all data sources</li>
+<li>5 matches were &ldquo;ambiguous&rdquo; (could match multiple ways - Senzing will flag these)</li>
+<li>Processing took under 1 minute (this is a small dataset)</li>
+</ul>
+</div>
+
+<hr>
+<h2 id="understanding-the-load-statistics">Understanding the Load Statistics</h2>
+<h3 id="records-loaded-39">Records Loaded: 39</h3>
+<p>This is the watchlist data (33 Person + 6 Company), but remember:</p>
+<ul>
+<li>You already had 120 customer records loaded (from Exercise 1)</li>
+<li>Total records now in Senzing: <strong>159</strong> (120 + 39)</li>
+<li>This enables <strong>cross-source matching</strong> between customers and watchlist!</li>
+</ul>
+<h3 id="candidate-matches-259">Candidate Matches: 259</h3>
+<p>Senzing compared these new 39 records against:</p>
+<ul>
+<li>Each other (watchlist-to-watchlist matches)</li>
+<li>The existing 120 customer records (watchlist-to-customer matches)</li>
+<li>Generated 259 pairwise comparisons that met matching thresholds</li>
+</ul>
+<h3 id="ambiguous-matches-5">Ambiguous Matches: 5</h3>
+<p>Some records could match in multiple ways. Senzing flags these for human review:</p>
+<ul>
+<li>Same person with slightly different data in multiple sources?</li>
+<li>Actually different people who happen to have similar attributes?</li>
+<li>Legitimate uncertainty that requires business judgment</li>
+</ul>
+<hr>
+<h2 id="step-2-take-a-snapshot">Step 2: Take a Snapshot</h2>
+<p>Capture the current entity resolution state for analysis:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/.bashrc <span style="color:#f92672">&amp;&amp;</span> sz_snapshot -o ftm-watchlist-snapshot-<span style="color:#66d9ef">$(</span>date +%Y-%m-%d<span style="color:#66d9ef">)</span> -Q
+</span></span></code></pre></div><p><strong>Expected Output:</strong></p>
+<pre tabindex="0"><code>Generating snapshot: ftm-watchlist-snapshot-2025-11-16.json
+Analyzing entity resolution statistics...
+
+Snapshot complete:
+  Total data sources:    3 (CUSTOMERS, SANCTIONS, CORP_FILINGS)
+  Total records:       159
+  Total entities:       92
+  Overall compression:  42.1%
+  Cross-source matches: 17
+
+✅ Snapshot written to: ftm-watchlist-snapshot-2025-11-16.json
+</code></pre>
+<div class="notices tip" ><p><strong>What is a Snapshot?</strong>
+A snapshot is a JSON file containing comprehensive entity resolution statistics:</p>
+<ul>
+<li>Record and entity counts by data source</li>
+<li>Compression rates (how many duplicates were found)</li>
+<li>Cross-source matches (same entity in multiple systems)</li>
+<li>Relationship counts</li>
+<li>Match quality breakdown (definitive, possible, ambiguous)</li>
+</ul>
+</div>
+
+<hr>
+<h2 id="interpreting-the-snapshot-statistics">Interpreting the Snapshot Statistics</h2>
+<h3 id="159-records--92-entities-421-compression">159 Records → 92 Entities (42.1% Compression)</h3>
+<p><strong>What this means:</strong></p>
+<ul>
+<li>159 total source records were loaded</li>
+<li>Senzing determined they represent only 92 unique real-world entities</li>
+<li><strong>42.1% of records were duplicates</strong> of entities already known</li>
+<li>67 records merged into existing entities</li>
+</ul>
+<p><strong>This is significant compression!</strong> Almost half the records were recognized as duplicates.</p>
+<h3 id="cross-source-matches-17">Cross-Source Matches: 17</h3>
+<p><strong>What this means:</strong></p>
+<ul>
+<li>17 entities have records from <strong>multiple data sources</strong></li>
+<li>Examples:
+<ul>
+<li>A person appears in both CUSTOMERS and SANCTIONS (watchlist hit!)</li>
+<li>A person appears in both CUSTOMERS and CORP_FILINGS (customer is a company officer)</li>
+<li>A person appears in SANCTIONS and CORP_FILINGS (sanctioned individual owns a company)</li>
+</ul>
+</li>
+</ul>
+<p>These cross-source matches are the <strong>most interesting findings</strong> from entity resolution!</p>
+<hr>
+<h2 id="step-3-quick-verification">Step 3: Quick Verification</h2>
+<p>Verify the data loaded correctly by checking record counts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/.bashrc <span style="color:#f92672">&amp;&amp;</span> sz_explorer -query <span style="color:#e6db74">&#39;DATA_SOURCE=SANCTIONS&#39;</span>
+</span></span></code></pre></div><p><strong>Expected:</strong></p>
+<ul>
+<li>Should return entities that have SANCTIONS records</li>
+<li>Verify some have merged sanction payload attributes</li>
+<li>Check that relationships are present</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/.bashrc <span style="color:#f92672">&amp;&amp;</span> sz_explorer -query <span style="color:#e6db74">&#39;DATA_SOURCE=CORP_FILINGS&#39;</span>
+</span></span></code></pre></div><p><strong>Expected:</strong></p>
+<ul>
+<li>Should return company entities</li>
+<li>Verify organization names appear correctly</li>
+<li>Check for ownership relationships</li>
+</ul>
+<hr>
+<h2 id="common-loading-issues">Common Loading Issues</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Issue</th>
+          <th>Cause</th>
+          <th>Solution</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>DATA_SOURCE not found errors</strong></td>
+          <td>Data sources not configured</td>
+          <td>Re-run sz_configtool with data source commands</td>
+      </tr>
+      <tr>
+          <td><strong>All records fail to load</strong></td>
+          <td>JSON structure errors</td>
+          <td>Re-run linter to find syntax problems</td>
+      </tr>
+      <tr>
+          <td><strong>Some records fail</strong></td>
+          <td>Invalid data in specific records</td>
+          <td>Check error log for record IDs and field issues</td>
+      </tr>
+      <tr>
+          <td><strong>Load seems stuck</strong></td>
+          <td>Large dataset processing</td>
+          <td>Be patient, or check with <code>top</code> command</td>
+      </tr>
+      <tr>
+          <td><strong>Duplicate record errors</strong></td>
+          <td>RECORD_ID collision</td>
+          <td>Ensure RECORD_IDs are unique within DATA_SOURCE</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="success-indicators">Success Indicators</h2>
+<p>You know the load was successful if:</p>
+<ul>
+<li>✅ <strong>Records loaded = 39, Records failed = 0</strong></li>
+<li>✅ <strong>Snapshot generates without errors</strong></li>
+<li>✅ <strong>Total entities &lt; Total records</strong> (compression detected)</li>
+<li>✅ <strong>Cross-source matches &gt; 0</strong> (found connections between data sources)</li>
+<li>✅ <strong>Explorer queries return results</strong> for both SANCTIONS and CORP_FILINGS</li>
+</ul>
+<hr>
+<h2 id="what-happens-during-loading">What Happens During Loading?</h2>
+<h3 id="1-record-ingestion">1. Record Ingestion</h3>
+<p>Senzing reads each JSON record and extracts features and payload attributes.</p>
+<h3 id="2-entity-resolution">2. Entity Resolution</h3>
+<p>For each record, Senzing:</p>
+<ul>
+<li>Generates match candidates based on features (name, address, phone, identifiers, etc.)</li>
+<li>Scores each candidate match using ML algorithms</li>
+<li>Determines if record matches existing entity or creates new one</li>
+<li>Updates entity with new information from record</li>
+</ul>
+<h3 id="3-relationship-processing">3. Relationship Processing</h3>
+<p>For records with REL_POINTER:</p>
+<ul>
+<li>Links entities together with typed relationships</li>
+<li>Builds network graph of connections</li>
+<li>Enables relationship path finding and network expansion</li>
+</ul>
+<h3 id="4-indexing">4. Indexing</h3>
+<p>All features, payload attributes, and relationships are indexed for fast querying.</p>
+<hr>
+<h2 id="key-learnings">Key Learnings</h2>
+<h3 id="load-time-scales">Load Time Scales</h3>
+<p>39 records loaded in &lt; 1 minute. Performance varies by:</p>
+<ul>
+<li><strong>Record complexity</strong> (features, relationships, payload)</li>
+<li><strong>Dataset size</strong> (existing entities to compare against)</li>
+<li><strong>Hardware</strong> (CPU, memory, disk)</li>
+</ul>
+<p>For reference:</p>
+<ul>
+<li>Thousands of records: minutes</li>
+<li>Millions of records: hours (but can parallelize)</li>
+</ul>
+<h3 id="cross-source-matching-is-automatic">Cross-Source Matching is Automatic</h3>
+<p>You didn&rsquo;t do anything special to enable watchlist-to-customer matching. Senzing automatically:</p>
+<ul>
+<li>Compared new SANCTIONS records against existing CUSTOMERS</li>
+<li>Compared new CORP_FILINGS against both CUSTOMERS and SANCTIONS</li>
+<li>Found matches based on feature similarity (names, phones, addresses, etc.)</li>
+</ul>
+<h3 id="compression-indicates-quality">Compression Indicates Quality</h3>
+<p>42% compression suggests:</p>
+<ul>
+<li>Good data quality (clean enough to match)</li>
+<li>Realistic duplicates (not over-matching)</li>
+<li>Effective feature mapping (right attributes used for matching)</li>
+</ul>
+<p>Low compression (&lt;10%) might indicate:</p>
+<ul>
+<li>Very clean, de-duplicated source data</li>
+<li>Under-matching (not enough features, or thresholds too strict)</li>
+</ul>
+<p>Very high compression (&gt;80%) might indicate:</p>
+<ul>
+<li>Very dirty data with many duplicates</li>
+<li>Over-matching (false positives, thresholds too loose)</li>
+</ul>
+<hr>
+<h2 id="next-steps">Next Steps</h2>
+<p>With data loaded and snapshot captured, you&rsquo;re ready to analyze the entity resolution results in detail!</p>
+<p><strong>The next section demonstrates an important lesson about working with AI across sessions&hellip;</strong></p>
+<p><strong><a href="../66_analyzesnapshot/">Continue to Step 6: Analyze Snapshot →</a></strong></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/6_exercise2_watchlist/65_keytakeaways.html" title="Key Takeaways"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/7_cleanup/index.html" title="Clean Up Resources" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1763752793"></script>
+    <script src="/js/perfect-scrollbar.min.js?1763752793"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1763752793"></script>
+    <script src="/js/jquery.sticky.js?1763752793"></script>
+    <script src="/js/featherlight.min.js?1763752793"></script>
+    <script src="/js/highlight.pack.js?1763752793"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1763752793"></script>
+    <script src="/js/learn.js?1763752793"></script>
+    <script src="/js/hugo-learn.js?1763752793"></script>
+    
+        
+            <script src="/mermaid/mermaid.js?1763752793"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

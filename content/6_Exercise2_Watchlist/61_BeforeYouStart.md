@@ -1,15 +1,15 @@
----
-title: "Before You Start"
-weight: 61
----
++++
+title = "Before You Start"
+weight = 61
++++
 
 ## Overview
 
 This exercise is more complex than Exercise 1. **You'll need to take charge of the process**, questioning AI assumptions, verifying decisions against actual data, and driving the workflow to completion.
 
-{{% notice tip %}}
+::alert[
 **Your Role**: The prompts shown throughout this exercise are examples from a real session—yours will differ based on your questions and the AI's responses. Focus on the decision-making patterns, not exact prompts.
-{{% /notice %}}
+]{type="info"}
 
 ---
 
@@ -23,13 +23,13 @@ Throughout this workflow, don't be afraid to:
 - **Question decisions** - Request pros and cons if presented with options
 - **Direct it** to re-examine data or revisit previous steps as needed
 
-{{% notice tip %}}
+::alert[
 **To interrupt the AI**: Press the stop button on the lower right of the prompt box.
-{{% /notice %}}
+]{type="info"}
 
-{{% notice tip %}}
+::alert[
 **Use copy/paste**: You can copy and paste text from the AI's response into the prompt and ask what it means.
-{{% /notice %}}
+]{type="info"}
 
 ---
 
@@ -107,4 +107,4 @@ Everything else (Sanctions, Ownership, Directorship, Identifiers, Addresses) are
 
 {{% notice info %}}
 **Ready?** Continue to the next page to see the complete workflow steps and key outcomes to watch for.
-{{% /notice %}}
+]{type="info"}

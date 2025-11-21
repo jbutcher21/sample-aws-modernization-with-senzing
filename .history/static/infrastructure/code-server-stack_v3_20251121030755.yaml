@@ -1,0 +1,554 @@
+#------------------------------------------------------
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0 
+#------------------------------------------------------
+AWSTemplateFormatVersion: "2010-09-09"
+Description: deploy a vscode-server on an ec2 
+#------------------------------------------------------
+# Mappings CloudFront PrefixListId 
+#------------------------------------------------------
+Mappings: 
+  CloudFrontPrefixListIdMappings:
+    us-east-1: 
+      PrefixListId: "pl-3b927c52"
+    us-east-2:
+      PrefixListId: "pl-b6a144df"
+    us-west-1:                         
+      PrefixListId: "pl-4ea04527"
+    us-west-2:
+      PrefixListId: "pl-82a045eb"
+#------------------------------------------------------
+# Parameters
+#------------------------------------------------------
+Parameters:
+  VPCID: 
+    Description: imported vpc id
+    Type: String
+    Default: "" 
+  SubnetID:
+    Description: imported subnet id
+    Type: String
+    Default: ""
+  InstanceType:
+    Description: WebServer EC2 instance type
+    Type: String
+    Default: t2.xlarge
+    ConstraintDescription: must be a valid EC2 instance type.
+  VolumeSize:
+    Type: Number
+    Default: 10
+    MinValue: 8
+    MaxValue: 50
+    Description: 'EBS volume size in GB'
+  LatestAmiId:
+    Description: latest image id for ubuntu
+    Type: "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>" 
+    # Default: "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
+    Default: "/aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id" 
+    # Default: "/aws/service/canonical/ubuntu/server/24.04/stable/current/amd64/hvm/ebs-gp3/ami-id" 
+  InternetCidrBlock:
+    Type: String
+    Description: UserCidrBlock
+    Default: 0.0.0.0/0
+  VSCodeServerVersion:
+    Type: String
+    Description: VSCodeServerVersion
+    # Default: 4.91.1
+    Default: 4.105.1
+  OriginRequestPolicyId:
+    Type: String
+    Description: origin request policy id
+    Default: 216adef6-5c7f-47e4-b989-5492eafa07d3
+  SenzingLicenseString:
+    Type: String
+    Description: Base64-encoded Senzing license string (leave empty for evaluation mode without license)
+    Default: ""
+Conditions:
+  ImportVPCIDNotEmpty: 
+    Fn::Not:
+      - Fn::Equals:
+          - Ref: VPCID
+          - ""
+  ImportSubnetIDNotEmpty:
+    Fn::Not:
+      - Fn::Equals:
+          - Ref: SubnetID
+          - ""
+  HasSenzingLicense:
+    Fn::Not:
+      - Fn::Equals:
+          - Ref: SenzingLicenseString
+          - ""
+#------------------------------------------------------
+# Security Group
+#------------------------------------------------------
+Resources:
+  OutputCodeServerPasswordHandle:
+    Type: AWS::CloudFormation::WaitConditionHandle
+  OutputCodeServerPassword:
+    Type: AWS::CloudFormation::WaitCondition
+    Properties:
+      Handle: !Ref OutputCodeServerPasswordHandle
+      Timeout: '600'
+      Count: 1
+
+  VSCodeServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W40
+            reason: allow ingress from the cloudfront prefix list
+          - id: W5
+            reason: allow ingress from the cloudfront prefix list
+    Properties:
+      GroupDescription: allow ingress from cloudfront prefix list
+      VpcId:
+        Fn::If:
+          - ImportVPCIDNotEmpty
+          - Ref: VPCID
+          - Ref: AWS::NoValue 
+
+  VSCodeServerSecurityGroupIngress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      Description: open port 8080 for the cloudfront prefix list
+      GroupId:
+        Fn::GetAtt:
+          - VSCodeServerSecurityGroup
+          - GroupId
+      IpProtocol: tcp
+      FromPort: 8080
+      ToPort: 8080
+      SourcePrefixListId:
+        Fn::FindInMap:
+          - CloudFrontPrefixListIdMappings
+          - Ref: AWS::Region
+          - PrefixListId
+
+  VSCodeServerSecurityGroupEgress:
+    Type: AWS::EC2::SecurityGroupEgress
+    Properties:
+      Description: egress for vscode security group
+      GroupId:
+        Fn::GetAtt:
+          - VSCodeServerSecurityGroup
+          - GroupId
+      IpProtocol: -1
+      CidrIp: !Ref InternetCidrBlock
+#------------------------------------------------------
+# Role and Instance Profile
+#------------------------------------------------------
+  VSCodeServerIAMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
+      Policies:
+        - PolicyName: SSMParameterAccess
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ssm:PutParameter
+                  - ssm:GetParameter
+                Resource:
+                  - !Sub "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/code-server/*"
+                  # - !Sub "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/ssh/*"
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - Ref: VSCodeServerIAMRole
+#------------------------------------------------------
+# Elastic IP for EC2 Instance
+#------------------------------------------------------
+  VSCodeServerEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: VSCodeServer-EIP
+
+  VSCodeServerEIPAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Properties:
+      AllocationId: !GetAtt VSCodeServerEIP.AllocationId
+      InstanceId: !Ref VSCodeServer
+#------------------------------------------------------
+# EC2 Instance for VSCode Server
+#------------------------------------------------------
+  VSCodeServer:
+    Type: AWS::EC2::Instance
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W40
+            reason: allow tcp 8080 from the cloudfront prefix list
+    Properties:
+      ImageId: !Ref LatestAmiId
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref InstanceProfile
+      Tags:
+        - Key: Name
+          Value: VSCodeServer 
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeType: gp3
+            VolumeSize: !Ref VolumeSize
+            DeleteOnTermination: true
+            Encrypted: true
+      NetworkInterfaces:
+        - DeviceIndex: "0"
+          AssociatePublicIpAddress: "true"
+          SubnetId:
+            Fn::If:
+              - ImportSubnetIDNotEmpty
+              - Ref: SubnetID
+              - Ref: AWS::NoValue 
+          GroupSet:
+            - Fn::GetAtt:
+                - VSCodeServerSecurityGroup
+                - GroupId
+      Monitoring: true
+      UserData:
+        Fn::Base64:
+          Fn::Sub:
+            - |
+              #!/bin/bash
+              echo "INFO: Starting UserData script execution"
+              
+              # APT Update and Installs
+              echo "INFO: APT updating and prerequisites"
+              apt-get -o DPkg::Lock::Timeout=-1 update
+              DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=-1 install -y \
+                apt-transport-https \
+                csvkit \
+                git \
+                curl \
+                fonts-hack* \
+                jq \
+                ncdu \
+                python3-pip
+                sqlite \
+                tree \
+                unzip \
+                vim
+
+              # Install AWS CLI
+              echo "INFO: Installing AWS CLI prerequisites"
+              curl -fsSL https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip -o /tmp/aws-cli.zip
+              unzip -q -d /tmp /tmp/aws-cli.zip
+              sudo /tmp/aws/install
+              rm -rf /tmp/aws /tmp/aws-cli.zip
+              aws --version
+
+              # Install CloudFormation helper scripts
+              echo "INFO: Installing CloudFormation helper scripts"
+              pip3 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+              # Create symlinks to match expected /opt/aws/bin/ location
+              mkdir -p /opt/aws/bin
+              ln -s /usr/local/bin/cfn-signal /opt/aws/bin/cfn-signal
+              ln -s /usr/local/bin/cfn-init /opt/aws/bin/cfn-init
+              ln -s /usr/local/bin/cfn-hup /opt/aws/bin/cfn-hup
+              ln -s /usr/local/bin/cfn-get-metadata /opt/aws/bin/cfn-get-metadata
+
+              # Clone repo
+              echo "INFO: Clone AI Class"
+              sudo -u ubuntu git clone https://github.com/jbutcher21/aws-workshop-files.git /home/ubuntu/workshop
+              echo "INFO: Clone MCP Server"
+              sudo -u ubuntu git clone https://github.com/jbutcher21/senzing-mcp-server.git /home/ubuntu/senzing-mcp-server
+
+              # Install Python MCP
+              echo "INFO: Python MCP"
+              sudo -u ubuntu pip3 install mcp --user
+
+              
+              # Install code-server
+              echo "INFO: Installing code-server"
+              curl -fOL https://github.com/coder/code-server/releases/download/v${VERSION}/code-server_${VERSION}_amd64.deb
+              sudo dpkg -i code-server_${VERSION}_amd64.deb
+              rm -f code-server_4.105.1_amd64.deb
+              echo "INFO: Configuring default workspace"
+
+              # # Configure code-server to open specific folder
+              # sudo mkdir -p /etc/systemd/system/code-server@ubuntu.service.d/
+              # cat << 'EOF' | sudo tee /etc/systemd/system/code-server@ubuntu.service.d/override.conf
+              # [Service]
+              # ExecStart=
+              # ExecStart=/usr/bin/code-server /home/ubuntu/aiclass
+              # EOF
+
+              # Reload systemd to pick up the override
+              sudo systemctl daemon-reload
+              
+              echo "INFO: Enabling and starting code-server"
+              sudo systemctl enable --now code-server@ubuntu
+              sleep 30
+
+              # Create settings directory and configure VS Code settings
+              echo "INFO: Configuring code-server user settings"
+              sudo -u ubuntu mkdir -p /home/ubuntu/.local/share/code-server/User
+              cat << 'EOF' | sudo -u ubuntu tee /home/ubuntu/.local/share/code-server/User/settings.json
+              {
+                  "extensions.autoUpdate": false,
+                  "extensions.autoCheckUpdates": false,
+                  "workbench.colorTheme": "Visual Studio Dark",
+                  "workbench.secondarySideBar.defaultVisibility": "hidden",
+                  "telemetry.editStats.enabled": false,
+                  "telemetry.telemetryLevel": "off",
+                  "editor.minimap.enabled": false,
+                  "amazonQ.telemetry": false,
+                  "workbench.startupEditor": "none",
+                  "workbench.tips.enabled": false,
+                  "editor.bracketPairColorization.enabled": true,
+                  "breadcrumbs.enabled": true,
+                  "security.workspace.trust.startupPrompt": "never",
+                  "security.workspace.trust.enabled": false,
+                  "security.workspace.trust.banner": "never",
+                  "security.workspace.trust.emptyWindow": false,
+                  "files.watcherExclude": {
+                      "**/.git/objects/**": true,
+                      "**/.git/subtree-cache/**": true,
+                      "**/node_modules/**": true
+                  },
+                  "search.exclude": {
+                      "**/node_modules": true
+                  },
+                  "terminal.integrated.fontSize": 14,
+                  "terminal.integrated.fontWeight": "normal",
+                  "terminal.integrated.lineHeight": 1.2,
+                  "terminal.integrated.fontFamily": "'Hack', monospace",
+                  // Important for browser-based usage
+                  "terminal.integrated.gpuAcceleration": "auto",
+                  // If you experience lag/performance issues, try:
+                  // "terminal.integrated.gpuAcceleration": "off" or "canvas"
+                  "terminal.integrated.scrollback": 10000,
+                  "terminal.integrated.persistentSessionReviveProcess": "onExit",
+                  "terminal.integrated.cursorBlinking": false,
+                  "terminal.integrated.cursorStyle": "block",
+                  "terminal.integrated.defaultProfile.linux": "bash",
+                  "terminal.integrated.copyOnSelection": true,
+                  "terminal.integrated.rightClickBehavior": "default",
+                  "terminal.integrated.smoothScrolling": true,
+                  "terminal.integrated.fastScrollSensitivity": 5,
+                  "terminal.integrated.tabs.enabled": true,
+                  "terminal.integrated.tabs.location": "right",
+                  "terminal.integrated.splitCwd": "workspaceRoot",
+                  "terminal.integrated.env.linux": {},
+                  "terminal.integrated.inheritEnv": true,
+                  "terminal.integrated.shellIntegration.enabled": true,
+                  "terminal.integrated.shellIntegration.decorationsEnabled": "both",
+                  "terminal.integrated.rendererType": "auto",
+                  "terminal.integrated.minimumContrastRatio": 4.5,
+                  "terminal.integrated.cwd": "${!workspaceFolder}",
+                  "terminal.integrated.commandsToSkipShell": [
+                    "workbench.action.terminal.paste"
+                  ],
+                  "terminal.integrated.macOptionIsMeta": true,
+                  "terminal.integrated.macOptionClickForcesSelection": false
+                }
+              EOF
+
+              # Configure password
+              echo "INFO: Configuring code-server"
+              # sed -i.bak 's/auth: password/auth: none/' /home/ubuntu/.config/code-server/config.yaml
+              # Expose code server service 
+              sed -i.bak 's/bind-addr: 127.0.0.1:8080/bind-addr: 0.0.0.0:8080/' /home/ubuntu/.config/code-server/config.yaml
+              
+              # Restart code server
+              echo "INFO: Restarting code-server"
+              sudo systemctl restart code-server@ubuntu
+              
+              # Store password in SSM Parameter Store for easy retrieval
+              echo "INFO: Storing password in SSM Parameter Store"
+              sleep 10  # Wait for config file to be fully written
+              CODE_SERVER_PASSWORD=$(sudo grep "^password:" /home/ubuntu/.config/code-server/config.yaml | cut -d' ' -f2)
+              # echo "INFO: Extracted password, creating SSM parameter"
+              # aws ssm put-parameter \
+              #   --name "/code-server/password" \
+              #   --value "$CODE_SERVER_PASSWORD" \
+              #   --type "SecureString" \
+              #   --region ${AWS::Region} \
+              #   --overwrite
+
+              # Send data back to CloudFormation
+              echo "INFO: Add Code Server Password to Outputs"
+              # /opt/aws/bin/cfn-signal -e $? \
+              /opt/aws/bin/cfn-signal -e 0 \
+              --data "$CODE_SERVER_PASSWORD" \
+              '${OutputCodeServerPasswordHandle}'
+
+              # Install VSCode extensions 
+              echo "INFO: Installing VSCode extensions"
+              sudo -u ubuntu code-server --install-extension amazonwebservices.amazon-q-vscode
+              sudo -u ubuntu code-server --install-extension mechatroner.rainbow-csv
+              sudo -u ubuntu code-server --install-extension ms-python.python
+              sudo -u ubuntu code-server --install-extension usernamehw.errorlens
+              
+              # Restart code server
+              echo "INFO: Final restart of code-server"
+              sudo systemctl restart code-server@ubuntu
+  
+              # Install Senzing
+              echo "INFO: Installing Senzing"
+              wget -P /tmp/ https://senzing-production-apt.s3.amazonaws.com/senzingrepo_2.0.1-1_all.deb
+              export SENZING_ACCEPT_EULA=I_ACCEPT_THE_SENZING_EULA
+              DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=-1 install -y /tmp/senzingrepo_2.0.1-1_all.deb
+              apt-get -o DPkg::Lock::Timeout=-1 update
+              DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=-1 install -y senzingsdk-poc
+              rm -f tmp/senzingrepo_2.0.1-1_all.deb
+              apt-get -o DPkg::Lock::Timeout=-1 clean
+
+              # Senzing Setup
+              echo "INFO: Senzing Setup - SQLite"
+              sudo -u ubuntu mkdir -p /home/ubuntu/sz_sqlite
+              sudo -u ubuntu cp /opt/senzing/er/resources/templates/G2C.db /home/ubuntu/sz_sqlite
+
+              echo "INFO: Senzing Setup - Env Vars"
+              # Build Senzing configuration JSON with or without license
+              if [ -n "${SENZING_LICENSE}" ]; then
+                echo "INFO: Configuring Senzing with provided license"
+                echo "export SENZING_ENGINE_CONFIGURATION_JSON='{\"PIPELINE\":{\"CONFIGPATH\":\"/etc/opt/senzing\",\"RESOURCEPATH\":\"/opt/senzing/er/resources\",\"SUPPORTPATH\":\"/opt/senzing/data\",\"LICENSESTRINGBASE64\":\"${SENZING_LICENSE}\"},\"SQL\":{\"CONNECTION\":\"sqlite3://na:na@/home/ubuntu/sz_sqlite/G2C.db\"}}'" >> /home/ubuntu/.sz_env
+              else
+                echo "INFO: Configuring Senzing in evaluation mode (no license)"
+                echo "export SENZING_ENGINE_CONFIGURATION_JSON='{\"PIPELINE\":{\"CONFIGPATH\":\"/etc/opt/senzing\",\"RESOURCEPATH\":\"/opt/senzing/er/resources\",\"SUPPORTPATH\":\"/opt/senzing/data\"},\"SQL\":{\"CONNECTION\":\"sqlite3://na:na@/home/ubuntu/sz_sqlite/G2C.db\"}}'" >> /home/ubuntu/.sz_env
+              fi
+              echo "export LD_LIBRARY_PATH=\"/opt/senzing/er/lib\"" >> /home/ubuntu/.sz_env              
+              echo "export PYTHONPATH=\"/home/ubuntu/.local/bin:/opt/senzing/er/sdk/python\"" >> /home/ubuntu/.sz_env
+              echo "export PATH=\"$PATH:/opt/senzing/er/bin\"" >> /home/ubuntu/.sz_env
+              chown ubuntu:ubuntu /home/ubuntu/.sz_env
+              echo "source /home/ubuntu/.sz_env" >> /home/ubuntu/.bashrc
+
+              echo "INFO: Senzing Setup - Config"
+              source /home/ubuntu/.sz_env; yes | /opt/senzing/er/bin/sz_setup_config
+
+            - VERSION: !Ref VSCodeServerVersion
+              SENZING_LICENSE: !Ref SenzingLicenseString
+
+#------------------------------------------------------
+# CloudFront Cached Policy
+#------------------------------------------------------ 
+  VSCodeServerCloudFrontCachePolicy:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        DefaultTTL: 86400
+        MaxTTL: 31536000
+        MinTTL: 1
+        Name: !Join ['-', ['VSCodeServer', !Select [4, !Split ['-', !Select [2, !Split ['/', !Ref AWS::StackId]]]]]]
+        ParametersInCacheKeyAndForwardedToOrigin:
+          CookiesConfig:
+            CookieBehavior: all
+          EnableAcceptEncodingGzip: False
+          HeadersConfig:
+            HeaderBehavior: whitelist
+            Headers: 
+              - Accept-Charset
+              - Authorization
+              - Origin
+              - Accept
+              - Referer
+              - Host
+              - Accept-Language
+              - Accept-Encoding
+              - Accept-Datetime
+          QueryStringsConfig:
+            QueryStringBehavior: all
+
+#------------------------------------------------------
+# CloudFront Distribution
+#------------------------------------------------------ 
+  VSCodeServerCloudFront:
+    Type: AWS::CloudFront::Distribution
+    DependsOn: VSCodeServerEIPAssociation
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W10
+            reason: disable access logging for demo purpose 
+          - id: W70
+            reason: no TLS version for demo purpose 
+    Properties:
+      DistributionConfig:
+        Origins:
+          - DomainName: !GetAtt VSCodeServer.PublicDnsName
+            Id: VS-code-server
+            CustomOriginConfig:
+              HTTPPort: 8080
+              OriginProtocolPolicy: http-only
+        Enabled: true
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+            - PUT 
+            - POST 
+            - PATCH 
+            - DELETE
+          ForwardedValues:
+            QueryString: 'false'
+          Compress: false
+          TargetOriginId: VS-code-server
+          ViewerProtocolPolicy: allow-all
+          OriginRequestPolicyId: !Ref OriginRequestPolicyId 
+          CachePolicyId: !Ref VSCodeServerCloudFrontCachePolicy 
+
+
+#------------------------------------------------------
+# Exported output
+#------------------------------------------------------ 
+Outputs:
+  VSCodeServerConnectionInfo:
+    Description:
+      "Code Server Web URL"
+    Value: 
+      !Sub 
+        - "https://${domain}"
+        - { domain: !GetAtt VSCodeServerCloudFront.DomainName }
+    Export:
+      Name: !Sub ${AWS::StackName}-domain-name
+  VSCodeServerPassword:
+      Description: "Code Server Password"
+      Value: !Select
+        - 3
+        - !Split
+          - '"'
+          - !GetAtt OutputCodeServerPassword.Data
+      Export:
+        Name: !Sub ${AWS::StackName}-code-server-password
+  VSCodeServerPublicIP:
+    Value: !Ref VSCodeServerEIP
+    Export:
+      Name: !Sub ${AWS::StackName}-code-server-public-ip
+  VSCodeServerPrivateIP:
+    Value: !GetAtt VSCodeServer.PrivateIp
+    Export:
+      Name: !Sub ${AWS::StackName}-code-server-private-ip
+  VSCodeServerRoleARN:
+    Value: !GetAtt VSCodeServerIAMRole.Arn
+    Export:
+      Name: !Sub ${AWS::StackName}-code-server-role-arn
+  VSCodeServerInstanceId:
+    Value: !Ref VSCodeServer
+    Export:
+      Name: !Sub ${AWS::StackName}-code-server-instance-id
+  # VSCodeServerPasswordSSM:
+  #   Description: SSM Parameter containing the code-server password
+  #   Value: "/code-server/password"
+  #   Export:
+  #     Name: !Sub ${AWS::StackName}-code-server-password-ssm
+

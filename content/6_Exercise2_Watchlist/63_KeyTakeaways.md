@@ -1,7 +1,7 @@
----
-title: "Key Takeaways"
-weight: 63
----
++++
+title = "Key Takeaways"
+weight = 63
++++
 
 ## What You've Accomplished
 
@@ -207,6 +207,6 @@ Your domain knowledge + AI's Senzing expertise = Quality results
 
 ---
 
-{{% notice tip %}}
+::alert[
 **Workshop Complete!** You've learned AI-assisted entity resolution from foundations to advanced techniques. Now apply these skills to your own data challenges. Good luck!
-{{% /notice %}}
+]{type="info"}

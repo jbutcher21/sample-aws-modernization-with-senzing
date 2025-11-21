@@ -1,7 +1,7 @@
----
-title: "Step 3: Verify the Integration"
-weight: 253
----
++++
+title = "Step 3: Verify the Integration"
+weight = 253
++++
 
 ## Overview
 
@@ -11,21 +11,19 @@ Now that you've configured and authorized the Senzing MCP server, let's verify t
 
 1. **In the Amazon Q chat**, ask:
 
-   ```
+   ```bash
    What MCP tools are available?
    ```
 
 ![MCP Tools List](/images/senzing_mcp/senzing_mcp6.png)
 
-{{% notice info %}}
-These tools will become more useful once you've loaded entity data in later modules. For now, we're just confirming the connection works.
-{{% /notice %}}
+::alert[These tools will become more useful once you've loaded entity data in later modules. For now, we're just confirming the connection works.]{type="info"}
 
 ## Test 2: Query Test Entity
 
 2. **Try a test query:**
 
-   ```
+   ```bash
    Get entity1
    ```
 
@@ -40,18 +38,16 @@ The important part is that:
 - The tool executed without errors
 - You received a valid response (even though the entity doesn't exist)
 
-{{% notice tip %}}
-A response like "entity 1 does not exist" or "no entity found" confirms the MCP server is working correctly!
-{{% /notice %}}
+::alert[A response like "entity 1 does not exist" or "no entity found" confirms the MCP server is working correctly!]{type="info"}
 
 ## What This Means
 
 A successful response (even if the entity doesn't exist) indicates:
 
-✅ Amazon Q is connected to the Senzing MCP server
-✅ The MCP server can communicate with Senzing
-✅ Environment variables are configured correctly
-✅ Tools are authorized and functional
+- ✅ Amazon Q is connected to the Senzing MCP server
+- ✅ The MCP server can communicate with Senzing
+- ✅ Environment variables are configured correctly
+- ✅ Tools are authorized and functional
 
 ## Troubleshooting
 
@@ -66,9 +62,7 @@ If you encounter errors:
 
 ## Wrap Up
 
-{{% notice info "Checkpoint" %}}
 Ensure the MCP server is configured and you can see Senzing tools in Amazon Q before proceeding.
-{{% /notice %}}
 
 Congratulations! You've successfully connected Amazon Q Developer to the Senzing MCP server!
 
@@ -81,14 +75,6 @@ Throughout this workshop, you'll use this integration to:
 - Analyze relationships between resolved entities
 - Get explanations of resolution decisions
 - Explore your mapped data interactively
-
-### Ready to Continue?
-
-You're now ready to learn about Senzing mapping concepts!
-
-{{% notice info %}}
-**Next Step:** Proceed to [Module 3: Understanding Senzing Mapping](../../3_workshopoverview)
-{{% /notice %}}
 
 ## Additional Resources
 

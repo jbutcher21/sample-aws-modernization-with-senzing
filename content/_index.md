@@ -1,15 +1,16 @@
----
-title: "One-click Entity Resolution"
-chapter: true
----
++++
+title = "Entity Resolution with Senzing and Amazon Q"
+chapter = true
++++
 
-# One-click Entity Resolution
-# on AWS using Amazon Q Developer and Senzing
-# (you can't unsee this!)
+# Amazon Q & Senzing AI: One Click Entity Resolution for Smarter Data Matching
 
-![Senzing Logo](/images/senzing_logo1.png)
+<div align="center">
 
-![Q Developer Logo](/images/intro-qdev.png)
+| ![Senzing Logo](/images/senzing_logo1.png) | ![Q Developer Logo](/images/intro-qdev.png) |
+|:--:|:--:|
+
+</div>
 
 ## What is Entity Resolution?
 
@@ -47,9 +48,8 @@ You should have:
 - Experience with data transformation concepts
 - No prior Senzing experience required
 
-
 ## Workshop Details
 
 **Cost:** Free for AWS-hosted events
 
-**Duration:** Estimated 1-2 hours
+**Duration:** Estimated 2-3 hours

@@ -1,8 +1,8 @@
----
-title: "Exercise 2: Watchlist"
-chapter: true
-weight: 6
----
++++
+title = "Exercise 2: Watchlist"
+chapter = true
+weight = 6
++++
 
 # Exercise 2: Watchlist
 
@@ -39,12 +39,8 @@ This exercise uses a **self-guided workflow with key outcomes**:
 
 **Estimated Time:** 45-60 minutes
 
-{{% notice warning %}}
-**Important:** This exercise requires active participation. You'll need to question AI decisions, verify against actual data, and direct the workflow. Simply following prompts won't work - you must engage critically.
-{{% /notice %}}
+::alert[**Important:** This exercise requires active participation. You'll need to question AI decisions, verify against actual data, and direct the workflow. Simply following prompts won't work - you must engage critically.]{type="warning"}
 
-{{% notice info %}}
-This exercise builds on Exercise 1. You'll see how watchlist entities resolve against customer data, revealing hidden networks and compliance risks.
-{{% /notice %}}
+::alert[This exercise builds on Exercise 1. You'll see how watchlist entities resolve against customer data, revealing hidden networks and compliance risks.]{type="info"}
 
 Let's get started!

@@ -1,7 +1,7 @@
----
-title: "Stage 2: INVENTORY"
-weight: 432
----
++++
+title = "Stage 2: INVENTORY"
+weight = 432
++++
 
 ## Stage 2: INVENTORY - Analyze Schema
 
@@ -24,6 +24,4 @@ When you're satisfied with the field extraction:
 
 **Tell Amazon Q:** `Yes`
 
-{{% notice info %}}
-**Checkpoint:** Q should list all 19 source fields categorized by their purpose before moving to PLANNING.
-{{% /notice %}}
+::alert[**Checkpoint:** Q should list all 19 source fields categorized by their purpose before moving to PLANNING.]{type="info"}

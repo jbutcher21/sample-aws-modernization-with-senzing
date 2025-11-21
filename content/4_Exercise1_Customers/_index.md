@@ -1,10 +1,8 @@
----
-title: "Exercise 1: Customers"
-chapter: true
-weight: 4
----
-
-# Exercise 1: Customers
++++
+title = "Exercise 1: Customers"
+chapter = true
+weight = 4
++++
 
 ## Map and Load Customer Data
 
@@ -38,8 +36,6 @@ This exercise follows a structured 7-step workflow:
 
 **Estimated Time:** 30-45 minutes
 
-{{% notice tip %}}
-Complete each step before moving to the next. Each step builds on the previous one.
-{{% /notice %}}
+::alert[Complete each step before moving to the next. Each step builds on the previous one.]{type="info"}
 
 Let's get started!

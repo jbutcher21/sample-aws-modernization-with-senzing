@@ -1,8 +1,8 @@
----
-title: "Senzing MCP Server Setup"
-chapter: true
-weight: 25
----
++++
+title = "Senzing MCP Server Setup"
+chapter = true
+weight = 25
++++
 
 ## Overview
 
@@ -14,17 +14,13 @@ In this section, you will:
 2. Authorize MCP tools for Amazon Q to use
 3. Verify the integration is working
 
-{{% notice info %}}
-The MCP server provides 8+ tools for entity search, relationship analysis, and resolution explanation. This makes it easy to explore and understand entity resolution results using conversational AI.
-{{% /notice %}}
+::alert[The MCP server provides 8+ tools for entity search, relationship analysis, and resolution explanation. This makes it easy to explore and understand entity resolution results using conversational AI.]{type="info"}
 
 ## Prerequisites
 
-{{% notice info "Required" %}}
 - Amazon Q Developer authenticated (configured in [previous section](../23_amazonqsetup))
 - Senzing SDK installed and initialized in your environment (pre-configured in workshop)
 - Senzing MCP server add on pre-installed (pre-configured in workshop)
-{{% /notice %}}
 
 ## What You'll Learn
 
@@ -49,6 +45,4 @@ Throughout this workshop, you'll use this integration to:
 
 Let's begin by configuring the MCP server connection!
 
-{{% notice tip %}}
-The setup process takes approximately 5-10 minutes. Follow each step carefully for a smooth experience.
-{{% /notice %}}
+::alert[The setup process takes approximately 5-10 minutes. Follow each step carefully for a smooth experience.]{type="info"}

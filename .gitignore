@@ -1,14 +1,2 @@
-# Hugo generated files
-/public/
-/resources/_gen/
-
-# macOS system files
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Hugo locks
-.hugo_build.lock
+assets/*
+!assets/README.md

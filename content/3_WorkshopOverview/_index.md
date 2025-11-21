@@ -1,10 +1,8 @@
----
-title: "Workshop Overview"
-chapter: true
-weight: 3
----
-
-# Workshop Overview
++++
+title = "Workshop Overview"
+chapter = true
+weight = 3
++++
 
 ## Overview
 

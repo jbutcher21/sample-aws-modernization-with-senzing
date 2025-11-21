@@ -1,0 +1,2703 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.152.2">
+    <meta name="description" content="AWS Modernization Workshop">
+<meta name="author" content="Patrick Vassell">
+
+    <link rel="icon" href="https://awsmedia.s3.amazonaws.com/favicon.ico" type="image/x-icon" />
+
+    <title>Step 6: Analyze Snapshot :: English</title>
+
+    
+    <link href="/css/nucleus.css?1763752781" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1763752781" rel="stylesheet">
+    <link href="/css/hybrid.css?1763752781" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1763752781" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1763752781" rel="stylesheet">
+    <link href="/css/auto-complete.css?1763752781" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1763752781" rel="stylesheet">
+    <link href="/css/theme.css?1763752781" rel="stylesheet">
+    <link href="/css/tabs.css?1763752781" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1763752781" rel="stylesheet">
+    
+    <link href="/css/theme-mine.css?1763752781" rel="stylesheet">
+    
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/6_exercise2_watchlist/66_analyzesnapshot.html">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="/" title="Go home"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30" width="50%" style="padding:20px 0px;"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg></a>
+  
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1763752781"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1763752781"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/localhost:1313\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1763752781"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/'><i class='fas fa-home'></i> One-click Entity Resolution</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1_introduction/index.html" title="Introduction" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1_introduction/index.html">
+          Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2_setup_configuration/index.html" title="Setup and Configuration" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2_setup_configuration/index.html">
+          Setup and Configuration
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2_setup_configuration/21_aws_guided_event/index.html" title="Running the Workshop at an AWS Guided Event" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2_setup_configuration/21_aws_guided_event/index.html">
+          Running the Workshop at an AWS Guided Event
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/21_aws_guided_event/211_joinworkshopevent.html" title="Join the workshop event" class="dd-item ">
+        <a href="/2_setup_configuration/21_aws_guided_event/211_joinworkshopevent.html">
+        Join the workshop event
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/21_aws_guided_event/212_accessingide.html" title="Accessing your IDE" class="dd-item ">
+        <a href="/2_setup_configuration/21_aws_guided_event/212_accessingide.html">
+        Accessing your IDE
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2_setup_configuration/22_own_aws_account/index.html" title="Running the Workshop in your own AWS Account" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2_setup_configuration/22_own_aws_account/index.html">
+          Running the Workshop in your own AWS Account
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/22_own_aws_account/221_configureide.html" title="Configure your IDE" class="dd-item ">
+        <a href="/2_setup_configuration/22_own_aws_account/221_configureide.html">
+        Configure your IDE
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/23_amazonqsetup.html" title="Amazon Q Setup" class="dd-item ">
+        <a href="/2_setup_configuration/23_amazonqsetup.html">
+        Amazon Q Setup
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2_setup_configuration/25_senzingmcpsetup/index.html" title="Senzing MCP Server Setup" class="dd-item
+        
+        
+        
+        ">
+      <a href="/2_setup_configuration/25_senzingmcpsetup/index.html">
+          Senzing MCP Server Setup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/25_senzingmcpsetup/251_configuremcpserver.html" title="Step 1: Configure the MCP Server" class="dd-item ">
+        <a href="/2_setup_configuration/25_senzingmcpsetup/251_configuremcpserver.html">
+        Step 1: Configure the MCP Server
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/25_senzingmcpsetup/252_authorizetools.html" title="Step 2: Authorize MCP Tools" class="dd-item ">
+        <a href="/2_setup_configuration/25_senzingmcpsetup/252_authorizetools.html">
+        Step 2: Authorize MCP Tools
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/25_senzingmcpsetup/253_verifyintegration.html" title="Step 3: Verify the Integration" class="dd-item ">
+        <a href="/2_setup_configuration/25_senzingmcpsetup/253_verifyintegration.html">
+        Step 3: Verify the Integration
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/2_setup_configuration/27_resourcesandsupport.html" title="Resources and Support" class="dd-item ">
+        <a href="/2_setup_configuration/27_resourcesandsupport.html">
+        Resources and Support
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3_workshopoverview/index.html" title="Workshop Overview" class="dd-item
+        
+        
+        
+        ">
+      <a href="/3_workshopoverview/index.html">
+          Workshop Overview
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3_workshopoverview/30_mappingchallenge.html" title="What is Data Mapping" class="dd-item ">
+        <a href="/3_workshopoverview/30_mappingchallenge.html">
+        What is Data Mapping
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3_workshopoverview/31_mappingworkflow.html" title="Senzing&#39;s AI Assisted Approach" class="dd-item ">
+        <a href="/3_workshopoverview/31_mappingworkflow.html">
+        Senzing&#39;s AI Assisted Approach
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3_workshopoverview/32_workshopfolder.html" title="Workshop Folder Tour" class="dd-item ">
+        <a href="/3_workshopoverview/32_workshopfolder.html">
+        Workshop Folder Tour
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/3_workshopoverview/33_explorewithai.html" title="Explore with AI" class="dd-item ">
+        <a href="/3_workshopoverview/33_explorewithai.html">
+        Explore with AI
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4_exercise1_customers/index.html" title="Exercise 1: Customers" class="dd-item
+        
+        
+        
+        ">
+      <a href="/4_exercise1_customers/index.html">
+          Exercise 1: Customers
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/41_examinesourcedata.html" title="Step 1: Explore Senzing" class="dd-item ">
+        <a href="/4_exercise1_customers/41_examinesourcedata.html">
+        Step 1: Explore Senzing
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/42_createschema.html" title="Step 2: Generate Schema" class="dd-item ">
+        <a href="/4_exercise1_customers/42_createschema.html">
+        Step 2: Generate Schema
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/index.html" title="Step 3: Map with Assistant" class="dd-item
+        
+        
+        
+        ">
+      <a href="/4_exercise1_customers/43_mapwithassistant/index.html">
+          Step 3: Map with Assistant
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/431_mapinit.html" title="Stage 1: INIT" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/431_mapinit.html">
+        Stage 1: INIT
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/432_mapinventory.html" title="Stage 2: INVENTORY" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/432_mapinventory.html">
+        Stage 2: INVENTORY
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/433_mapplanning.html" title="Stage 3: PLANNING" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/433_mapplanning.html">
+        Stage 3: PLANNING
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/434_mapmapping.html" title="Stage 4: MAPPING" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/434_mapmapping.html">
+        Stage 4: MAPPING
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/43_mapwithassistant/435_mapoutputs.html" title="Stage 5: OUTPUTS" class="dd-item ">
+        <a href="/4_exercise1_customers/43_mapwithassistant/435_mapoutputs.html">
+        Stage 5: OUTPUTS
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/44_validatemapping.html" title="Step 4: Validate Mapping" class="dd-item ">
+        <a href="/4_exercise1_customers/44_validatemapping.html">
+        Step 4: Validate Mapping
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/45_loaddata.html" title="Step 5: Load Data" class="dd-item ">
+        <a href="/4_exercise1_customers/45_loaddata.html">
+        Step 5: Load Data
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/46_analyzeresolveddata.html" title="Step 6: Analyze Resolved Data" class="dd-item ">
+        <a href="/4_exercise1_customers/46_analyzeresolveddata.html">
+        Step 6: Analyze Resolved Data
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/4_exercise1_customers/47_keytakeaways.html" title="Step 7: Key Takeaways" class="dd-item ">
+        <a href="/4_exercise1_customers/47_keytakeaways.html">
+        Step 7: Key Takeaways
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6_exercise2_watchlist/index.html" title="Exercise 2: Watchlist" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/6_exercise2_watchlist/index.html">
+          Exercise 2: Watchlist
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/61_beforeyoustart.html" title="Before You Start" class="dd-item ">
+        <a href="/6_exercise2_watchlist/61_beforeyoustart.html">
+        Before You Start
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/61_workflowsummary.html" title="Step 1: Workflow Summary" class="dd-item ">
+        <a href="/6_exercise2_watchlist/61_workflowsummary.html">
+        Step 1: Workflow Summary
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/62_examineandschema.html" title="Step 2: Examine Source Data and Generate Schema" class="dd-item ">
+        <a href="/6_exercise2_watchlist/62_examineandschema.html">
+        Step 2: Examine Source Data and Generate Schema
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/62_workflowsteps.html" title="Workflow Steps" class="dd-item ">
+        <a href="/6_exercise2_watchlist/62_workflowsteps.html">
+        Workflow Steps
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_keyoutcomes.html" title="Key Outcomes" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_keyoutcomes.html">
+        Key Outcomes
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/index.html" title="Step 3: Map with Senzing AI Assistant" class="dd-item
+        
+        
+        
+        ">
+      <a href="/6_exercise2_watchlist/63_mapwithassistant/index.html">
+          Step 3: Map with Senzing AI Assistant
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/631_mapinit.html" title="Stage 1: INIT" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/631_mapinit.html">
+        Stage 1: INIT
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/632_mapinventory.html" title="Stage 2: INVENTORY" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/632_mapinventory.html">
+        Stage 2: INVENTORY
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/633_mapplanning.html" title="Stage 3: PLANNING" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/633_mapplanning.html">
+        Stage 3: PLANNING
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/634_mapmapping.html" title="Stage 4: MAPPING" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/634_mapmapping.html">
+        Stage 4: MAPPING
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/63_mapwithassistant/635_mapoutputs.html" title="Stage 5: OUTPUTS" class="dd-item ">
+        <a href="/6_exercise2_watchlist/63_mapwithassistant/635_mapoutputs.html">
+        Stage 5: OUTPUTS
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/64_keylearningpoints.html" title="Key Learning Points" class="dd-item ">
+        <a href="/6_exercise2_watchlist/64_keylearningpoints.html">
+        Key Learning Points
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/64_validatemapping.html" title="Step 4: Validate Mapping" class="dd-item ">
+        <a href="/6_exercise2_watchlist/64_validatemapping.html">
+        Step 4: Validate Mapping
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/65_keytakeaways.html" title="Key Takeaways" class="dd-item ">
+        <a href="/6_exercise2_watchlist/65_keytakeaways.html">
+        Key Takeaways
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/65_loaddata.html" title="Step 5: Load Data into Senzing" class="dd-item ">
+        <a href="/6_exercise2_watchlist/65_loaddata.html">
+        Step 5: Load Data into Senzing
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/66_analyzesnapshot.html" title="Step 6: Analyze Snapshot" class="dd-item active">
+        <a href="/6_exercise2_watchlist/66_analyzesnapshot.html">
+        Step 6: Analyze Snapshot
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/6_exercise2_watchlist/67_reviewwithmcp.html" title="Step 7: Review with MCP Server" class="dd-item ">
+        <a href="/6_exercise2_watchlist/67_reviewwithmcp.html">
+        Step 7: Review with MCP Server
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7_cleanup/index.html" title="Clean Up Resources" class="dd-item
+        
+        
+        
+        ">
+      <a href="/7_cleanup/index.html">
+          Clean Up Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://awsworkshop.io"><i class='fas fa-graduation-cap'></i> Modernization Workshops</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://aws.amazon.com/builders-library/"><i class='fas fa-tools'></i> AWS Builders Library</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://aws.amazon.com/blogs/modernizing-with-aws/"><i class='far fa-lightbulb'></i> Modernization with AWS</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://eksworkshop.com/"><i class='fas fa-chalkboard-teacher'></i> EKS Workshop</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://ecsworkshop.com/"><i class='fas fa-chalkboard-teacher'></i> ECS Workshop</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://www.appmeshworkshop.com/"><i class='fas fa-chalkboard-teacher'></i> App Mesh Workshop</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+
+    <a href="https://aws.amazon.com/privacy/?nc1=f_pr">Privacy</a> | <a
+        href="https://aws.amazon.com/terms/?nc1=f_pr">Site Terms</a> | <a
+        href="https://modernization-workshop-bucket.s3-us-west-2.amazonaws.com/license/cc-license.html">CC BY-SA 4.0</a>
+
+</left>
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/index.html'>One-click Entity Resolution</a> > <a href='/6_exercise2_watchlist/index.html'>Exercise 2: Watchlist</a> > Step 6: Analyze Snapshot
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#analyzing-entity-resolution-results">Analyzing Entity Resolution Results</a></li>
+    <li><a href="#what-happened-the-context-gap">What Happened: The Context Gap</a>
+      <ul>
+        <li><a href="#original-prompt-new-session">Original Prompt (New Session)</a></li>
+        <li><a href="#ai-response">AI Response</a></li>
+      </ul>
+    </li>
+    <li><a href="#why-context-was-lost">Why Context Was Lost</a>
+      <ul>
+        <li><a href="#understanding-compact-vs-take-snapshot">Understanding &ldquo;Compact&rdquo; vs &ldquo;Take Snapshot&rdquo;</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-recover-step-by-step">How to Recover: Step-by-Step</a>
+      <ul>
+        <li><a href="#recovery-step-1-re-establish-context">Recovery Step 1: Re-establish Context</a></li>
+        <li><a href="#recovery-step-2-verify-tool-access">Recovery Step 2: Verify Tool Access</a></li>
+        <li><a href="#recovery-step-3-locate-work-artifacts">Recovery Step 3: Locate Work Artifacts</a></li>
+        <li><a href="#recovery-step-4-understand-the-snapshot-format">Recovery Step 4: Understand the Snapshot Format</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-recovered-snapshot-analysis">The Recovered Snapshot Analysis</a>
+      <ul>
+        <li><a href="#entity-resolution-summary-by-data-source">Entity Resolution Summary by Data Source</a></li>
+        <li><a href="#key-findings">Key Findings</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-prevent-context-loss">How to Prevent Context Loss</a>
+      <ul>
+        <li><a href="#1-document-progress">1. Document Progress</a></li>
+        <li><a href="#2-save-key-information">2. Save Key Information</a></li>
+        <li><a href="#3-reference-past-work">3. Reference Past Work</a></li>
+        <li><a href="#4-use-persistent-artifacts">4. Use Persistent Artifacts</a></li>
+      </ul>
+    </li>
+    <li><a href="#recovery-strategies-summary">Recovery Strategies Summary</a></li>
+    <li><a href="#key-learnings">Key Learnings</a>
+      <ul>
+        <li><a href="#context-loss-is-normal">Context Loss is Normal</a></li>
+        <li><a href="#documentation--memory">Documentation &gt; Memory</a></li>
+        <li><a href="#incremental-recovery-works">Incremental Recovery Works</a></li>
+        <li><a href="#prevention-is-easier-than-recovery">Prevention is Easier than Recovery</a></li>
+      </ul>
+    </li>
+    <li><a href="#now-back-to-the-analysis">Now Back to the Analysis</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Step 6: Analyze Snapshot
+            </h1>
+          
+
+        
+
+
+<h2 id="analyzing-entity-resolution-results">Analyzing Entity Resolution Results</h2>
+<p>With data loaded and a snapshot captured, it&rsquo;s time to analyze the entity resolution results to understand what Senzing found.</p>
+
+<div class="notices warning" ><p><strong>IMPORTANT LESSON: Context Loss Across Sessions</strong></p>
+<p>This step documents a real scenario that happened during workshop development. The mapping and loading were completed in one AI session, then <strong>the session ended</strong>. When analysis resumed in a new session, <strong>the AI had lost all context</strong> about what had been done.</p>
+<p>This section shows what happened, why it happened, and how to recover - a critical skill for working with AI on multi-day projects!</p>
+</div>
+
+<hr>
+<h2 id="what-happened-the-context-gap">What Happened: The Context Gap</h2>
+<h3 id="original-prompt-new-session">Original Prompt (New Session)</h3>
+<pre tabindex="0"><code>did you compact
+</code></pre><h3 id="ai-response">AI Response</h3>
+<pre tabindex="0"><code>I&#39;ll explore the senzing directory to show you what&#39;s available for the workshop.
+</code></pre><p><strong>Problem:</strong> The AI didn&rsquo;t know:</p>
+<ul>
+<li>What data had been mapped</li>
+<li>What files existed</li>
+<li>What work had been completed</li>
+<li>What &ldquo;compact&rdquo; meant in this context</li>
+</ul>
+<hr>
+<h2 id="why-context-was-lost">Why Context Was Lost</h2>
+<p>In this case, context was lost because the <strong>context window filled up</strong> during the mapping conversation:</p>
+<ol>
+<li>
+<p><strong>Long Interactive Mapping Session</strong></p>
+<ul>
+<li>5-stage mapping workflow with multiple questions and corrections</li>
+<li>Each question and answer consumed context tokens</li>
+<li>Asking questions improves quality but uses more context</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Loading Completed</strong></p>
+<ul>
+<li>All 39 records successfully loaded into Senzing ✅</li>
+<li>Loading was done, data was in Senzing</li>
+<li>Next step should have been: take snapshot (Senzing analysis)</li>
+</ul>
+</li>
+<li>
+<p><strong>Context Warning Appeared</strong></p>
+<ul>
+<li>AI warned: &ldquo;Context ~80% full&rdquo;</li>
+<li>AI likely offered to <strong>compact</strong> (compress conversation to save tokens)</li>
+<li>This was the signal: <strong>say YES to compact</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Took a Chance</strong></p>
+<ul>
+<li>Said no / declined the compact offer</li>
+<li>Continued without compacting the conversation</li>
+<li>Kept going, probably asked to take snapshot</li>
+<li>Each additional message used more tokens</li>
+<li>Context filled to 100% → Session automatically reset</li>
+</ul>
+</li>
+<li>
+<p><strong>All Context Lost</strong></p>
+<ul>
+<li>When you asked &ldquo;did you compact&rdquo; - AI had no memory</li>
+<li>The conversation was never compacted (compressed)</li>
+<li>Session had reset, all context gone</li>
+<li>Had to recover from scratch</li>
+</ul>
+</li>
+</ol>
+<h3 id="understanding-compact-vs-take-snapshot">Understanding &ldquo;Compact&rdquo; vs &ldquo;Take Snapshot&rdquo;</h3>
+<p><strong>THESE ARE COMPLETELY DIFFERENT:</strong></p>
+<p><strong>COMPACT</strong> (AI Feature):</p>
+<ul>
+<li>AI action to compress/summarize conversation context</li>
+<li>Reduces token count by condensing the conversation</li>
+<li>Allows you to continue in the same session</li>
+<li>Prevents hitting the 100% limit</li>
+<li>Example: AI says &ldquo;Would you like me to compact the conversation?&rdquo; → Say YES!</li>
+</ul>
+<p><strong>TAKE SNAPSHOT</strong> (Senzing Tool):</p>
+<ul>
+<li>Senzing command: <code>sz_snapshot</code></li>
+<li>Analyzes loaded entities and generates statistics</li>
+<li>Creates JSON file with entity counts, compression rates, cross-source matches</li>
+<li>Has nothing to do with AI context management</li>
+<li>This is a data analysis step, not a context management step</li>
+</ul>
+<p>Compacting the conversation:</p>
+<ul>
+<li>✅ <strong>Prevents context loss</strong> by compressing conversation history</li>
+<li>✅ <strong>Lets you continue</strong> in the same session</li>
+<li>✅ <strong>Reduces token count</strong> so you have room to keep working</li>
+<li>✅ <strong>Preserves enough context</strong> to maintain continuity</li>
+</ul>
+
+<div class="notices warning" ><p><strong>The Lesson: Accept the Compact Offer</strong></p>
+<p>When AI warns &ldquo;Context ~80% full&rdquo; and offers to compact:</p>
+<ul>
+<li><strong>SAY YES</strong> to the compact offer</li>
+<li>AI will compress the conversation history</li>
+<li>This frees up tokens to continue working</li>
+<li>You can then take snapshot, analyze results, etc. in the same session</li>
+</ul>
+<p><strong>DON&rsquo;T</strong> decline and hope for the best - at 100%, session WILL reset automatically.</p>
+<p><strong>In this exercise:</strong> Data was loaded, ready to take snapshot. Context hit 80%, AI offered to compact. Should have said &ldquo;yes, compact the conversation.&rdquo; Instead, took a chance and declined. Kept going without compacting → hit 100% → session reset → all context lost.</p>
+</div>
+
+<hr>
+<h2 id="how-to-recover-step-by-step">How to Recover: Step-by-Step</h2>
+<h3 id="recovery-step-1-re-establish-context">Recovery Step 1: Re-establish Context</h3>
+<p><strong>Your Prompt:</strong></p>
+<pre tabindex="0"><code>@senzing
+</code></pre><p><strong>AI Action:</strong></p>
+<ul>
+<li>Explored the senzing directory structure</li>
+<li>Re-discovered reference materials, tools, prompts</li>
+<li>But still didn&rsquo;t know what YOU had done</li>
+</ul>
+<p><strong>Lesson:</strong> AI tools can rediscover the repository, but not your work history.</p>
+<hr>
+<h3 id="recovery-step-2-verify-tool-access">Recovery Step 2: Verify Tool Access</h3>
+<p><strong>Your Prompt:</strong></p>
+<pre tabindex="0"><code>do you still have access to the senzing mcp server?
+</code></pre><p><strong>AI Response:</strong>
+Lists all available Senzing MCP functions:</p>
+<ul>
+<li><code>search</code> - Search for entities by attributes</li>
+<li><code>get_entity</code> - Get full entity details by ENTITY_ID</li>
+<li><code>get_source_record</code> - Get entity by source record ID</li>
+<li><code>find_relationship_path</code> - Find connections</li>
+<li><code>expand_entity_network</code> - Network analysis</li>
+<li><code>explain_why_entities_related</code> - Explain matching logic</li>
+<li><code>how_entity_resolved</code> - Resolution timeline</li>
+</ul>
+<p><strong>Lesson:</strong> Always verify tool access after context loss. Different sessions may have different capabilities.</p>
+<hr>
+<h3 id="recovery-step-3-locate-work-artifacts">Recovery Step 3: Locate Work Artifacts</h3>
+<p><strong>Your Prompt:</strong></p>
+<pre tabindex="0"><code>Its already loaded. can you find the snapshot on the watchlist directory and show it to me
+</code></pre><p><strong>AI Action:</strong></p>
+<ul>
+<li>Searches workspace/watchlist/ directory</li>
+<li>Finds <code>ftm-watchlist-snapshot-2025-11-14.json</code></li>
+<li>Reads the snapshot file</li>
+</ul>
+<p><strong>Lesson:</strong> Reference actual files to restore context. The file system remembers what the AI forgot!</p>
+<hr>
+<h3 id="recovery-step-4-understand-the-snapshot-format">Recovery Step 4: Understand the Snapshot Format</h3>
+<p><strong>Your Prompt:</strong></p>
+<pre tabindex="0"><code>in the senzing tools reference it tells you how to summarize the snapshot, can you do that
+</code></pre><p><strong>AI Action:</strong></p>
+<ul>
+<li>Consults <code>SENZING_TOOLS_REFERENCE.md</code></li>
+<li>Learns proper snapshot summary format</li>
+<li>Generates correct analysis table</li>
+</ul>
+<p><strong>Lesson:</strong> Reference documentation helps AI understand formats even without prior context.</p>
+<hr>
+<h2 id="the-recovered-snapshot-analysis">The Recovered Snapshot Analysis</h2>
+<p>After recovery, the AI produced this proper summary:</p>
+<h3 id="entity-resolution-summary-by-data-source">Entity Resolution Summary by Data Source</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Data Source</th>
+          <th>Records</th>
+          <th>Entities</th>
+          <th>Compression</th>
+          <th>Cross-Source Matches</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>CUSTOMERS</strong></td>
+          <td>120</td>
+          <td>75</td>
+          <td>37.5%</td>
+          <td>12</td>
+      </tr>
+      <tr>
+          <td><strong>SANCTIONS</strong></td>
+          <td>17</td>
+          <td>14</td>
+          <td>17.6%</td>
+          <td>5</td>
+      </tr>
+      <tr>
+          <td><strong>CORP_FILINGS</strong></td>
+          <td>22</td>
+          <td>17</td>
+          <td>22.7%</td>
+          <td>10</td>
+      </tr>
+      <tr>
+          <td><strong>TOTAL</strong></td>
+          <td><strong>159</strong></td>
+          <td><strong>92</strong></td>
+          <td><strong>42.1%</strong></td>
+          <td><strong>17</strong></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="key-findings">Key Findings</h3>
+<p><strong>Overall Compression: 42.1%</strong></p>
+<ul>
+<li>159 source records collapsed to 92 unique entities</li>
+<li>67 records (42%) were duplicates of entities already known</li>
+</ul>
+<p><strong>Cross-Source Matches: 17 entities</strong></p>
+<ul>
+<li>5 matches between CUSTOMERS and SANCTIONS (🚨 <strong>watchlist hits!</strong>)</li>
+<li>8 matches between CUSTOMERS and CORP_FILINGS (customers who are company officers)</li>
+<li>4 matches between SANCTIONS and CORP_FILINGS (sanctioned individuals with companies)</li>
+</ul>
+<p><strong>Relationships: 12 disclosed relationships</strong></p>
+<ul>
+<li>Ownership connections (person→company, company→company)</li>
+<li>Directorship connections (person→company with roles)</li>
+</ul>
+<p><strong>Multi-Source Entity: 1</strong></p>
+<ul>
+<li>One person appears in ALL THREE data sources (customer, sanctioned, company owner)</li>
+</ul>
+<hr>
+<h2 id="how-to-prevent-context-loss">How to Prevent Context Loss</h2>
+<p>While you can&rsquo;t always prevent sessions from ending, you can minimize recovery time:</p>
+<h3 id="1-document-progress">1. Document Progress</h3>
+<p>Create markdown files tracking what you&rsquo;ve done:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create a progress log</span>
+</span></span><span style="display:flex;"><span>cat &gt; mapping_progress.md <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># FTM Watchlist Mapping Progress
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">## Completed Steps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [x] Generated schema from ftm.jsonl
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [x] Ran 5-stage AI mapping assistant
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [x] Generated mapper code (ftm_mapper.py)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [x] Validated with linter and analyzer
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [x] Configured SANCTIONS and CORP_FILINGS data sources
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [x] Loaded 39 records successfully
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [x] Took snapshot: ftm-watchlist-snapshot-2025-11-14.json
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">## Next Steps
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [ ] Analyze snapshot results
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [ ] Investigate multi-source entities
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- [ ] Review relationship networks
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><h3 id="2-save-key-information">2. Save Key Information</h3>
+<p>Keep a file with important paths and facts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat &gt; session_context.md <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># Session Context
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">## Working Directory
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">/home/ubuntu/workshop/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">## Key Files
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Source data: workspace/watchlist/ftm.jsonl
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Schema: workspace/watchlist/ftm_schema.md
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Mapper: ftm_mapper.py
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Output: ftm_senzing.jsonl
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Snapshot: ftm-watchlist-snapshot-2025-11-14.json
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">## Data Sources Configured
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- SANCTIONS (DSRC_ID: 1002)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- CORP_FILINGS (DSRC_ID: 1001)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">## Load Results
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- 39 records loaded, 0 failed
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- 259 candidate matches evaluated
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- 5 ambiguous matches
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><h3 id="3-reference-past-work">3. Reference Past Work</h3>
+<p>When starting a new session:</p>
+<pre tabindex="0"><code>Read session_context.md and mapping_progress.md to understand
+what we&#39;ve completed. Then help me analyze the snapshot at
+workspace/watchlist/ftm-watchlist-snapshot-2025-11-14.json
+</code></pre><h3 id="4-use-persistent-artifacts">4. Use Persistent Artifacts</h3>
+<ul>
+<li>Snapshots, logs, output files persist even when context is lost</li>
+<li>Generated code and documentation can be re-read</li>
+<li>File system is your &ldquo;memory&rdquo; across sessions</li>
+</ul>
+<hr>
+<h2 id="recovery-strategies-summary">Recovery Strategies Summary</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Strategy</th>
+          <th>When to Use</th>
+          <th>How It Helps</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Re-explore repository</strong></td>
+          <td>Always first step</td>
+          <td>Reestablishes project structure</td>
+      </tr>
+      <tr>
+          <td><strong>Verify tool access</strong></td>
+          <td>When using special capabilities</td>
+          <td>Confirms what&rsquo;s available</td>
+      </tr>
+      <tr>
+          <td><strong>Reference file artifacts</strong></td>
+          <td>When work was saved to disk</td>
+          <td>File system remembers your work</td>
+      </tr>
+      <tr>
+          <td><strong>Consult documentation</strong></td>
+          <td>When format is unclear</td>
+          <td>Provides standards and examples</td>
+      </tr>
+      <tr>
+          <td><strong>Create context files</strong></td>
+          <td>Before session ends</td>
+          <td>Saves time in next session</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="key-learnings">Key Learnings</h2>
+<h3 id="context-loss-is-normal">Context Loss is Normal</h3>
+<p>Don&rsquo;t panic when AI doesn&rsquo;t remember previous work. This happens to everyone. Having recovery strategies makes it manageable.</p>
+<h3 id="documentation--memory">Documentation &gt; Memory</h3>
+<p>Files on disk are more reliable than AI memory:</p>
+<ul>
+<li>Progress logs</li>
+<li>Context files</li>
+<li>Generated outputs</li>
+<li>Snapshots and reports</li>
+</ul>
+<h3 id="incremental-recovery-works">Incremental Recovery Works</h3>
+<p>You don&rsquo;t need to redo all the work:</p>
+<ol>
+<li>Re-establish basic context (explore repo)</li>
+<li>Verify tools still work</li>
+<li>Find artifacts from previous work</li>
+<li>Continue from where you left off</li>
+</ol>
+<h3 id="prevention-is-easier-than-recovery">Prevention is Easier than Recovery</h3>
+<p>Spending 2 minutes creating a context file saves 20 minutes of recovery later.</p>
+<hr>
+<h2 id="now-back-to-the-analysis">Now Back to the Analysis</h2>
+<p>With context recovered and snapshot properly summarized, let&rsquo;s dig deeper into the interesting findings using the Senzing MCP server!</p>
+<p><strong><a href="../67_reviewwithmcp/">Continue to Step 7: Review with MCP Server →</a></strong></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/6_exercise2_watchlist/65_loaddata.html" title="Step 5: Load Data into Senzing"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/6_exercise2_watchlist/67_reviewwithmcp.html" title="Step 7: Review with MCP Server" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1763752781"></script>
+    <script src="/js/perfect-scrollbar.min.js?1763752781"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1763752781"></script>
+    <script src="/js/jquery.sticky.js?1763752781"></script>
+    <script src="/js/featherlight.min.js?1763752781"></script>
+    <script src="/js/highlight.pack.js?1763752781"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1763752781"></script>
+    <script src="/js/learn.js?1763752781"></script>
+    <script src="/js/hugo-learn.js?1763752781"></script>
+    
+        
+            <script src="/mermaid/mermaid.js?1763752781"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

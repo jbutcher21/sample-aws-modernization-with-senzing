@@ -1,10 +1,8 @@
----
-title: "Introduction"
-chapter: true
-weight: 1
----
-
-# Introduction
++++
+title = "Introduction"
+chapter = true
+weight = 1
++++
 
 ## Workshop Overview
 
@@ -39,17 +37,11 @@ This workshop is designed for:
 
 Throughout this workshop, you'll encounter various visual elements:
 
-{{% notice tip %}}
-**Tips** provide helpful suggestions and best practices.
-{{% /notice %}}
+::alert[**Tips** provide helpful suggestions and best practices.]{type="success"}
 
-{{% notice info %}}
-**Info boxes** highlight important information or context.
-{{% /notice %}}
+::alert[**Info boxes** highlight important information or context.]{type="info"}
 
-{{% notice warning %}}
-**Warnings** alert you to common pitfalls or important considerations.
-{{% /notice %}}
+::alert[**Warnings** alert you to common pitfalls or important considerations.]{type="warning"}
 
 **Code Blocks:**
 ```bash
