@@ -26,6 +26,6 @@ By loading these references, the AI can:
 
 The assistant will now confirm: **"✅ STAGE 1 COMPLETE - Ready for INVENTORY"**
 
-::alert[**Interactive Learning:** If you're curious about any reference file, you can ask Q to explain it. For example: "What's in the identifier crosswalk?"]{type="warning"}
+::alert[**Interactive Learning:** If you're curious about any reference file, you can ask Q to explain it. For example: "What's in the identifier crosswalk?"]{type="info"}
 
-::alert[**Checkpoint:** Q should confirm all 5 reference files are loaded and the linter tool is validated.]{type="warning"}
+::alert[**Checkpoint:** Q should confirm all 5 reference files are loaded and the linter tool is validated.]{type="info"}

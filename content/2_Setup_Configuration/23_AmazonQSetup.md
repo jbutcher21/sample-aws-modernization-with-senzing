@@ -9,7 +9,7 @@ In this section, you will:
 
 1. Set up authentication for **both** the Amazon Q IDE extension and CLI using AWS Builder ID
 
-::alert[*Using [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)?* See the [Amazon Q Developer documentation](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/getting-started-idc.html) for instructions on connecting Amazon Q with your IDC configuration.]{type="warning"}
+::alert[*Using [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)?* See the [Amazon Q Developer documentation](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/getting-started-idc.html) for instructions on connecting Amazon Q with your IDC configuration.]{type="info"}
 
 :::expand{header="Don't have an AWS Builder ID?"}
 
@@ -31,7 +31,7 @@ To create a profile:
 
 ## Authentication Setup
 
-::alert[**Important:** Complete authentication for both the IDE Plugin and CLI tabs below to access Amazon Q's full capabilities.]{type="warning"}
+::alert[**Important:** Complete authentication for both the IDE Plugin and CLI tabs below to access Amazon Q's full capabilities.]{type="info"}
 
 ::::tabs{variant="container"}
 
@@ -111,7 +111,7 @@ To make Amazon Q aware of your entire codebase:
 
 ![Workspace Index](/images/setup/workspace-index.gif?height=500px)
 
-::alert[Initial workspace indexing takes 1-20 minutes and may increase CPU usage. Subsequent changes update the index incrementally.]{type="warning"}
+::alert[Initial workspace indexing takes 1-20 minutes and may increase CPU usage. Subsequent changes update the index incrementally.]{type="info"}
 
 #### Example queries using workspace context
 
@@ -153,7 +153,7 @@ q chat
 
 ## Wrap up
 
-::alert[**Checkpoint:** Ensure you have completed authentication and feature setup for both the IDE Plugin and CLI before proceeding.]{type="warning"}
+::alert[**Checkpoint:** Ensure you have completed authentication and feature setup for both the IDE Plugin and CLI before proceeding.]{type="info"}
 
 You've now configured Amazon Q in both your IDE and CLI using your AWS Builder ID, giving you AI assistance across different interfaces.
 

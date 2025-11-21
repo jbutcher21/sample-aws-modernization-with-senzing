@@ -32,5 +32,5 @@ This isn't just a coding exercise or simple code generation. You'll learn a **re
 - **Proven validation tools** for quality assurance
 - **Complete documentation** for maintainability
 
-::alert[**This isn't just code generation** - it's AI-assisted decision-making with you in control. The AI guides you through the specifications and best practices, but YOU make the final decisions based on your understanding of the data.]{type="warning"}
+::alert[**This isn't just code generation** - it's AI-assisted decision-making with you in control. The AI guides you through the specifications and best practices, but YOU make the final decisions based on your understanding of the data.]{type="info"}
 

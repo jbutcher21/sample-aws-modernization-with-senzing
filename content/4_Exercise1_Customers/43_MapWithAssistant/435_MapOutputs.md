@@ -56,7 +56,7 @@ Navigate to `workshop/workspace/customers/` and open each file:
 - Are all prerequisites listed?
 - Is the testing guidance clear?
 
-::alert[**Production Ready:** These files are designed to be checked into version control. The documentation preserves the mapping knowledge for future maintenance.]{type="warning"}
+::alert[**Production Ready:** These files are designed to be checked into version control. The documentation preserves the mapping knowledge for future maintenance.]{type="info"}
 
 ---
 
@@ -72,6 +72,6 @@ You've completed the AI-assisted mapping process:
 
 The Mapping Assistant doesn't just generate code—it teaches you about entity resolution while guiding you through validated, best-practice mappings.
 
-::alert[**Learning Opportunity:** Please ask the AI questions as you go!  This teaches you what makes a valid Senzing JSON record and common mapping mistakes to avoid.]{type="warning"}
+::alert[**Learning Opportunity:** Please ask the AI questions as you go!  This teaches you what makes a valid Senzing JSON record and common mapping mistakes to avoid.]{type="info"}
 
-::alert[**Checkpoint:** You should have three files in `workshop/workspace/customers/`: `customers_mapper.py`, `customers_mapper.md`, and `README.md`. Review them to ensure they match your requirements.]{type="warning"}
+::alert[**Checkpoint:** You should have three files in `workshop/workspace/customers/`: `customers_mapper.py`, `customers_mapper.md`, and `README.md`. Review them to ensure they match your requirements.]{type="info"}

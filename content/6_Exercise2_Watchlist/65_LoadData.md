@@ -39,7 +39,7 @@ Entity Resolution Statistics:
 - All 39 records loaded successfully (no data errors)
 - Senzing evaluated 259 potential matches across all data sources
 - 5 matches were "ambiguous" (could match multiple ways - Senzing will flag these)
-- Processing took under 1 minute (this is a small dataset)]{type="warning"}
+- Processing took under 1 minute (this is a small dataset)]{type="info"}
 
 ---
 
@@ -94,7 +94,7 @@ A snapshot is a JSON file containing comprehensive entity resolution statistics:
 - Compression rates (how many duplicates were found)
 - Cross-source matches (same entity in multiple systems)
 - Relationship counts
-- Match quality breakdown (definitive, possible, ambiguous)]{type="warning"}
+- Match quality breakdown (definitive, possible, ambiguous)]{type="info"}
 
 ---
 

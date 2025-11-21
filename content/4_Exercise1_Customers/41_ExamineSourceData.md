@@ -99,6 +99,6 @@ The assistant creates a structured process:
 5. **Loader** → Load data into Senzing
 6. **Snapshot** → Analyze resolution results
 
-::alert[**Workshop Development Tools** (Python scripts) work anywhere. **Senzing Core Tools** require the Senzing environment to be configured.  (Already done in this workshop)]{type="warning"}
+::alert[**Workshop Development Tools** (Python scripts) work anywhere. **Senzing Core Tools** require the Senzing environment to be configured.  (Already done in this workshop)]{type="info"}
 
-::alert[**Checkpoint:** You should understand the senzing folder structure, the 5-stage Mapping Assistant workflow, and when to use each tool.]{type="warning"}
+::alert[**Checkpoint:** You should understand the senzing folder structure, the 5-stage Mapping Assistant workflow, and when to use each tool.]{type="info"}

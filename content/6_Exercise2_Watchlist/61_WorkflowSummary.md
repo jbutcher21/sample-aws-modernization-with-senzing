@@ -7,7 +7,7 @@ weight = 61
 
 This table provides a complete overview of the watchlist mapping workflow. **You can complete the entire exercise by following this summary**, or dive into the detailed pages for deeper exploration.
 
-::alert[**Quick Start**: This summary shows every prompt and action needed to map FTM watchlist data to Senzing format. Use it as a standalone guide or reference as you work through the detailed pages.]{type="warning"}
+::alert[**Quick Start**: This summary shows every prompt and action needed to map FTM watchlist data to Senzing format. Use it as a standalone guide or reference as you work through the detailed pages.]{type="info"}
 
 ---
 
@@ -92,7 +92,7 @@ Simple approach:
 - Tell AI what to find: "Find the snapshot file in workspace/watchlist"
 - Tell AI what to do next: "Analyze it according to the tools reference"
 
-::alert[See [Step 6](../66_analyzesnapshot/) for the complete recovery example.]{type="warning"}
+::alert[See [Step 6](../66_analyzesnapshot/) for the complete recovery example.]{type="info"}
 
 ---
 
@@ -176,4 +176,4 @@ The final numbers tell the story:
 
 ---
 
-::alert[**Next Steps**: Continue to the detailed pages to see the full prompts, responses, and teaching moments, or jump straight to mapping your own FTM data using this workflow as a guide.]{type="warning"}
+::alert[**Next Steps**: Continue to the detailed pages to see the full prompts, responses, and teaching moments, or jump straight to mapping your own FTM data using this workflow as a guide.]{type="info"}

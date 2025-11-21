@@ -21,7 +21,7 @@ For this workshop, you'll use Visual Studio Code running on an Amazon EC2 instan
 
    ![Submit](/images/codeserver/submit.png?height=180px)
 
-   ::alert[**Tip:** If the login fails, verify you copied the complete password without extra spaces.]{type="warning"}
+   ::alert[**Tip:** If the login fails, verify you copied the complete password without extra spaces.]{type="info"}
 
 6. You should now see the code-server IDE interface with the file explorer on the left.
 
@@ -43,4 +43,4 @@ Your cloud IDE comes with all necessary tools pre-installed:
 
 You have successfully accessed your VS code-server IDE, which has been pre-configured for the workshop. Please move to the next section where you will authenticate with the Amazon Q Developer extension and CLI.
 
-::alert[**Next Step:** Proceed to [Amazon Q Authentication Setup](/2_Setup_Configuration/23_AmazonQSetup) to connect to Amazon Q Developer.]{type="warning"}
+::alert[**Next Step:** Proceed to [Amazon Q Authentication Setup](/2_Setup_Configuration/23_AmazonQSetup) to connect to Amazon Q Developer.]{type="info"}

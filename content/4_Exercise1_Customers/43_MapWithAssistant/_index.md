@@ -17,9 +17,9 @@ The Mapping Assistant guides you through:
 4. **MAPPING** - Map each field to Senzing features or payload
 5. **OUTPUTS** - Generate mapper script, documentation, and sample output
 
-::alert[**Key Principle:** The AI guides you through each stage, but you make the final decisions. Answer questions thoughtfully, validate suggestions, and don't hesitate to ask "why?" about any mapping choice.]{type="warning"}
+::alert[**Key Principle:** The AI guides you through each stage, but you make the final decisions. Answer questions thoughtfully, validate suggestions, and don't hesitate to ask "why?" about any mapping choice.]{type="info"}
 
-::alert[**AI Variability:** AI responses may differ from what's shown in this workshop. This is normal - AI models generate contextual responses based on your specific data and environment.]{type="warning"}
+::alert[**AI Variability:** AI responses may differ from what's shown in this workshop. This is normal - AI models generate contextual responses based on your specific data and environment.]{type="info"}
 
 **If your AI's response differs:**
 

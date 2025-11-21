@@ -11,7 +11,7 @@ With data loaded and a snapshot captured, it's time to analyze the entity resolu
 
 This step documents a real scenario that happened during workshop development. The mapping and loading were completed in one AI session, then **the session ended**. When analysis resumed in a new session, **the AI had lost all context** about what had been done.
 
-This section shows what happened, why it happened, and how to recover - a critical skill for working with AI on multi-day projects!]{type="warning"}
+This section shows what happened, why it happened, and how to recover - a critical skill for working with AI on multi-day projects!]{type="info"}
 
 ---
 
@@ -101,7 +101,7 @@ When AI warns "Context ~80% full" and offers to compact:
 
 **DON'T** decline and hope for the best - at 100%, session WILL reset automatically.
 
-**In this exercise:** Data was loaded, ready to take snapshot. Context hit 80%, AI offered to compact. Should have said "yes, compact the conversation." Instead, took a chance and declined. Kept going without compacting → hit 100% → session reset → all context lost.]{type="warning"}
+**In this exercise:** Data was loaded, ready to take snapshot. Context hit 80%, AI offered to compact. Should have said "yes, compact the conversation." Instead, took a chance and declined. Kept going without compacting → hit 100% → session reset → all context lost.]{type="info"}
 
 ---
 

@@ -206,7 +206,7 @@ Entity 100014 (Faisal Siddiqui)
 - Know Your Customer (KYC) violations
 - Anti-Money Laundering (AML) concerns
 - Sanctions compliance issues
-- Potential need to freeze accounts and report to authorities]{type="warning"}
+- Potential need to freeze accounts and report to authorities]{type="info"}
 
 ---
 

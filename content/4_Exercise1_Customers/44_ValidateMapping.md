@@ -20,7 +20,7 @@ Q will execute the mapper, run the linter, and run the JSON analyzer - all steps
 
 If the analyzer output doesn't show errors or warnings, the AI may have lost context during the long conversation. When this happens, re-add the context using the `@` symbol.
 
-::alert[**Context Management:** Long conversations can cause AI to forget earlier instructions. Use the `@` symbol to re-add important reference files when needed.]{type="warning"}
+::alert[**Context Management:** Long conversations can cause AI to forget earlier instructions. Use the `@` symbol to re-add important reference files when needed.]{type="info"}
 
 **Re-add context to Amazon Q:**
 
@@ -34,6 +34,6 @@ If the analyzer output doesn't show errors or warnings, the AI may have lost con
 ![Output code and documentation 2](/images/exercise1/12-execute4.png)
 ![Output code and documentation 2](/images/exercise1/12-execute5.png)
 
-::alert[**About Warnings:** Warnings highlight data quality considerations, but they're informational. The data is what it is - it's just good to know these patterns in case something can be improved at the source!]{type="warning"}
+::alert[**About Warnings:** Warnings highlight data quality considerations, but they're informational. The data is what it is - it's just good to know these patterns in case something can be improved at the source!]{type="info"}
 
-::alert[**Checkpoint:** Your mapped data should pass validation with no errors. All 120 records should be valid Senzing JSON with features correctly recognized.]{type="warning"}
+::alert[**Checkpoint:** Your mapped data should pass validation with no errors. All 120 records should be valid Senzing JSON with features correctly recognized.]{type="info"}

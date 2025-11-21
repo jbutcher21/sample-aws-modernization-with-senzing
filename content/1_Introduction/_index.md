@@ -37,11 +37,11 @@ This workshop is designed for:
 
 Throughout this workshop, you'll encounter various visual elements:
 
-::alert[**Tips** provide helpful suggestions and best practices.]{type="warning"}
+::alert[**Tips** provide helpful suggestions and best practices.]{type="info"}
 
-::alert[**Info boxes** highlight important information or context.]{type="warning"}
+::alert[**Info boxes** highlight important information or context.]{type="info"}
 
-::alert[**Warnings** alert you to common pitfalls or important considerations.]{type="warning"}
+::alert[**Warnings** alert you to common pitfalls or important considerations.]{type="info"}
 
 **Code Blocks:**
 ```bash

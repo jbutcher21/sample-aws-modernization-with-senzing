@@ -57,6 +57,6 @@ As you continue to the next exercises, consider:
 3. **What questions did you ask** that helped you understand entity resolution concepts better?
 4. **How might you apply** this AI-assisted approach to other data projects?
 
-::alert[**The AI is a Tool, Not a Replacement:** Notice that throughout this exercise, YOU made the important decisions - what fields to map, how to handle edge cases, whether mappings made sense. The AI accelerated execution, but your judgment drove the outcome.]{type="warning"}
+::alert[**The AI is a Tool, Not a Replacement:** Notice that throughout this exercise, YOU made the important decisions - what fields to map, how to handle edge cases, whether mappings made sense. The AI accelerated execution, but your judgment drove the outcome.]{type="info"}
 
 ::alert[**What's Next.*]{type="info"}

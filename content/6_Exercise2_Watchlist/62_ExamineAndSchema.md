@@ -160,7 +160,7 @@ The schema analysis reveals several mapping challenges:
 ::alert[**Important**: This is significantly more complex than the customer CSV! The FTM format requires a **multi-pass processing strategy** where you:
 1. Process master entities (Person, Company)
 2. Merge metadata records (Sanction) onto masters
-3. Convert relationship records (Ownership, Directorship) to REL_POINTER format]{type="warning"}
+3. Convert relationship records (Ownership, Directorship) to REL_POINTER format]{type="info"}
 
 ---
 

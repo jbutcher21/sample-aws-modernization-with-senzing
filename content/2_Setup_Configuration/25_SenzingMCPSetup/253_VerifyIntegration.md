@@ -17,7 +17,7 @@ Now that you've configured and authorized the Senzing MCP server, let's verify t
 
 ![MCP Tools List](/images/senzing_mcp/senzing_mcp6.png)
 
-::alert[These tools will become more useful once you've loaded entity data in later modules. For now, we're just confirming the connection works.]{type="warning"}
+::alert[These tools will become more useful once you've loaded entity data in later modules. For now, we're just confirming the connection works.]{type="info"}
 
 ## Test 2: Query Test Entity
 
@@ -38,7 +38,7 @@ The important part is that:
 - The tool executed without errors
 - You received a valid response (even though the entity doesn't exist)
 
-::alert[A response like "entity 1 does not exist" or "no entity found" confirms the MCP server is working correctly!]{type="warning"}
+::alert[A response like "entity 1 does not exist" or "no entity found" confirms the MCP server is working correctly!]{type="info"}
 
 ## What This Means
 

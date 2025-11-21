@@ -31,7 +31,7 @@ This setting:
 - Creates a more natural conversational AI experience
 - Can be changed later in Amazon Q settings if needed
 
-::alert["Always allow" is safe in this workshop environment since you control all the data and queries. In production environments with sensitive data, you might prefer "Ask" for additional oversight.]{type="warning"}
+::alert["Always allow" is safe in this workshop environment since you control all the data and queries. In production environments with sensitive data, you might prefer "Ask" for additional oversight.]{type="info"}
 
 ## Authorization Scope
 

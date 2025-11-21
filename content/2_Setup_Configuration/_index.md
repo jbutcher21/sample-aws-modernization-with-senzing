@@ -48,11 +48,11 @@ If you are running this workshop on your own AWS account, you'll need to:
 
 3. Set up authentication for Amazon Q Developer in your IDE and the CLI using either your organization's IDC Professional license or using an AWS Builder ID.
 
-::alert[If you are running this workshop on your own AWS account, remember to delete all resources by following the [Clean Up Resources](/7_Cleanup) section to avoid unnecessary charges.]{type="warning"}
+::alert[If you are running this workshop on your own AWS account, remember to delete all resources by following the [Clean Up Resources](/7_Cleanup) section to avoid unnecessary charges.]{type="info"}
 
 To learn how to configure your local development environment, please head to [Self-guided section](22_Own_AWS_Account)
 
 :::
 
 ::::
-::alert[The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.]{type="warning"}
+::alert[The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.]{type="info"}

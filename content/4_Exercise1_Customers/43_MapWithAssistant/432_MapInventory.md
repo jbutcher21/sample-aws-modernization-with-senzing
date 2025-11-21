@@ -24,4 +24,4 @@ When you're satisfied with the field extraction:
 
 **Tell Amazon Q:** `Yes`
 
-::alert[**Checkpoint:** Q should list all 19 source fields categorized by their purpose before moving to PLANNING.]{type="warning"}
+::alert[**Checkpoint:** Q should list all 19 source fields categorized by their purpose before moving to PLANNING.]{type="info"}
