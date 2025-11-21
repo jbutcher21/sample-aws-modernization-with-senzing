@@ -14,7 +14,7 @@ Access your workshop here: [Workshop Studio](https://catalog.workshops.aws/join)
 #### Step 2:. Choose Sign-In method.
 
 
-![Sign In dialog](/static/images/aws-event/sign-in.png)
+![Sign In dialog](/static/images/sign-in.png)
 
 
 - Select "**Email one-time-password (OTP)**" for AWS guided events.
@@ -22,7 +22,7 @@ Access your workshop here: [Workshop Studio](https://catalog.workshops.aws/join)
 #### Step 3: Enter your Email
 
 
-![Email Setup](/static/images/aws-event/enter-access-code.png)
+![Email Setup](/static/images/enter_email.png)
 
 
 - Enter your email and click "**Send Passcode**".
@@ -30,7 +30,7 @@ Access your workshop here: [Workshop Studio](https://catalog.workshops.aws/join)
 #### Step 4: Enter OTP
 
 
-![Email OTP](/static/images/aws-event/enter-access-code.png)
+![Email OTP](/static/images/enter_otp.png)
 
 
 - Check your email for a message titled "Verify your AWS Training and Certification email address".
@@ -40,7 +40,7 @@ Access your workshop here: [Workshop Studio](https://catalog.workshops.aws/join)
 #### Step 5: Enter Event Access Code (If prompted)
 
 
-![Event access code](/static/images/aws-event/enter-access-code.png)
+![Event access code](/static/images/enter-access-code.png)
 
 
 - Paste the 12-character code from your organizer and click "**Next**."
@@ -48,7 +48,7 @@ Access your workshop here: [Workshop Studio](https://catalog.workshops.aws/join)
 #### Step 6: Agree to Terms and Join Event
 
 
-![Terms and Conditions](/static/images/aws-event/workshop-studio-tc.png)
+![Terms and Conditions](/static/images/workshop-studio-tc.png)
 
 
 - Review the *Terms and Conditions*, check the box, and click "**Join event**.
