@@ -92,7 +92,7 @@ Simple approach:
 - Tell AI what to find: "Find the snapshot file in workspace/watchlist"
 - Tell AI what to do next: "Analyze it according to the tools reference"
 
-See [Step 6](../66_analyzesnapshot/) for the complete recovery example.]{type="warning"}
+::alert[See [Step 6](../66_analyzesnapshot/) for the complete recovery example.]{type="warning"}
 
 ---
 
