@@ -10,40 +10,41 @@ weight: 6
 
 ## Overview
 
-In this exercise, you'll map watchlist data from JSON format (FollowTheMoney schema) to Senzing's entity resolution format. Watchlist data is more complex than customer data, featuring international names, relationships, and sanctions information.
+In this exercise, you'll map watchlist data from JSON format (FollowTheMoney schema) to Senzing's entity resolution format. **Unlike Exercise 1, this is a self-guided workflow** - you'll take charge of the mapping process, questioning AI assumptions and making critical decisions.
+
+Watchlist data is more complex than customer data, featuring:
+- International names (Cyrillic, Arabic, Latin)
+- Nested JSON structures with multiple schema types
+- Entity relationships (ownership, directorships)
+- Sanctions and compliance metadata
 
 ## What You'll Learn
 
 By completing this exercise, you will:
 
-- Work with JSON source data (vs CSV from Exercise 1)
-- Handle complex nested data structures
-- Map international names and identifiers
-- Process entity relationships
-- Combine watchlist data with existing customer data
-- Analyze cross-dataset entity resolution
+- **Take charge of AI-assisted mapping** - Direct the workflow, question assumptions, verify decisions
+- **Handle complex data structures** - Multi-pass processing for nested JSON with dependencies
+- **Map international data** - Work with multiple character sets and transliterations
+- **Process entity relationships** - Create networks using REL_POINTER patterns
+- **Manage AI context** - Recover from context loss and session interruptions
+- **Analyze cross-dataset resolution** - Discover hidden connections between customers and watchlist entities
 
-## Exercise Steps
+## Exercise Format
 
-This exercise follows the same 8-step workflow as Exercise 1:
+This exercise uses a **self-guided workflow with key outcomes**:
 
-1. **Examine the source data** - Understand watchlist JSON structure
-2. **Provide or create the schema** - Document the data structure
-3. **Use the Senzing Mapping Assistant** - AI-guided mapping workflow
-4. **Validate the mapping** - Verify output with JSON analyzer
-5. **Load the data in Senzing** - Import mapped records
-6. **Take a snapshot** - Capture resolution results
-7. **Analyze the snapshot** - Review statistics and examples
-8. **Review with MCP server** - Ask how and why questions
+1. **Before You Start** - Critical concepts and preparation
+2. **Workflow Steps & Key Outcomes** - Complete 7-step mapping process with visual checkpoints
+3. **Key Takeaways** - What you learned and how to apply it to your own data
 
-**Estimated Time:** 30-45 minutes
+**Estimated Time:** 45-60 minutes
 
-{{% notice tip %}}
-Watchlist data presents new challenges: nested JSON structures, international names, and relationships. Apply what you learned in Exercise 1!
+{{% notice warning %}}
+**Important:** This exercise requires active participation. You'll need to question AI decisions, verify against actual data, and direct the workflow. Simply following prompts won't work - you must engage critically.
 {{% /notice %}}
 
 {{% notice info %}}
-This exercise builds on Exercise 1. You'll see how watchlist entities resolve against customer data.
+This exercise builds on Exercise 1. You'll see how watchlist entities resolve against customer data, revealing hidden networks and compliance risks.
 {{% /notice %}}
 
 Let's get started!
