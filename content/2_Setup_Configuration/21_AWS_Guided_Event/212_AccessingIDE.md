@@ -21,7 +21,7 @@ For this workshop, you'll use Visual Studio Code running on an Amazon EC2 instan
 
    ![Submit](/images/codeserver/submit.png?height=180px)
 
-   ::alert[**Tip:** If the login fails, verify you copied the complete password without extra spaces.]{type="info"}
+   ::alert[**Tip:**.*]{type="success"}
 
 6. You should now see the code-server IDE interface with the file explorer on the left.
 

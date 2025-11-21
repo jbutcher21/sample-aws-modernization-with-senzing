@@ -83,7 +83,7 @@ Don't expect perfection on the first try! This exercise shows **real corrections
 - Discovering missed relationship patterns
 - Clarifying Senzing conventions (NAME_ORG vs NAME_FULL)
 
-::alert[**Important**: The AI is knowledgeable but not infallible. **Your domain expertise is crucial.** Question assumptions, verify against actual data, and correct mistakes when you spot them.]{type="info"}
+::alert[**Important**.*]{type="warning"}
 
 ---
 

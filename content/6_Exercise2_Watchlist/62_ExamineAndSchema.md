@@ -168,4 +168,4 @@ The schema analysis reveals several mapping challenges:
 
 Now that you understand the data structure, you're ready to map it to Senzing format using the AI-assisted mapping workflow. The next section walks through the 5-stage Senzing Mapping Assistant process.
 
-::alert[**Pro Tip**.*]{type="info"}
+::alert[**Pro Tip**.*]{type="success"}

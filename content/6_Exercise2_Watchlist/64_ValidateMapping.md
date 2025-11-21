@@ -68,7 +68,7 @@ Second validation: Check that Senzing will recognize and use the mapped data:
 python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md
 ```
 
-::alert[**Important:** According to the tools reference documentation, the analyzer outputs to a `.md` file. You must then **read the markdown file** to see the results, not just look at console output!]{type="info"}
+::alert[**Important:**.*]{type="warning"}
 
 Read the analysis results:
 

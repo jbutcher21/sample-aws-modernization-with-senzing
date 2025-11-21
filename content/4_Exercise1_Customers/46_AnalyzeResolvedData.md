@@ -56,7 +56,7 @@ This is the traditional exploratory data analysis (EDA) interface. It provides a
 
 Here's where it gets really cool. A snapshot only contains stats and entity IDs - no PII. That's where the MCP server comes in. Let's try a couple of things.
 
-::alert[**Tip:** If Amazon Q loses context or can't access the MCP tools, you can refresh the connection by opening the MCP server configuration (click the MCP icon in the status bar), clicking "Edit" on the Senzing server, and clicking "Save" without making changes. This reconnects the server.]{type="info"}
+::alert[**Tip:**.*]{type="success"}
 
 We already know that Entity 1 is the most interesting entity in the snapshot. So let's start there.
 
