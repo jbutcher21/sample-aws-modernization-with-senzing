@@ -5,129 +5,164 @@ weight: 61
 
 ## Complete Mapping Workflow at a Glance
 
-This table provides a complete overview of the watchlist mapping workflow. **You can complete the entire exercise by following this summary**, or dive into the detailed pages for deeper exploration.
+This table provides a roadmap of the critical steps and key decisions in the watchlist mapping workflow. **Unlike Exercise 1, this mapping is more complex—you'll need to take charge of the process**, questioning AI assumptions, verifying decisions against actual data, and driving the workflow to completion.
 
 {{% notice tip %}}
-**Quick Start**: This summary shows every prompt and action needed to map FTM watchlist data to Senzing format. Use it as a standalone guide or reference as you work through the detailed pages.
+**Your Role**: Use this guide to ensure you hit every critical step and address important decisions along the way. The prompts shown are examples from a real session—yours will differ based on your questions and the AI's responses. Focus on the decision-making patterns, not exact prompts.
 {{% /notice %}}
 
 ---
 
 ## Important Notes Before You Start
 
-### 1. Your Experience May Be Different
+### 1. You Are In Charge
 
-This workflow shows what happened in a real mapping session, including:
-- The specific questions asked
-- Corrections made when AI assumptions were wrong
-- The context loss that occurred and recovery
+This is an AI-assisted mapping workflow, not a fully automated one. You must actively manage the process to ensure quality results.
 
-**Your session will likely differ:**
-- AI might suggest different field mappings
-- You may catch different errors
-- Your data structure might require different decisions
-- Context loss may happen at different points (or not at all)
+Throughout this workflow, don't be afraid to:
+- **Ask for clarification** if you don't understand something - ask it what it means by ...
+- **Interrupt if** the AI moves to the next step when you still have questions
+- **Question decisions** - Request pros and cons if presented with options
+- **Direct it** to re-examine data or revisit previous steps as needed
 
-Use this as a guide, not a script. The principles are what matter, not matching it exactly.
+{{% notice tip %}}
+**To interrupt the AI**: Press the stop button on the lower right of the prompt box.
+{{% /notice %}}
 
----
-
-### 2. You Are In Charge
-
-Notice throughout this workflow:
-- **I directed the AI** to things I knew about the data
-- **I questioned assumptions** when I was uncertain
-- **I corrected errors** when I spotted them
-- **I made final decisions** on field dispositions
-
-**Key examples:**
-- "Are you sure those are all the identifier types, and how do you know?" → Found missing identifiers
-- "previous name should be name_org, not name_full" → Corrected convention error
-- "You say 3 master entity types but list 2..." → Caught arithmetic mistake
-
-**The AI is your assistant, not your replacement.** You have the domain knowledge. The AI has Senzing knowledge. Together you make good decisions.
-
----
-
-{{% notice warning %}}
-### 3. What To Do If Things Go Wrong
-
-**Context Loss (80% Warning)**
-- **If AI warns "Context ~80% full" and offers to compact**: Say YES immediately
-- **If you decline**: You will likely hit 100% and lose all context
-- **If context is lost**: Use the recovery strategies in [Step 6](../66_analyzesnapshot/)
-  - Re-explore the repository
-  - Find artifacts (snapshot files, generated code)
-  - Reference documentation
-  - Continue from checkpoints
-
-**AI Makes Wrong Assumptions**
-- **Question it**: "How do you know?" "Are you sure?"
-- **Check actual data**: Don't accept answers based on schema alone
-- **Correct errors immediately**: The earlier you catch mistakes, the easier to fix
-
-**Validation Errors**
-- **Linter fails**: Fix JSON syntax errors in generated output
-- **Analyzer shows critical errors**: Usually data source configuration - follow the fix steps
-- **Load fails**: Check error messages for specific record issues
-
-**Can't Continue (Session Ending/Context Full)**
-
-**Ideally:** Use `/resume` when you return (if available in your AI tool)
-
-**If no /resume available:** Just give context manually and tell it what to do next:
-
-Example recovery (what actually happened):
-```
-You: "Its already loaded. can you find the snapshot on
-     the watchlist directory and show it to me"
-
-AI: [finds snapshot file and shows it]
-
-You: "in the senzing tools reference it tells you how to
-     summarize the snapshot, can you do that"
-
-AI: [proceeds with analysis]
-```
-
-Simple approach:
-- Tell AI where you are: "Data is loaded, snapshot is taken"
-- Tell AI what to find: "Find the snapshot file in workspace/watchlist"
-- Tell AI what to do next: "Analyze it according to the tools reference"
-
-See [Step 6](../66_analyzesnapshot/) for the complete recovery example.
+{{% notice tip %}}
+**Use copy/paste**: You can copy and paste text from the AI's response into the prompt and ask what it means.
 {{% /notice %}}
 
 ---
 
-| Step | Action / Prompt Used | Reason / Outcome |
-|------|---------------------|------------------|
-| **1. Generate Schema** | **Prompt:** "Generate a schema for the ftm.jsonl file I have open"<br>**AI runs:** `python3 senzing/tools/sz_schema_generator.py workspace/watchlist/ftm.jsonl -o workspace/watchlist/ftm_schema.md` | Understand the FTM data structure: 73 records, 5 schema types (Person, Company, Sanction, Ownership, Directorship), 31 unique fields |
-| **2. Start AI Mapping** | **Prompt:** "@senzing"<br>**Then:** "Yes" [to start AI-assisted mapping] | Load AI mapping assistant to guide through 5-stage workflow |
-| **Stage 1: INIT** | AI loads 5 reference files: entity spec, examples, linter, identifier crosswalk, usage type crosswalk | Provides AI with complete Senzing knowledge base and validation tools |
-| **Stage 2: INVENTORY** | **Prompt:** "yes" [to proceed]<br>AI extracts all 31 fields from schema | Creates complete field inventory: root fields, Person attributes, relationship fields, identifier fields, sanction metadata. Integrity check: 31 extracted = 31 displayed |
-| **Stage 3: PLANNING** | AI identifies master entities (Person, Company) and DATA_SOURCE codes (SANCTIONS, CORP_FILINGS) | **Your correction:** "You say 3 master entity types but list 2: person and company. What is the third?"<br>**Result:** Corrected to 2 master types, 3 relationship types |
-| **Stage 4: MAPPING** | **Prompt:** "Show me the full mapping table first"<br>AI maps each field to Senzing features, payload, or ignored | **Key decisions:** Sanction records merge as payload, Ownership/Directorship become REL_POINTER relationships, identifiers merge onto Person entities |
-| **Question: Identifier Types** | **Prompt:** "Are you sure those are all the identifier types, and how do you know?" | **Correction:** AI checked actual data and found DRIVERS_LICENSE and SSN (not just assumed from schema) |
-| **Question: Company Relationships** | **Prompt:** "I didn't see any rel_pointers in the json examples, don't companies have relationships as well?" | **Discovery:** Found company-to-company ownership (Universal Exports owns 3 subsidiaries) |
-| **Question: Relationship Roles** | **Prompt:** "What are my options for assigning roles to relationship pointers"<br>**Your decision:** "The principal and president" | **Result:** Use OWNER_OF for ownership, PRINCIPAL_OF/PRESIDENT_OF for directorships based on role values |
-| **Question: Previous Names** | **Your correction:** "previous name should be name_org, not name_full" | **Fix:** For organizations, use NAME_ORG for previous names |
-| **Question: Company Identifiers** | **Prompt:** "Aren't there any identifiers for companies?" | **Result:** None in this dataset |
-| **Stage 5: OUTPUTS** | **Prompt:** "yes" [to proceed to JSON generation]<br>**Then:** "ok show me company json record examples and lint" | Complete mapping implementation with multi-pass processing for relationships. AI generates README.md, ftm_mapper.md (spec), ftm_mapper.py (code) |
-| **3. Run Mapper** | **Prompt:** "ok lets run it on the actual data"<br>**AI runs:** `python3 ftm_mapper.py ftm.jsonl ftm_senzing.jsonl` | **Result:** 39 Senzing entities generated from 73 FTM records |
-| **4. Lint Output** | AI automatically runs: `python3 senzing/tools/lint_senzing_json.py ftm_senzing.jsonl` | **Result:** ✅ PASSED - No JSON syntax errors |
-| **5. Analyze Quality** | **Prompt:** "I didn't see any errors or warnings. please run the json analyzer again according to tools reference documentation"<br>**AI runs:** `python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md` | **Result:** ❌ Critical errors - DATA_SOURCE not found: CORP_FILINGS, SANCTIONS |
-| **6. Configure Data Sources** | **Prompt:** "I updated the senzing config. Run the json analyzer again"<br>**Then:** "yes" [to configure data sources]<br>**AI creates config and runs:** `sz_configtool -f ftm_config.g2c` | **Result:** ✅ Both data sources registered |
-| **7. Re-analyze** | AI runs: `python3 senzing/tools/sz_json_analyzer.py ftm_senzing.jsonl -o analysis.md` | **Result:** ✅ Critical Errors: 0 (resolved!), 13 Senzing features with good coverage |
-| **8. Load Data** | **Prompt:** "ok load it"<br>**AI runs:** `sz_file_loader -f ftm_senzing.jsonl` | **Result:** ✅ 39 records loaded, 0 errors, 0.0 minutes, 259 candidate matches evaluated |
-| **9. Take Snapshot** | **Prompt:** "ok take a snapshot"<br>**AI runs:** `sz_snapshot -o ftm-watchlist-snapshot-$(date +%Y-%m-%d) -Q` | Captures entity resolution statistics for analysis |
-| **--- CONTEXT LOST ---** | **Session ended** → Context hit 100%, session reset | See Step 6 for what happened and recovery |
-| **10. Recover Context** | **New session - Prompt:** "did you compact"<br>**AI:** ❌ No memory of previous work | Had to recover by finding snapshot file |
-| **11. Find Snapshot** | **Prompt:** "@senzing" [re-explore]<br>**Then:** "do you still have access to the senzing mcp server?"<br>**Then:** "Its already loaded. can you find the snapshot on the watchlist directory and show it to me" | AI locates: ftm-watchlist-snapshot-2025-11-14.json |
-| **12. Analyze Snapshot** | **Prompt:** "in the senzing tools reference it tells you how to summarize the snapshot, can you do that" | **Result:** 92 entities from 159 total records (42% compression), 17 cross-source matches |
-| **13. Find Multi-Source Entity** | **Prompt:** "show that multi source entity"<br>**AI uses:** `get_entity(91)` via MCP server | **Discovery:** Alexander Vasiliev spans CUSTOMERS, SANCTIONS, CORP_FILINGS with Cyrillic name variants |
-| **14. Resolution Timeline** | **Prompt:** "how did this entity come together"<br>**AI uses:** `how_entity_resolved(91)` | **Insight:** Cross-language name matching (Cyrillic→Latin) and international phone format variations |
-| **15. Map Relationships** | **Prompt:** "show his relationships in a simple graph view"<br>**AI uses:** `get_entity()` calls for related entities | **Network:** Alexander Vasiliev owns Mullenkrants Autoworks, Faisal Siddiqui is President |
+### 2. What To Do If Things Go Wrong
+
+**Context Loss**
+
+AI tools have limited memory (context window). The longer your mapping session, the more likely you'll encounter issues:
+
+**What happens when context gets full:**
+- The AI may ask to compact/summarize - **say YES** or it will lose all context
+- It may forget how to follow steps or execute tools correctly
+- You'll notice it keeps trying different things because it's failing
+
+**The solution is simple: Interrupt it if necessary and remind it of its context!**
+
+**The @ command is your friend:**
+- `@senzing` - Reloads the entire senzing directory (if it looses all context)
+- `@senzing_mapping_assistant.md` - Reloads just the mapping workflow (it it lost context)
+- `@SENZING_TOOLS_REFERENCE.md` - Reloads tool documentation (if it forgets how to run a tool)
+
+**Ask if it knows where it's at and remind it if necessary:**
+- "Do you recall where we were at?"
+- "Lets revisit the mapping of persons"
+- "We just took the snapshot, check the ftm directory for it and continue"
+
+**MCP Server stops working:**
+
+If you ask it to get an entity and it doesn't use the MCP server (tries other methods or says entity not found):
+- Go back to Setup and Configuration → MCP Setup
+- Open the edit screen and simply save (no changes needed)
+- This reconnects the MCP server and it will start working again
+
+**Things feel off track and you're not sure what to do:**
+
+Sometimes it just gets too messy. **Start fresh:**
+- Close the chat window
+- Open a new one
+- Use `@senzing` to reload context and start from generating the schema
+- The workflow is designed to be simple - you'll be back on track quickly
+
+
+### 3. Understand the FTM Watchlist Data
+
+**What is this data?**
+
+The FollowTheMoney (FTM) format contains sanctioned entities - both persons and companies - along with their relationships (ownership, directorships, etc.). This is fundamentally different from the simple customer CSV you worked with in Exercise 1.
+
+**Know why are you mapping it**
+
+You're loading this watchlist data to:
+- See if any of your customers are sanctioned entities
+- Discover relationships between entities you should be aware of
+- Understand networks of connected persons and companies
+
+### 4. Entities vs. Features - A Critical Distinction
+
+**In Senzing, an entity is ONLY a person or a company.**
+
+Entities have:
+- Names (NAME_FIRST, NAME_LAST, NAME_ORG)
+- Addresses
+- Identifiers (SSN, passport, etc.)
+- Other attributes
+
+**The FTM file has multiple schemas, but only Person and Company are entities.**
+
+Everything else (Sanctions, Ownership, Directorship, Identifiers, Addresses) are **features of entities**, not entities themselves. **See outcome [②](#outcome-stage2)**
+
+
+---
+
+## Workflow At A Glance
+
+{{% notice tip %}}
+**The AI often knows the next step and will ask if you're ready to proceed.**
+
+- Say "yes" if you're ready to move forward
+- Ask questions if you need clarification before proceeding
+- Use the starting prompts below to redirect it if needed
+{{% /notice %}}
+
+| Step | Starting Action / Prompt |
+|------|--------------------------|
+| **0. Start fresh** | **IMPORTANT:** Open a new chat window, start with `@senzing` and press enter|
+| **1. Open the data file** | Open `workspace/watchlist/ftm.jsonl` in the editor. Notice the `schema` attribute. **See outcome [①](#step1-open-ftm)** |
+| **2. Generate schema** | "check the schema generator parameters and generate a schema for the ftm file grouping by the schema attribute" |
+| **3. Continue mapping assistant** | "Start the senzing mapping assistant to map the ftm schema"|
+| - **Stage 1: INIT** | AI loads reference files automatically |
+| - **Stage 2: INVENTORY** | "ready for stage 2". Work with it to achieve this outcome: **See outcome [②](#outcome-stage2)** |
+| - **Stage 3: PLANNING** | "ready for stage 3". Work with it to achieve this outcome: **See outcome [③](#outcome-stage3)** |
+| - **Stage 4: MAPPING** | "ready for stage 4". Work with it to achieve this outcome: **See outcome [④](#outcome-stage4)** |
+| - **Stage 5: OUTPUTS** | "ready for stage 5" |
+| **4. Validate Mapper** | "Test the mapper for me", when satisfied: "run it on the full file" |
+| **5. Load the data** | "@SENZING_TOOLS_REFERENCE.md Add the data sources and load it" |
+| **6. Analyze snapshot** | "take a snapshot" **See outcome [⑤](#outcome-step6)** |
+| **7. MCP Server Review** | "Are any entities in all 3 data sources" **See outcome [⑥](#outcome-step7)** |
+
+{{% notice tip %}}
+**Step 5 Note**: You may need to remind the AI how to add data sources using `@SENZING_TOOLS_REFERENCE.md`. If it fails or has trouble, give it context by referencing the documentation!
+{{% /notice %}}
+
+---
+
+## Key Outcomes to Watch For
+
+These screenshots show what correct results should look like. They may not be verbatim, but the key points are highlighted. **Your job is to direct the AI to these outcomes if it is doing something else.**
+
+#### <a name="step1-open-ftm"></a>① Step 1: Review the FTM File
+
+![Step 1 Review FTM file](/images/exercise2/1-ftm-data.png)
+
+#### <a name="outcome-stage2"></a>② Stage 2: Inventory - Field Extraction
+
+![Stage 2 Outcome](/images/exercise2/stage2-outcome.png)
+
+#### <a name="outcome-stage3"></a>③ Stage 3: Planning - Knows how to join the schemas
+
+![Stage 3 Outcome](/images/exercise2/stage3-outcome.png)
+
+#### <a name="outcome-stage4"></a>④ Stage 4: Mapping - Complete examples
+
+![Stage 4 Outcome](/images/exercise2/stage4-outcome.png)
+
+#### <a name="outcome-step6"></a>⑤ Step 6: Snapshot Analysis
+
+![Step 6 Outcome](/images/exercise2/step6-outcome.png)
+
+#### <a name="outcome-step7"></a>⑥ Step 7: MCP Server Review
+
+![Step 7 Outcome](/images/exercise2/step7-outcome.png)
 
 ---
 
@@ -159,8 +194,3 @@ The final numbers tell the story:
 - **17 cross-source matches** - Hidden connections revealed
 - **Multi-jurisdictional networks** - Corporate structures mapped
 
----
-
-{{% notice info %}}
-**Next Steps**: Continue to the detailed pages to see the full prompts, responses, and teaching moments, or jump straight to mapping your own FTM data using this workflow as a guide.
-{{% /notice %}}
